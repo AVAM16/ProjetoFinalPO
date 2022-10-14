@@ -7,6 +7,10 @@ public class Client {
     private String _key;
     private String _name;
     private int _nif;
+    private List<Communication> _communicationsReceived;
+    private List<Communication> _communicationsMade;
+    private List<Communication> _communicationsPaid;
+    private List<Communication> _communicationsDept;
     private List<Terminal> _terminals;
 
     public Client(String key, String name, int nif){
@@ -14,6 +18,10 @@ public class Client {
         this._name=name;
         this._nif=nif;
         this._terminals= new LinkedList<>();
+        this._communicationsDept = new LinkedList<>();
+        this._communicationsPaid = new LinkedList<>();
+        this._communicationsReceived = new LinkedList<>();
+        this._communicationsMade = new LinkedList<>();
     }
 
     //gets

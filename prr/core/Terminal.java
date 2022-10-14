@@ -2,6 +2,7 @@ package prr.core;
 
 import java.io.Serializable;
 import java.util.LinkedList;
+import java.util.List;
 
 // FIXME add more import if needed (cannot import from pt.tecnico or prr.app)
 
@@ -15,8 +16,15 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
   // FIXME define attributes
   private String _id;
   private Client _client;
+<<<<<<< HEAD
   private LinkedList<Integer> _payments;
   private LinkedList<Integer> _depts;
+=======
+  private List<Integer> _payments;
+  private List<Integer> _depts;
+  private List<Communication> _communicationsReceived;
+  private List<Communication> _communicationsMade;
+>>>>>>> eb20ca0da30d1feedd569f9073c1fb020e5470be
   /*Nota : falta por o estado do terminal */
   
   // FIXME define contructor(s)
@@ -24,6 +32,8 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     this._id = id;
     this._payments = new LinkedList<>();
     this._depts = new LinkedList<>();
+    this._communicationsReceived = new LinkedList<>();
+    this._communicationsMade = new LinkedList<>();
   }
   // FIXME define methods
 
@@ -42,8 +52,10 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     this._client=client;
   }
 
-  // Other methods
-
+  // Is
+  public boolean isNotActive(){
+    return _communicationsMade.size()==0 && _communicationsReceived.size()==0;
+  }
   
   /**
    * Checks if this terminal can end the current interactive communication.
@@ -53,6 +65,7 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
    **/
   public boolean canEndCurrentCommunication() {
     // FIXME add implementation code
+    return true;
   }
   
   /**
@@ -62,5 +75,6 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
    **/
   public boolean canStartCommunication() {
     // FIXME add implementation code
+    return true;
   }
 }
