@@ -15,8 +15,8 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
   // FIXME define attributes
   private String _id;
   private Client _client;
-  private List<Integer> _payments;
-  private List<Integer> _depts;
+  private LinkedList<Integer> _payments;
+  private LinkedList<Integer> _depts;
   /*Nota : falta por o estado do terminal */
   
   // FIXME define contructor(s)
