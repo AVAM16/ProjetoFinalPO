@@ -9,8 +9,6 @@ import java.util.Collection;
 import java.util.ArrayList;
 
 import prr.core.exception.UnrecognizedEntryException;
-import prr.core.exception.UnknownIdentifierException;
-// import more exception core classes if needed
 
 /* 
  * A concretização desta classe depende da funcionalidade suportada pelas entidades do core:
@@ -49,7 +47,7 @@ public class Parser {
   }
 
   private void checkComponentsLength(String[] components, int expectedSize, String line) throws UnrecognizedEntryException {
-    if (component.length != expectedSize)
+    if (components.length != expectedSize) // isto originalmente era component.length acho que era um erro
       throw new UnrecognizedEntryException("Invalid number of fields in line: " + line);
   }
   
@@ -75,7 +73,7 @@ public class Parser {
       Terminal terminal = _network.registerTerminal(components[0], components[1], components[2]);
       switch(components[3]) {
         case "SILENCE" -> terminal.setOnSilent();
-        case "OFF" -> terminal->turnOff();
+        case "OFF" -> terminal.turnOff(); // isto originalmente era terminal->turnOff(); acho que era um erro
         default -> {
          if (!components[3].equals("ON"))
            throw new UnrecognizedEntryException("Invalid specification in line: " + line);

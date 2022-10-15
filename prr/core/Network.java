@@ -28,5 +28,15 @@ public class Network implements Serializable {
   void importFile(String filename) throws UnrecognizedEntryException, IOException /* FIXME maybe other exceptions */  {
     //FIXME implement method
   }
+
+public void registerClient(String string, String string2, int taxNumber) {
+}
+
+public Terminal registerTerminal(String string, String string2, String string3) {
+    return null;
+}
+
+public void addFriend(String terminal, String friend) {
+}
 }
 

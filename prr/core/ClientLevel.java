@@ -1,4 +1,4 @@
-package prr.app.client;
+package prr.core;
 
 public enum ClientLevel {
   NORMAL, GOLD, PLATINUM

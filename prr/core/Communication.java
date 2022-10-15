@@ -6,6 +6,7 @@ abstract public class Communication {
     private Terminal _terminalDestination;
     private double _cost;
     private boolean _isOngoing;
+    private CommunicationType _type;
 
     public Communication(String id,Terminal terminalOrigin,Terminal terminalDestination){
         this._id = id;
@@ -19,17 +20,22 @@ abstract public class Communication {
         return this._id;
     }
 
-    public Terminal origin(){
-        return this._terminalOrigin;
+    public String getOrigin(){
+        return this._terminalOrigin.getID();
     }
 
-    public Terminal destination(){
-        return this._terminalDestination;
+    public String getDestination(){
+        return this._terminalDestination.getID();
+    }
+
+    public double getCost(){
+        return this._cost;
     }
 
     public boolean isOngoing(){
         return this._isOngoing;
     }
+
 
     //sets
 

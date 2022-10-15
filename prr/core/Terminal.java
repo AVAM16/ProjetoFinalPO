@@ -16,16 +16,12 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
   // FIXME define attributes
   private String _id;
   private Client _client;
-<<<<<<< HEAD
   private LinkedList<Integer> _payments;
   private LinkedList<Integer> _depts;
-=======
-  private List<Integer> _payments;
-  private List<Integer> _depts;
-  private List<Communication> _communicationsReceived;
-  private List<Communication> _communicationsMade;
->>>>>>> eb20ca0da30d1feedd569f9073c1fb020e5470be
   /*Nota : falta por o estado do terminal */
+  private LinkedList<Communication> _communicationsReceived;
+  private LinkedList<Communication> _communicationsMade;
+  private TerminalStatus _status;
   
   // FIXME define contructor(s)
   public Terminal(String  id){
@@ -77,4 +73,12 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     // FIXME add implementation code
     return true;
   }
+
+  public Object setOnSilent() {
+    return null;
+  }
+
+public Object turnOff() {
+    return null;
+}
 }
