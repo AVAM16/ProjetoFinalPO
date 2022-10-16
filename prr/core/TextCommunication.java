@@ -9,7 +9,7 @@ public class TextCommunication extends Communication{
     this._message = message;
   }
 
-  protected double computeCost(TariffPlan plan){
+  protected double getCost(TariffPlan plan){
 
   }
 

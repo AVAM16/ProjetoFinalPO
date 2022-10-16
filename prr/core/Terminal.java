@@ -51,12 +51,12 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
   }
 
   // isto nao esta void porque e assim que a clase parser quer estes metodos 
-  public TerminalStatus setOnSilent() {
-    return _status.SILENCE;
+  public TerminalMode setOnSilent() {
+    return _mode.SILENCE;
   }
 
-  public TerminalStatus turnOff() {
-    return _status.OFF;
+  public TerminalMode turnOff() {
+    return _mode.OFF;
   } 
 
   //add

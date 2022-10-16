@@ -6,7 +6,7 @@ public class VoiceCommunication extends InteractiveCommunication{
     super(id, terminalOrigin, terminalDestination, duration);
   }
 
-  protected double computeCost(TariffPlan plan){
+  protected double getCost(TariffPlan plan){
     
   }
 }

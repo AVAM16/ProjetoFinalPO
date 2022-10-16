@@ -8,6 +8,7 @@ import java.util.Iterator;
 import java.io.IOException;
 
 import prr.app.exception.DuplicateClientKeyException;
+import prr.app.exception.DuplicateTerminalKeyException;
 import prr.app.exception.InvalidTerminalKeyException;
 import prr.app.exception.UnknownTerminalKeyException;
 import prr.core.exception.UnrecognizedEntryException;
@@ -58,8 +59,55 @@ public class Network implements Serializable {
     _clients.add(newClient);
   }
 
-  public Terminal registerTerminal(String string, String string2, String string3) {
-      return null;
+  public static boolean onlyDigits(String str, int n)
+    {
+        for (int i = 0; i < n; i++) {
+            if (!Character.isDigit(str.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // isto nao esta bem correto porque precisa de usar input
+  public Terminal registerTerminal(String id, String tipo) throws InvalidTerminalKeyException,DuplicateTerminalKeyException, DuplicateClientKeyException{
+    if(id.length() != 6 || !onlyDigits(id,6)){
+      throw new InvalidTerminalKeyException(id);
+    }
+    
+    Terminal terminalNovo=null;
+    switch(tipo){
+      case "FANCY":
+        terminalNovo = new FancyTerminal(id);
+        break;
+      case "BASIC":
+        terminalNovo= new BasicTerminal(id);
+        break;  
+
+    }
+    /* 
+      else if(tipo=="FANCY"){
+        terminalNovo = new FancyTerminal(id);   
+      }
+
+      else if(tipo=="BASIC"){
+        terminalNovo = new BasicTerminal(id);  
+      }
+      */
+      if(terminalNovo!=null){
+        Iterator<Terminal> iter = _terminals.iterator();
+        while(iter.hasNext()){
+          Terminal terminal = iter.next();
+          if(terminal.getID()==id){
+            throw new DuplicateClientKeyException(id);
+          }
+  
+        }
+        
+        _terminals.add(terminalNovo);
+      }
+
+      return terminalNovo;
   }
 
 
