@@ -1,5 +1,5 @@
 package prr.core;
 
-public enum TerminalStatus {
+public enum TerminalMode {
     BUSY, ON, SILENCE ,OFF
 }

@@ -22,7 +22,7 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
   /*Nota : falta por o estado do terminal */
   private LinkedList<Communication> _communicationsReceived;
   private LinkedList<Communication> _communicationsMade;
-  private TerminalStatus _status;
+  private TerminalMode _mode;
   
   // FIXME define contructor(s)
   public Terminal(String  id){
@@ -32,6 +32,7 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     this._communicationsReceived = new LinkedList<>();
     this._communicationsMade = new LinkedList<>();
     this._friends = new LinkedList<>();
+    this._mode = TerminalMode.ON;
   }
   // FIXME define methods
 
