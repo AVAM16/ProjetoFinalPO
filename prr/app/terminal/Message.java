@@ -137,7 +137,7 @@ interface Message {
    * @return string prompting for the communication type.
    */
   static String commType() {
-    return "Tipo de comunicação a iniciar (TEXT, VOICE, VIDEO): ";
+    return "Tipo de comunicação a iniciar (VOICE, VIDEO): ";
   }
 
   /**
