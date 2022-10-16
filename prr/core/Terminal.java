@@ -19,7 +19,6 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
   private LinkedList<Terminal> _friends;
   private LinkedList<Integer> _payments;
   private LinkedList<Integer> _depts;
-  /*Nota : falta por o estado do terminal */
   private LinkedList<Communication> _communicationsReceived;
   private LinkedList<Communication> _communicationsMade;
   private TerminalMode _mode;
@@ -50,6 +49,15 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
   public void setClient(Client client){
     this._client=client;
   }
+
+  // isto nao esta void porque e assim que a clase parser quer estes metodos 
+  public TerminalStatus setOnSilent() {
+    return _status.SILENCE;
+  }
+
+  public TerminalStatus turnOff() {
+    return _status.OFF;
+  } 
 
   //add
   public void addFriend(Terminal terminal){
@@ -82,11 +90,5 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     return true;
   }
 
-  public Object setOnSilent() {
-    return null;
-  }
-
-public Object turnOff() {
-    return null;
-}
+ 
 }

@@ -8,6 +8,8 @@ import java.util.Iterator;
 import java.io.IOException;
 
 import prr.app.exception.DuplicateClientKeyException;
+import prr.app.exception.InvalidTerminalKeyException;
+import prr.app.exception.UnknownTerminalKeyException;
 import prr.core.exception.UnrecognizedEntryException;
 
 // FIXME add more import if needed (cannot import from pt.tecnico or prr.app)
@@ -26,8 +28,8 @@ public class Network implements Serializable {
   
   // FIXME define contructor(s)
   public Network(){
-    this._clients = new ArrayList<>();
-    this._terminals = new ArrayList<>();
+    Network._clients = new ArrayList<>();
+    Network._terminals = new ArrayList<>();
   }
   // FIXME define methods
   
@@ -50,7 +52,7 @@ public class Network implements Serializable {
     while(iter.hasNext()){
       Client client = iter.next();
       if(key==client.getKey()){
-        throw new DuplicateClientKeyException("O cliente já existe");
+        throw new DuplicateClientKeyException(key);
       }
     }
     _clients.add(newClient);
@@ -61,22 +63,30 @@ public class Network implements Serializable {
   }
 
 
-  //isto secalhar devia ter um exception caso não exista um dos terminais
-  public void addFriend(String terminal, String friend){
+  
+  //InvalidTerminalKeyException(String key)
+  public void addFriend(String terminal, String friend) throws UnknownTerminalKeyException{
     Terminal terminalWantsFriend=null;
     Terminal terminalIsFriend=null;
     Iterator<Terminal> iter = _terminals.iterator();
-    while(iter.hasNext()){
+    while(iter.hasNext() && (terminalWantsFriend==null || terminalIsFriend==null)){
       Terminal currentTerminal = iter.next();
       if(currentTerminal.getID()==terminal){
         terminalWantsFriend = currentTerminal;
       }
-      else if(currentTerminal.getID()==friend){
+      if(currentTerminal.getID()==friend){
         terminalIsFriend = currentTerminal;
       }
     }
+
     if(terminalWantsFriend!=null && terminalIsFriend!=null){
       terminalWantsFriend.addFriend(terminalIsFriend);
+    }
+    else if(terminalWantsFriend==null){
+      throw new UnknownTerminalKeyException(terminal);
+    }
+    else if(terminalIsFriend==null){
+      throw new UnknownTerminalKeyException(friend);
     }
     
   }
