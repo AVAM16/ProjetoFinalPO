@@ -100,7 +100,6 @@ public class Client {
 
 
     //CLIENT|key|name|taxId|type|notifications|terminals|payments|debts
-    // falta adicionar o tipo-de-notificação|idTerminal
     // tipo-de-notificação|idTerminal
     public void showClient(){
         System.out.println(String.format("CLIENT|%d|%d|%d|%d|%d|%d|%d|%d",_key,_name,_nif,_level,getNotificationsString(),
@@ -108,6 +107,7 @@ public class Client {
         for(Notifications notification : _notifications){
             System.out.println(String.format("%d|%d",notification.getType().toString(),notification.getTeminalOrigin()));
         }
+        _notifications.clear();
     }
     
 }

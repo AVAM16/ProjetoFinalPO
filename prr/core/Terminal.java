@@ -16,6 +16,7 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
   // FIXME define attributes
   private String _id;
   private Client _client;
+  private LinkedList<Terminal> _friends;
   private LinkedList<Integer> _payments;
   private LinkedList<Integer> _depts;
   /*Nota : falta por o estado do terminal */
@@ -30,6 +31,7 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     this._depts = new LinkedList<>();
     this._communicationsReceived = new LinkedList<>();
     this._communicationsMade = new LinkedList<>();
+    this._friends = new LinkedList<>();
   }
   // FIXME define methods
 
@@ -46,6 +48,11 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
   //sets
   public void setClient(Client client){
     this._client=client;
+  }
+
+  //add
+  public void addFriend(Terminal terminal){
+    _friends.add(terminal);
   }
 
   // Is
