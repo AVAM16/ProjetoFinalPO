@@ -10,6 +10,7 @@ import java.io.IOException;
 import prr.app.exception.DuplicateClientKeyException;
 import prr.app.exception.DuplicateTerminalKeyException;
 import prr.app.exception.InvalidTerminalKeyException;
+import prr.app.exception.UnknownClientKeyException;
 import prr.app.exception.UnknownTerminalKeyException;
 import prr.core.exception.UnrecognizedEntryException;
 
@@ -137,6 +138,15 @@ public class Network implements Serializable {
       throw new UnknownTerminalKeyException(friend);
     }
     
+  }
+
+  public Client findClient(String key) throws UnknownClientKeyException{
+    for(Client c: _clients){
+      if(c.getKey() == key){
+        return c;
+      }
+    }
+    throw new UnknownClientKeyException(key);
   }
 
 }
