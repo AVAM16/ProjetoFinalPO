@@ -7,6 +7,7 @@ public class VoiceCommunication extends InteractiveCommunication{
   }
 
   protected double getCost(TariffPlan plan){
-    
+    //para a versao intermedia ainda nao e necessario
+    return 0;
   }
 }

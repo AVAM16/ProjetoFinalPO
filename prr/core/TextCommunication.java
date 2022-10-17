@@ -10,7 +10,8 @@ public class TextCommunication extends Communication{
   }
 
   protected double getCost(TariffPlan plan){
-
+    //para a versao intermedia ainda nao e necessario
+    return 0;
   }
 
   protected int getSize(){
