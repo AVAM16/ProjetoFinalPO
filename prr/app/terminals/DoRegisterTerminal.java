@@ -1,5 +1,7 @@
 package prr.app.terminals;
 
+import prr.core.Client;
+import prr.core.Terminal;
 import prr.core.Network;
 import prr.app.exception.DuplicateTerminalKeyException;
 import prr.app.exception.InvalidTerminalKeyException;
@@ -16,10 +18,23 @@ class DoRegisterTerminal extends Command<Network> {
   DoRegisterTerminal(Network receiver) {
     super(Label.REGISTER_TERMINAL, receiver);
     //FIXME add command fields
+    addStringField("id", Message.terminalKey());
+    addStringField("type", Message.terminalType());
+    while(stringField("type") != "BASIC" || stringField("type") != "FANCY"){
+      addStringField("type", Message.terminalType());
+    }
+    addStringField("clientID", Message.clientKey());
   }
 
   @Override
   protected final void execute() throws CommandException {
     //FIXME implement command
+    String id = stringField("id");
+    String type = stringField("type");
+    String clientID = stringField("clientID");
+    _receiver.registerTerminal(id, type);
+    Client client = _receiver.findClient(clientID);
+    Terminal terminal = _receiver.findTerminalB(id);
+    terminal.setClient(client);
   }
 }

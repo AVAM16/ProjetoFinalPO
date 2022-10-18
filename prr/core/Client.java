@@ -1,5 +1,6 @@
 package prr.core;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -29,11 +30,11 @@ public class Client {
     this._name=name;
     this._nif=nif;
     this._level = ClientLevel.NORMAL;
-    this._terminals= new LinkedList<>();
-    this._communicationsDept = new LinkedList<>();
-    this._communicationsPaid = new LinkedList<>();
-    this._communicationsReceived = new LinkedList<>();
-    this._communicationsMade = new LinkedList<>();
+    this._terminals= new ArrayList<>();
+    this._communicationsDept = new ArrayList<>();
+    this._communicationsPaid = new ArrayList<>();
+    this._communicationsReceived = new ArrayList<>();
+    this._communicationsMade = new ArrayList<>();
   }
 
     //gets
