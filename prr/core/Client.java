@@ -1,5 +1,7 @@
 package prr.core;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -10,48 +12,48 @@ import prr.core.TariffPlan;
 import prr.core.Terminal;
 
 public class Client {
-    private String _key;
-    private String _name;
-    private int _nif;
-    private ClientLevel _level;
-    private boolean _receiveNotifications;
-    private List<Communication> _communicationsReceived;
-    private List<Communication> _communicationsMade;
-    private List<Communication> _communicationsPaid;
-    private List<Communication> _communicationsDept;
-    private List<Notifications> _notifications;
-    private TariffPlan _plan;
-    private List<Terminal> _terminals;
+  private String _key;
+  private String _name;
+  private int _nif;
+  private ClientLevel _level;
+  private boolean _receiveNotifications;
+  private List<Communication> _communicationsReceived;
+  private List<Communication> _communicationsMade;
+  private List<Communication> _communicationsPaid;
+  private List<Communication> _communicationsDept;
+  private List<Notifications> _notifications;
+  private TariffPlan _plan;
+  private List<Terminal> _terminals;
 
-    public Client(String key, String name, int nif){
-        this._key=key;
-        this._name=name;
-        this._nif=nif;
-        this._level = ClientLevel.NORMAL;
-        this._terminals= new LinkedList<>();
-        this._communicationsDept = new LinkedList<>();
-        this._communicationsPaid = new LinkedList<>();
-        this._communicationsReceived = new LinkedList<>();
-        this._communicationsMade = new LinkedList<>();
-    }
+  public Client(String key, String name, int nif){
+    this._key=key;
+    this._name=name;
+    this._nif=nif;
+    this._level = ClientLevel.NORMAL;
+    this._terminals= new ArrayList<>();
+    this._communicationsDept = new ArrayList<>();
+    this._communicationsPaid = new ArrayList<>();
+    this._communicationsReceived = new ArrayList<>();
+    this._communicationsMade = new ArrayList<>();
+  }
 
     //gets
 
-    public String getKey(){
-        return this._key;
-    }
+  public String getKey(){
+    return this._key;
+  }
 
-    public String getName(){
-        return this._name;
-    }
+  public String getName(){
+    return this._name;
+  }
 
-    public int getNIF(){
-        return this._nif;
-    }
+  public int getNIF(){
+    return this._nif;
+  }
 
-    public ClientLevel getClientLevel(){
-        return this._level;
-    }
+  public ClientLevel getClientLevel(){
+    return this._level;
+  }
 
     /* 
     public double getDepts(){
@@ -62,16 +64,22 @@ public class Client {
             sum = sum + communication.getCost();
         }
         return sum;
+  public double getDepts(){
+    double sum=0;
+    Iterator<Communication> iter = _communicationsDept.iterator();
+    while(iter.hasNext()){
+      Communication communication = iter.next();
+      sum = sum + communication.getCost();
     }
+    return sum;
+  }
 
-    public double getPayments(){
-        double sum=0;
-        Iterator<Communication> iter = _communicationsPaid.iterator();
-        while(iter.hasNext()){
-            Communication communication = iter.next();
-            sum = sum + communication.getCost();
-        }
-        return sum;
+  public double getPayments(){
+    double sum=0;
+    Iterator<Communication> iter = _communicationsPaid.iterator();
+    while(iter.hasNext()){
+      Communication communication = iter.next();
+      sum = sum + communication.getCost();
     }
     */
     public double getValue(List<Communication> list){
@@ -84,32 +92,18 @@ public class Client {
         return sum;
     }
 
-    public int getTerminals(){
-        return _terminals.size();
+  public int getTerminals(){
+    return _terminals.size();
+  }
+
+  public String getNotificationsString(){
+    if(_receiveNotifications==true){
+      return "YES";
     }
-
-    public String getNotificationsString(){
-        if(_receiveNotifications==true){
-            return "YES";
-        }
-        else{
-            return "NO";
-        }
+      else{
+        return "NO";
+      }
     }
-
-
-    //adds
-    public void addTerminal(Terminal terminal){
-        this._terminals.add(terminal);
-    }
-
-    public void addNotification(Communication communication,Client client,NotificationType type){
-        Notifications notification = new Notifications(communication, client, type);
-        _notifications.add(notification);
-    }
-
-
-
     //CLIENT|key|name|taxId|type|notifications|terminals|payments|debts
     // tipo-de-notificação|idTerminal
 
@@ -128,6 +122,27 @@ public class Client {
         }
         _notifications.clear();
         return notifications;
-    }
-    
+  }
+
+  public List<Notifications> getNotifications(){
+    return _notifications;
+  }
+
+  //adds
+  public void addTerminal(Terminal terminal){
+    this._terminals.add(terminal);
+  }
+
+  public void addNotification(Communication communication,Client client,NotificationType type){
+    Notifications notification = new Notifications(communication, client, type);
+    _notifications.add(notification);
+  }
+
+  public void clearNotifications(){
+    _notifications.clear();
+  }
+
+  //CLIENT|key|name|taxId|type|notifications|terminals|payments|debts
+  // tipo-de-notificação|idTerminal
+ 
 }

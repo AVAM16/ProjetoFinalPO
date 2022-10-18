@@ -2,6 +2,7 @@ package prr.core;
 
 import java.io.Serializable;
 import java.util.Iterator;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -17,21 +18,21 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
   // FIXME define attributes
   private String _id;
   private Client _client;
-  private LinkedList<Terminal> _friends;
-  private LinkedList<Communication> _payments;
-  private LinkedList<Communication> _depts;
-  private LinkedList<Communication> _communicationsReceived;
-  private LinkedList<Communication> _communicationsMade;
+  private List<Terminal> _friends;
+  private List<Communication> _payments;
+  private List<Communication> _depts;
+  private List<Communication> _communicationsReceived;
+  private List<Communication> _communicationsMade;
   private TerminalMode _mode;
   
   // FIXME define contructor(s)
   public Terminal(String  id){
     this._id = id;
-    this._payments = new LinkedList<>();
-    this._depts = new LinkedList<>();
-    this._communicationsReceived = new LinkedList<>();
-    this._communicationsMade = new LinkedList<>();
-    this._friends = new LinkedList<>();
+    this._payments = new ArrayList<>();
+    this._depts = new ArrayList<>();
+    this._communicationsReceived = new ArrayList<>();
+    this._communicationsMade = new ArrayList<>();
+    this._friends = new ArrayList<>();
     this._mode = TerminalMode.ON;
   }
   // FIXME define methods
