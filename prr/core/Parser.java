@@ -8,6 +8,10 @@ import java.io.BufferedReader;
 import java.util.Collection;
 import java.util.ArrayList;
 
+import prr.app.exception.DuplicateClientKeyException;
+import prr.app.exception.DuplicateTerminalKeyException;
+import prr.app.exception.InvalidTerminalKeyException;
+import prr.app.exception.UnknownTerminalKeyException;
 import prr.core.exception.UnrecognizedEntryException;
 
 /* 
@@ -26,7 +30,7 @@ public class Parser {
     _network = network;
   }
 
-  void parseFile(String filename) throws IOException, UnrecognizedEntryException {
+  void parseFile(String filename) throws IOException, UnrecognizedEntryException, DuplicateClientKeyException, InvalidTerminalKeyException {
     try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
       String line;
       
@@ -35,7 +39,7 @@ public class Parser {
     }
   }
   
-  private void parseLine(String line) throws UnrecognizedEntryException {
+  private void parseLine(String line) throws UnrecognizedEntryException, DuplicateClientKeyException, InvalidTerminalKeyException {
     String[] components = line.split("\\|");
 
     switch(components[0]) {
@@ -52,7 +56,7 @@ public class Parser {
   }
   
   // parse a client with format CLIENT|id|nome|taxId
-  private void parseClient(String[] components, String line) throws UnrecognizedEntryException {
+  private void parseClient(String[] components, String line) throws UnrecognizedEntryException,DuplicateClientKeyException {
     checkComponentsLength(components, 4, line);
 
     try {
@@ -60,13 +64,13 @@ public class Parser {
       _network.registerClient(components[1], components[2], taxNumber);
     } catch (NumberFormatException nfe) {
       throw new UnrecognizedEntryException("Invalid number in line " + line, nfe);
-    } catch (OtherException e) {
+    } catch (DuplicateClientKeyException e) { // secalhar e isto porque o registar client tem esta exception
       throw new UnrecognizedEntryException("Invalid specification in line: " + line, e);
     }
   }
 
   // parse a line with format terminal-type|idTerminal|idClient|state
-  private void parseTerminal(String[] components, String line) throws UnrecognizedEntryException {
+  private void parseTerminal(String[] components, String line) throws UnrecognizedEntryException, DuplicateClientKeyException,InvalidTerminalKeyException {
     checkComponentsLength(components, 4, line);
 
     try {
@@ -79,9 +83,14 @@ public class Parser {
            throw new UnrecognizedEntryException("Invalid specification in line: " + line);
         } 
       }
-    } catch (SomeOtherException e) {
-      throw new UnrecognizedEntryException("Invalid specification: " + line, e);
+    } catch (InvalidTerminalKeyException itke) {
+      throw new UnrecognizedEntryException("Invalid specification: " + line, itke);
     }
+
+     catch (DuplicateTerminalKeyException dtke) {
+      throw new UnrecognizedEntryException("Invalid specification: " + line, dtke);
+    }
+    
   }
 
   //Parse a line with format FRIENDS|idTerminal|idTerminal1,...,idTerminalN
@@ -94,7 +103,7 @@ public class Parser {
       
       for (String friend : friends)
         _network.addFriend(terminal, friend);
-    } catch (OtherException e) {
+    } catch (UnknownTerminalKeyException e) {
       throw new UnrecognizedEntryException("Some message error in line:  " + line, e);
     }
   }
