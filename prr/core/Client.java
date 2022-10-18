@@ -53,6 +53,7 @@ public class Client {
         return this._level;
     }
 
+    /* 
     public double getDepts(){
         double sum=0;
         Iterator<Communication> iter = _communicationsDept.iterator();
@@ -66,6 +67,16 @@ public class Client {
     public double getPayments(){
         double sum=0;
         Iterator<Communication> iter = _communicationsPaid.iterator();
+        while(iter.hasNext()){
+            Communication communication = iter.next();
+            sum = sum + communication.getCost();
+        }
+        return sum;
+    }
+    */
+    public double getValue(List<Communication> list){
+        double sum=0;
+        Iterator<Communication> iter = list.iterator();
         while(iter.hasNext()){
             Communication communication = iter.next();
             sum = sum + communication.getCost();
@@ -101,13 +112,22 @@ public class Client {
 
     //CLIENT|key|name|taxId|type|notifications|terminals|payments|debts
     // tipo-de-notificação|idTerminal
-    public void showClient(){
-        System.out.println(String.format("CLIENT|%d|%d|%d|%d|%d|%d|%d|%d",_key,_name,_nif,_level,getNotificationsString(),
-        getTerminals(),getPayments(),getDepts()));
+
+    //NOTA IMPORTANTE : para a DoShowAllClients tens de usar a showClient e a showClientNotifications para todos os clientes.
+
+    public String showClient(){
+        return String.format("CLIENT|%d|%d|%d|%d|%d|%d|%d|%d",_key,_name,_nif,_level,getNotificationsString(),
+        getTerminals(),getValue(_communicationsPaid),getValue(_communicationsDept));
+
+    }
+    
+    public List<String> showClientNotifications(){
+        LinkedList<String> notifications = new LinkedList<>();
         for(Notifications notification : _notifications){
-            System.out.println(String.format("%d|%d",notification.getType().toString(),notification.getTeminalOrigin()));
+            notifications.add(String.format("%d|%d",notification.getType().toString(),notification.getTeminalOrigin()));
         }
         _notifications.clear();
+        return notifications;
     }
     
 }

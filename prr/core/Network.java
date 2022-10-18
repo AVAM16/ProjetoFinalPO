@@ -47,7 +47,18 @@ public class Network implements Serializable {
   }
 
 
-  //eu não sei se isto está correto
+  /*-------METODOS DOS CLIENTES------*/
+
+
+  public Client findClient(String key) throws UnknownClientKeyException{
+    for(Client c: _clients){
+      if(c.getKey() == key){
+        return c;
+      }
+    }
+    throw new UnknownClientKeyException(key);
+  }
+
   public void registerClient(String key, String name, int taxNumber) throws DuplicateClientKeyException {
     Client newClient = new Client(key, name, taxNumber);
     Iterator<Client> iter = _clients.iterator();
@@ -60,6 +71,11 @@ public class Network implements Serializable {
     _clients.add(newClient);
   }
 
+
+  /*-------METODOS DOS TERMINAIS------*/
+
+
+
   public static boolean onlyDigits(String str, int n)
     {
         for (int i = 0; i < n; i++) {
@@ -70,7 +86,7 @@ public class Network implements Serializable {
         return true;
     }
 
-    // isto nao esta bem correto porque precisa de usar input
+ 
   public Terminal registerTerminal(String id, String tipo) throws InvalidTerminalKeyException,DuplicateTerminalKeyException, DuplicateClientKeyException{
     if(id.length() != 6 || !onlyDigits(id,6)){
       throw new InvalidTerminalKeyException(id);
@@ -140,14 +156,8 @@ public class Network implements Serializable {
     
   }
 
-  public Client findClient(String key) throws UnknownClientKeyException{
-    for(Client c: _clients){
-      if(c.getKey() == key){
-        return c;
-      }
-    }
-    throw new UnknownClientKeyException(key);
-  }
+
+
 
 }
 

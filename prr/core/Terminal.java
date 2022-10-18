@@ -1,6 +1,7 @@
 package prr.core;
 
 import java.io.Serializable;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -17,8 +18,8 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
   private String _id;
   private Client _client;
   private LinkedList<Terminal> _friends;
-  private LinkedList<Integer> _payments;
-  private LinkedList<Integer> _depts;
+  private LinkedList<Communication> _payments;
+  private LinkedList<Communication> _depts;
   private LinkedList<Communication> _communicationsReceived;
   private LinkedList<Communication> _communicationsMade;
   private TerminalMode _mode;
@@ -45,6 +46,31 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     return this._client;
   }
 
+  public String getMode(){
+    return _mode.toString();
+  }
+
+  public List<Communication> getPayments(){
+    return this._payments;
+  }
+
+  public List<Communication> getDepts(){
+    return this._depts;
+  }
+
+  public String getFriends(){
+    String friends="";
+    if(_friends.size()>0){
+      Iterator<Terminal> iter = _friends.iterator();
+      while(iter.hasNext()){
+        Terminal friend = iter.next();
+        friends=friends + friend+",";
+    }
+    return friends.substring(0, friends.length()-1);
+  }
+  return friends;
+  }
+
   //sets
   public void setClient(Client client){
     this._client=client;
@@ -68,6 +94,11 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
   public boolean isNotActive(){
     return _communicationsMade.size()==0 && _communicationsReceived.size()==0;
   }
+
+  //other methods
+  //terminalType|terminalId|clientId|terminalStatus|balance-paid|balance-debts|friend1,...,friend
+  abstract public String showTerminal();
+
   
   /**
    * Checks if this terminal can end the current interactive communication.
