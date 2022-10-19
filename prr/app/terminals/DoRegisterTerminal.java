@@ -19,7 +19,7 @@ class DoRegisterTerminal extends Command<Network> {
     super(Label.REGISTER_TERMINAL, receiver);
     //FIXME add command fields
     addStringField("id", Message.terminalKey());
-    addStringField("type", Message.terminalType());
+    addOptionField("type", Message.terminalType(), "BASIC", "FANCY");
     addStringField("clientID", Message.clientKey());
   }
 
