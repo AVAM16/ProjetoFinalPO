@@ -94,11 +94,12 @@ public class Network implements Serializable {
     }
 
  
-  public void registerTerminal(String id, String type) throws InvalidTerminalKeyException,DuplicateTerminalKeyException, DuplicateClientKeyException{
+  public void registerTerminal(String id, String type) throws InvalidTerminalKeyException,DuplicateTerminalKeyException{
     if(id.length() != 6 || !onlyDigits(id,6)){
       throw new InvalidTerminalKeyException(id);
     }
-    
+    Terminal terminalNovo = null;
+    /* 
     Terminal terminalNovo = null;
     switch(type){
       case "FANCY":
@@ -108,19 +109,24 @@ public class Network implements Serializable {
         terminalNovo= new BasicTerminal(id);
         break;  
 
+    }*/
+   
+    if(type.equals("FANCY")){
+      terminalNovo = new FancyTerminal(id);   
     }
-    /* 
-      else if(tipo=="FANCY"){
-        terminalNovo = new FancyTerminal(id);   
-      }
 
-      else if(tipo=="BASIC"){
-        terminalNovo = new BasicTerminal(id);  
-      }
-    */
-    if(_terminals.contains(terminalNovo)){
-      throw new DuplicateTerminalKeyException(id);
+    if(type.equals("BASIC")){
+      terminalNovo = new BasicTerminal(id);  
     }
+    
+    Iterator<Terminal> iter = _terminals.iterator();
+    while(iter.hasNext()){
+      Terminal terminal = iter.next();
+      if(terminalNovo.getID().equals(terminal.getID())){
+        throw new DuplicateTerminalKeyException(id);
+      }
+    }
+    _terminals.add(terminalNovo);
   }
 
 
