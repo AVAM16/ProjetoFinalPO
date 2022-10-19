@@ -2,9 +2,10 @@ package prr.core;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
-
+import java.util.List;
 import java.io.IOException;
 
 import prr.app.exception.DuplicateClientKeyException;
@@ -175,6 +176,14 @@ public class Network implements Serializable {
       }
     }
     return null;
+  }
+
+  public List<Client> getClients(){
+    return Collections.unmodifiableList(_clients);
+  }
+
+  public List<Terminal> getTerminals(){
+    return Collections.unmodifiableList(_terminals);
   }
 
 }

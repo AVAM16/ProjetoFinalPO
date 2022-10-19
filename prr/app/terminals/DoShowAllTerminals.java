@@ -1,8 +1,10 @@
 package prr.app.terminals;
 
 import java.util.Collections;
+import java.util.List;
 
 import prr.core.Network;
+import prr.core.Terminal;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
 //FIXME add more imports if needed
@@ -19,5 +21,10 @@ class DoShowAllTerminals extends Command<Network> {
   @Override
   protected final void execute() throws CommandException {
     //FIXME implement command
+    List<Terminal> terminals = _receiver.getTerminals();
+    for(Terminal t: terminals){
+      _display.addLine(t.showTerminal());
+    }
+    _display.display();
   }
 }
