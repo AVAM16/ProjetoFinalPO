@@ -41,7 +41,7 @@ public class NetworkManager {
    *         an error while processing this file.
    * @throws ClassNotFoundException
    */
-  public void load(String filename) throws UnavailableFileException, ClassNotFoundException {
+  public void load(String filename) throws UnavailableFileException {
     //FIXME implement serialization method
     try (ObjectInputStream objIn = new ObjectInputStream(new FileInputStream(filename))) {
       _network = (Network)objIn.readObject();
@@ -50,6 +50,9 @@ public class NetworkManager {
     }
     catch (IOException e) {
       throw new UnavailableFileException(filename);
+    } catch (ClassNotFoundException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
     }
   }
   

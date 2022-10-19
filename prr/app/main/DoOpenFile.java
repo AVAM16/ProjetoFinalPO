@@ -1,6 +1,7 @@
 package prr.app.main;
 
 import prr.core.NetworkManager;
+import prr.core.exception.UnavailableFileException;
 import prr.app.exception.FileOpenFailedException;
 import pt.tecnico.uilib.forms.Form;
 import pt.tecnico.uilib.menus.Command;
@@ -26,6 +27,12 @@ class DoOpenFile extends Command<NetworkManager> {
       } catch (UnavailableFileException e) {
         throw new FileOpenFailedException(e);
       }
-    */  
+    */ 
+    try {
+      String filename = stringField("filename");
+      _receiver.load(filename);
+    }catch (UnavailableFileException e) {
+      throw new FileOpenFailedException(e);
+    } 
   }
 }
