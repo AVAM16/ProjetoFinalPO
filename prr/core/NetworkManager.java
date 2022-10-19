@@ -26,6 +26,10 @@ public class NetworkManager {
   private String _filename;
   //FIXME  addmore fields if needed
   
+  public NetworkManager() {
+    Network._ocurrence = _network;
+}
+
   public Network getNetwork() {
     return _network;
   }
@@ -37,14 +41,18 @@ public class NetworkManager {
    *         an error while processing this file.
    * @throws ClassNotFoundException
    */
-  public void load(String filename) throws UnavailableFileException, ClassNotFoundException {
+  public void load(String filename) throws UnavailableFileException {
     //FIXME implement serialization method
     try (ObjectInputStream objIn = new ObjectInputStream(new FileInputStream(filename))) {
       _network = (Network)objIn.readObject();
+      Network._ocurrence = _network;
       _filename = (String)objIn.readObject();
     }
     catch (IOException e) {
       throw new UnavailableFileException(filename);
+    } catch (ClassNotFoundException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
     }
   }
   
