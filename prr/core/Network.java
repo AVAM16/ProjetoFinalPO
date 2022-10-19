@@ -42,9 +42,13 @@ public class Network implements Serializable {
    * @param filename name of the text input file
    * @throws UnrecognizedEntryException if some entry is not correct
    * @throws IOException if there is an IO erro while processing the text file
+   * @throws InvalidTerminalKeyException
+   * @throws DuplicateClientKeyException
    */
-  void importFile(String filename) throws UnrecognizedEntryException, IOException /* FIXME maybe other exceptions */  {
+  void importFile(String filename) throws UnrecognizedEntryException, IOException /* FIXME maybe other exceptions */, DuplicateClientKeyException, InvalidTerminalKeyException  {
     //FIXME implement method
+    Parser parser = new Parser(this);
+    parser.parseFile(filename);
   }
 
 
@@ -88,12 +92,12 @@ public class Network implements Serializable {
     }
 
  
-  public Terminal registerTerminal(String id, String type) throws InvalidTerminalKeyException,DuplicateTerminalKeyException, DuplicateClientKeyException{
+  public void registerTerminal(String id, String type) throws InvalidTerminalKeyException,DuplicateTerminalKeyException, DuplicateClientKeyException{
     if(id.length() != 6 || !onlyDigits(id,6)){
       throw new InvalidTerminalKeyException(id);
     }
     
-    Terminal terminalNovo=null;
+    Terminal terminalNovo = null;
     switch(type){
       case "FANCY":
         terminalNovo = new FancyTerminal(id);
@@ -111,21 +115,10 @@ public class Network implements Serializable {
       else if(tipo=="BASIC"){
         terminalNovo = new BasicTerminal(id);  
       }
-      */
-      if(terminalNovo!=null){
-        Iterator<Terminal> iter = _terminals.iterator();
-        while(iter.hasNext()){
-          Terminal terminal = iter.next();
-          if(terminal.getID()==id){
-            throw new DuplicateTerminalKeyException(id);
-          }
-  
-        }
-        
-        _terminals.add(terminalNovo);
-      }
-
-      return terminalNovo;
+    */
+    if(_terminals.contains(terminalNovo)){
+      throw new DuplicateTerminalKeyException(id);
+    }
   }
 
 

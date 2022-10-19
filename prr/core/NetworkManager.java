@@ -1,8 +1,14 @@
 package prr.core;
 
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 
+import prr.app.exception.DuplicateClientKeyException;
+import prr.app.exception.InvalidTerminalKeyException;
 import prr.core.exception.ImportFileException;
 import prr.core.exception.MissingFileAssociationException;
 import prr.core.exception.UnavailableFileException;
@@ -17,6 +23,7 @@ public class NetworkManager {
 
   /** The network itself. */
   private Network _network = new Network();
+  private String _filename;
   //FIXME  addmore fields if needed
   
   public Network getNetwork() {
@@ -28,9 +35,17 @@ public class NetworkManager {
    *        to load.
    * @throws UnavailableFileException if the specified file does not exist or there is
    *         an error while processing this file.
+   * @throws ClassNotFoundException
    */
-  public void load(String filename) throws UnavailableFileException {
+  public void load(String filename) throws UnavailableFileException, ClassNotFoundException {
     //FIXME implement serialization method
+    try (ObjectInputStream objIn = new ObjectInputStream(new FileInputStream(filename))) {
+      _network = (Network)objIn.readObject();
+      _filename = (String)objIn.readObject();
+    }
+    catch (IOException e) {
+      throw new UnavailableFileException(filename);
+    }
   }
   
   /**
@@ -42,6 +57,13 @@ public class NetworkManager {
    */
   public void save() throws FileNotFoundException, MissingFileAssociationException, IOException {
     //FIXME implement serialization method
+    if (_filename == null) {
+      throw new MissingFileAssociationException();
+    }
+    try (ObjectOutputStream obOut = new ObjectOutputStream(new FileOutputStream(_filename))) {
+      obOut.writeObject(_network);
+      obOut.writeObject(_filename);
+    }
   }
   
   /**
@@ -55,6 +77,8 @@ public class NetworkManager {
    */
   public void saveAs(String filename) throws FileNotFoundException, MissingFileAssociationException, IOException {
     //FIXME implement serialization method
+    _filename = filename;
+    save();
   }
   
   /**
@@ -62,12 +86,23 @@ public class NetworkManager {
    * 
    * @param filename name of the text input file
    * @throws ImportFileException
+   * @throws InvalidTerminalKeyException
+   * @throws DuplicateClientKeyException
    */
-  public void importFile(String filename) throws ImportFileException {
+  public void importFile(String filename) throws ImportFileException, DuplicateClientKeyException, InvalidTerminalKeyException {
     try {
       _network.importFile(filename);
     } catch (IOException | UnrecognizedEntryException /* FIXME maybe other exceptions */ e) {
       throw new ImportFileException(filename, e);
     }
-  }  
+  } 
+  
+  public boolean hasFilename() {
+    return _filename != null;
+  }
+
+  public String getFilename() {
+    return _filename;
+  }
+
 }
