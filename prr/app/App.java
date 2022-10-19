@@ -1,5 +1,7 @@
 package prr.app;
 
+import prr.app.exception.DuplicateClientKeyException;
+import prr.app.exception.InvalidTerminalKeyException;
 import prr.core.NetworkManager;
 import prr.core.exception.ImportFileException;
 import pt.tecnico.uilib.Dialog;
@@ -9,7 +11,7 @@ import pt.tecnico.uilib.Dialog;
  */
 public class App {
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws DuplicateClientKeyException, InvalidTerminalKeyException {
     try (var ui = Dialog.UI) {
       var receiver = new NetworkManager();
       

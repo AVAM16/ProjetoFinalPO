@@ -16,8 +16,8 @@ public class Notifications {
         return _client;
     }
 
-    public NotificationType getType(){
-        return _type;
+    public String getType(){
+        return _type.toString();
     }
 
     public Communication getCommunication(){

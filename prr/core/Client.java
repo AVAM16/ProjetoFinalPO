@@ -31,6 +31,7 @@ public class Client {
     this._nif=nif;
     this._level = ClientLevel.NORMAL;
     this._terminals= new ArrayList<>();
+    this._notifications= new ArrayList<>();
     this._communicationsDept = new ArrayList<>();
     this._communicationsPaid = new ArrayList<>();
     this._communicationsReceived = new ArrayList<>();
@@ -118,7 +119,7 @@ public class Client {
     public List<String> showClientNotifications(){
         LinkedList<String> notifications = new LinkedList<>();
         for(Notifications notification : _notifications){
-            notifications.add(String.format("%d|%d",notification.getType().toString(),notification.getTeminalOrigin()));
+            notifications.add(String.format("%s|%s",notification.getType().toString(),notification.getTeminalOrigin()));
         }
         _notifications.clear();
         return notifications;
@@ -127,6 +128,7 @@ public class Client {
   public List<Notifications> getNotifications(){
     return _notifications;
   }
+
 
   //adds
   public void addTerminal(Terminal terminal){

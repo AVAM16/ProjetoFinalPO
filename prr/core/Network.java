@@ -57,19 +57,20 @@ public class Network implements Serializable {
 
   public Client findClient(String key) throws UnknownClientKeyException{
     for(Client c: _clients){
-      if(c.getKey() == key){
+      if(key.equals(c.getKey())){
         return c;
       }
     }
     throw new UnknownClientKeyException(key);
   }
 
+  //myStr1.equals(myStr3)
   public void registerClient(String key, String name, int taxNumber) throws DuplicateClientKeyException {
     Client newClient = new Client(key, name, taxNumber);
     Iterator<Client> iter = _clients.iterator();
     while(iter.hasNext()){
       Client client = iter.next();
-      if(key==client.getKey()){
+      if(key.equals(client.getKey())){
         throw new DuplicateClientKeyException(key);
       }
     }
