@@ -29,7 +29,7 @@ class DoShowClient extends Command<Network> {
     String key = stringField("key");
     Client client = _receiver.findClient(key);
     _display.addLine(client.showClient());
-    List<String> notifications = new ArrayList<>(client.showClientNotifications());
+    List<String> notifications = client.showClientNotifications();
     for(String s: notifications){
       _display.addLine(s);
     }
