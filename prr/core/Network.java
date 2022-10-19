@@ -42,9 +42,13 @@ public class Network implements Serializable {
    * @param filename name of the text input file
    * @throws UnrecognizedEntryException if some entry is not correct
    * @throws IOException if there is an IO erro while processing the text file
+   * @throws InvalidTerminalKeyException
+   * @throws DuplicateClientKeyException
    */
-  void importFile(String filename) throws UnrecognizedEntryException, IOException /* FIXME maybe other exceptions */  {
+  void importFile(String filename) throws UnrecognizedEntryException, IOException /* FIXME maybe other exceptions */, DuplicateClientKeyException, InvalidTerminalKeyException  {
     //FIXME implement method
+    Parser parser = new Parser(this);
+    parser.parseFile(filename);
   }
 
 
