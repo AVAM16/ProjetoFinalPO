@@ -28,6 +28,7 @@ public class Network implements Serializable {
   private static final long serialVersionUID = 202208091753L;
   private static ArrayList<Client> _clients;
   private static ArrayList<Terminal> _terminals;
+  static Network _ocurrence;
   
   // FIXME define contructor(s)
   public Network(){
