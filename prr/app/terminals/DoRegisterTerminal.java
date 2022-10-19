@@ -20,18 +20,18 @@ class DoRegisterTerminal extends Command<Network> {
     //FIXME add command fields
     addStringField("id", Message.terminalKey());
     addOptionField("type", Message.terminalType(), "BASIC", "FANCY");
-    addStringField("clientID", Message.clientKey());
+    //addStringField("clientID", Message.clientKey());
   }
 
   @Override
   protected final void execute() throws CommandException {
     //FIXME implement command
+    String type = optionField("type");
     String id = stringField("id");
-    String type = stringField("type");
-    String clientID = stringField("clientID");
+    //String clientID = stringField("clientID");
     _receiver.registerTerminal(id, type);
-    Client client = _receiver.findClient(clientID);
-    Terminal terminal = _receiver.findTerminalB(id);
-    terminal.setClient(client);
+    //Client client = _receiver.findClient(clientID);
+    //Terminal terminal = _receiver.findTerminalB(id);
+    //terminal.setClient(client);
   }
 }

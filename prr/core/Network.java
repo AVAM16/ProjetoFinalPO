@@ -153,16 +153,17 @@ public class Network implements Serializable {
 
 
 
-
+//key.equals(c.getKey()
   public Terminal findTerminal(String id) throws UnknownTerminalKeyException{
     for(Terminal t: _terminals){
-      if(t.getID() == id){
+      if(id.equals(t.getID())){
         return t;
       }
     }
     throw new UnknownTerminalKeyException(id);
   }
 
+  // isto deve ser para tirar acho eu
   public Terminal findTerminalB(String id) {
     for(Terminal t: _terminals){
       if(t.getID() == id){
