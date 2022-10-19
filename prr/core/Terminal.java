@@ -79,11 +79,11 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
 
   // isto nao esta void porque e assim que a clase parser quer estes metodos 
   public TerminalMode setOnSilent() {
-    return _mode.SILENCE;
+    return TerminalMode.SILENCE;
   }
 
   public TerminalMode turnOff() {
-    return _mode.OFF;
+    return TerminalMode.OFF;
   } 
 
   //add
@@ -92,7 +92,7 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
   }
 
   // Is
-  public boolean isNotActive(){
+  public boolean isUnused(){
     return _communicationsMade.size()==0 && _communicationsReceived.size()==0;
   }
 
