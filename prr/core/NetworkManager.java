@@ -7,6 +7,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
+import prr.app.exception.DuplicateClientKeyException;
+import prr.app.exception.InvalidTerminalKeyException;
 import prr.core.exception.ImportFileException;
 import prr.core.exception.MissingFileAssociationException;
 import prr.core.exception.UnavailableFileException;
@@ -84,8 +86,10 @@ public class NetworkManager {
    * 
    * @param filename name of the text input file
    * @throws ImportFileException
+   * @throws InvalidTerminalKeyException
+   * @throws DuplicateClientKeyException
    */
-  public void importFile(String filename) throws ImportFileException {
+  public void importFile(String filename) throws ImportFileException, DuplicateClientKeyException, InvalidTerminalKeyException {
     try {
       _network.importFile(filename);
     } catch (IOException | UnrecognizedEntryException /* FIXME maybe other exceptions */ e) {
