@@ -103,8 +103,8 @@ public class Parser {
       
       for (String friend : friends)
         _network.addFriend(terminal, friend);
-    } catch (UnknownTerminalKeyException e) {
-      throw new UnrecognizedEntryException("Some message error in line:  " + line, e);
+    } catch (UnknownTerminalKeyException utke) {
+      throw new UnrecognizedEntryException("Some message error in line:  " + line, utke);
     }
   }
 }

@@ -51,8 +51,8 @@ public class Client {
     return this._nif;
   }
 
-  public ClientLevel getClientLevel(){
-    return this._level;
+  public String getClientLevel(){
+    return this._level.toString();
   }
 
     /* 
@@ -110,7 +110,7 @@ public class Client {
     //NOTA IMPORTANTE : para a DoShowAllClients tens de usar a showClient e a showClientNotifications para todos os clientes.
 
     public String showClient(){
-        return String.format("CLIENT|%d|%d|%d|%d|%d|%d|%d|%d",_key,_name,_nif,_level,getNotificationsString(),
+        return String.format("CLIENT|%s|%s|%s|%s|%s|%d|%f|%f",_key,_name,_nif,_level,getNotificationsString(),
         getTerminals(),getValue(_communicationsPaid),getValue(_communicationsDept));
 
     }
