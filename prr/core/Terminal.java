@@ -34,7 +34,7 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     this._communicationsReceived = new ArrayList<>();
     this._communicationsMade = new ArrayList<>();
     this._friends = new ArrayList<>();
-    this._mode = TerminalMode.ON;
+    this._mode = TerminalMode.IDLE;
   }
   // FIXME define methods
 
@@ -71,7 +71,7 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
   }
 
   public String getFriends(){
-    String friends="";
+    String friends="|";
     if(_friends.size()>0){
       Iterator<Terminal> iter = _friends.iterator();
       while(iter.hasNext()){
@@ -80,6 +80,7 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     }
     return friends.substring(0, friends.length()-1);
   }
+  friends="";
   return friends;
   }
 

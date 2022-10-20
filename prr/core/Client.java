@@ -101,7 +101,7 @@ public class Client implements Serializable{
   }
 
   public String getNotificationsString(){
-    if(_receiveNotifications==true){
+    if(_receiveNotifications){
       return "YES";
     }
       else{
