@@ -45,8 +45,10 @@ public class Network implements Serializable {
    * @throws IOException if there is an IO erro while processing the text file
    * @throws InvalidTerminalKeyException
    * @throws DuplicateClientKeyException
+   * @throws UnknownClientKeyException
    */
-  void importFile(String filename) throws UnrecognizedEntryException, IOException /* FIXME maybe other exceptions */, DuplicateClientKeyException, InvalidTerminalKeyException  {
+  void importFile(String filename) throws UnrecognizedEntryException, IOException , DuplicateClientKeyException, 
+  InvalidTerminalKeyException, UnknownClientKeyException  { /* FIXME maybe other exceptions */
     //FIXME implement method
     Parser parser = new Parser(this);
     parser.parseFile(filename);
@@ -94,22 +96,13 @@ public class Network implements Serializable {
     }
 
  
-  public void registerTerminal(String id, String type) throws InvalidTerminalKeyException,DuplicateTerminalKeyException{
+  public void registerTerminal(String id, String type,String clientID) throws InvalidTerminalKeyException,DuplicateTerminalKeyException, UnknownClientKeyException{
     if(id.length() != 6 || !onlyDigits(id,6)){
       throw new InvalidTerminalKeyException(id);
     }
     Terminal terminalNovo = null;
-    /* 
-    Terminal terminalNovo = null;
-    switch(type){
-      case "FANCY":
-        terminalNovo = new FancyTerminal(id);
-        break;
-      case "BASIC":
-        terminalNovo= new BasicTerminal(id);
-        break;  
-
-    }*/
+    Client client = findClient(clientID);
+    
    
     if(type.equals("FANCY")){
       terminalNovo = new FancyTerminal(id);   
@@ -126,6 +119,9 @@ public class Network implements Serializable {
         throw new DuplicateTerminalKeyException(id);
       }
     }
+
+    client.addTerminal(terminalNovo);
+    terminalNovo.setClient(client);
     _terminals.add(terminalNovo);
   }
 

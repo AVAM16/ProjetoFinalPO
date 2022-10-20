@@ -9,6 +9,7 @@ import java.io.FileOutputStream;
 
 import prr.app.exception.DuplicateClientKeyException;
 import prr.app.exception.InvalidTerminalKeyException;
+import prr.app.exception.UnknownClientKeyException;
 import prr.core.exception.ImportFileException;
 import prr.core.exception.MissingFileAssociationException;
 import prr.core.exception.UnavailableFileException;
@@ -96,8 +97,9 @@ public class NetworkManager {
    * @throws ImportFileException
    * @throws InvalidTerminalKeyException
    * @throws DuplicateClientKeyException
+   * @throws UnknownClientKeyException
    */
-  public void importFile(String filename) throws ImportFileException, DuplicateClientKeyException, InvalidTerminalKeyException {
+  public void importFile(String filename) throws ImportFileException, DuplicateClientKeyException, InvalidTerminalKeyException, UnknownClientKeyException {
     try {
       _network.importFile(filename);
     } catch (IOException | UnrecognizedEntryException /* FIXME maybe other exceptions */ e) {

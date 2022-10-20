@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import prr.app.exception.DuplicateClientKeyException;
 import prr.app.exception.DuplicateTerminalKeyException;
 import prr.app.exception.InvalidTerminalKeyException;
+import prr.app.exception.UnknownClientKeyException;
 import prr.app.exception.UnknownTerminalKeyException;
 import prr.core.exception.UnrecognizedEntryException;
 
@@ -30,7 +31,7 @@ public class Parser {
     _network = network;
   }
 
-  void parseFile(String filename) throws IOException, UnrecognizedEntryException, DuplicateClientKeyException, InvalidTerminalKeyException {
+  void parseFile(String filename) throws IOException, UnrecognizedEntryException, DuplicateClientKeyException, InvalidTerminalKeyException, UnknownClientKeyException {
     try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
       String line;
       
@@ -39,7 +40,7 @@ public class Parser {
     }
   }
   
-  private void parseLine(String line) throws UnrecognizedEntryException, DuplicateClientKeyException, InvalidTerminalKeyException {
+  private void parseLine(String line) throws UnrecognizedEntryException, DuplicateClientKeyException, InvalidTerminalKeyException, UnknownClientKeyException {
     String[] components = line.split("\\|");
 
     switch(components[0]) {
@@ -70,11 +71,11 @@ public class Parser {
   }
 
   // parse a line with format terminal-type|idTerminal|idClient|state
-  private void parseTerminal(String[] components, String line) throws UnrecognizedEntryException, DuplicateClientKeyException,InvalidTerminalKeyException {
+  private void parseTerminal(String[] components, String line) throws UnrecognizedEntryException, DuplicateClientKeyException,InvalidTerminalKeyException, UnknownClientKeyException {
     checkComponentsLength(components, 4, line);
 
     try {
-      _network.registerTerminal(components[0], components[1]); // retirei o , components[2]
+      _network.registerTerminal(components[0], components[1], components[2]); // retirei o , components[2]
       Terminal terminal = _network.findTerminalB(components[0]);
       switch(components[3]) {
         case "SILENCE" -> terminal.setOnSilent();
