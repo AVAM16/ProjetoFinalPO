@@ -38,6 +38,7 @@ public class Client implements Serializable{
     this._communicationsPaid = new ArrayList<>();
     this._communicationsReceived = new ArrayList<>();
     this._communicationsMade = new ArrayList<>();
+    this._receiveNotifications = true;
   }
 
     //gets
