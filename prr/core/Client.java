@@ -41,7 +41,7 @@ public class Client {
     //gets
 
   public String getKey(){
-    return this._key;
+      return this._key;
   }
 
   public String getName(){
@@ -83,14 +83,14 @@ public class Client {
       sum = sum + communication.getCost();
     }
     */
-    public double getValue(List<Communication> list){
-        double sum=0;
-        Iterator<Communication> iter = list.iterator();
-        while(iter.hasNext()){
-            Communication communication = iter.next();
-            sum = sum + communication.getCost();
-        }
-        return sum;
+    public int getValue(List<Communication> list){
+      double sum=0;
+      Iterator<Communication> iter = list.iterator();
+      while(iter.hasNext()){
+          Communication communication = iter.next();
+          sum = sum + communication.getCost();
+      }
+      return (int)Math.round(sum);
     }
 
   public int getTerminals(){
@@ -111,7 +111,7 @@ public class Client {
     //NOTA IMPORTANTE : para a DoShowAllClients tens de usar a showClient e a showClientNotifications para todos os clientes.
 
     public String showClient(){
-        return String.format("CLIENT|%s|%s|%s|%s|%s|%d|%f|%f",_key,_name,_nif,_level,getNotificationsString(),
+        return String.format("CLIENT|%s|%s|%s|%s|%s|%d|%d|%d",_key,_name,_nif,_level,getNotificationsString(),
         getTerminals(),getValue(_communicationsPaid),getValue(_communicationsDept));
 
     }

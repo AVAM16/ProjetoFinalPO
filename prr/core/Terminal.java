@@ -28,6 +28,7 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
   // FIXME define contructor(s)
   public Terminal(String  id){
     this._id = id;
+    this._client = null;
     this._payments = new ArrayList<>();
     this._depts = new ArrayList<>();
     this._communicationsReceived = new ArrayList<>();
@@ -57,6 +58,16 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
 
   public List<Communication> getDepts(){
     return this._depts;
+  }
+
+  public int getValue(List<Communication> list){
+    double sum=0;
+    Iterator<Communication> iter = list.iterator();
+    while(iter.hasNext()){
+        Communication communication = iter.next();
+        sum = sum + communication.getCost();
+    }
+    return (int)Math.round(sum);
   }
 
   public String getFriends(){

@@ -6,9 +6,15 @@ public class BasicTerminal extends Terminal{
     super(id);
   }
   public String showTerminal(){
-    String terminal = String.format("BASIC|%s|%s|%s|%,.2f|%,.2f|%d",getID(),getClient().getKey(),getMode().toString(),
-    getClient().getValue(getPayments()),getClient().getValue(getDepts()),getFriends());
-    return terminal;
-  }
+    if(getClient()==null){
+      String terminal = String.format("BASIC|%s|%s|%s|%d|%d|%s",getID(),"NONE",getMode().toString(),
+        getValue(getPayments()),getValue(getDepts()),getFriends());
+        return terminal;
+      }
+      String terminal = String.format("BASIC|%s|%s|%s|%d|%d|%s",getID(),getClient().getKey(),getMode().toString(),
+      getValue(getPayments()),getValue(getDepts()),getFriends());
+
+      return terminal;
+    }
   
 }
