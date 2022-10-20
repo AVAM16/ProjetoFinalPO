@@ -1,7 +1,6 @@
 package prr.app.client;
 
 import prr.core.Network;
-import prr.app.exception.DuplicateClientKeyException;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
 //FIXME add more imports if needed
@@ -21,7 +20,7 @@ class DoRegisterClient extends Command<Network> {
   }
   
   @Override
-  protected final void execute() throws CommandException,DuplicateClientKeyException {
+  protected final void execute() throws CommandException {
     String key = stringField("key");
     String name = stringField("name");
     Integer taxNumber = integerField("NIF");

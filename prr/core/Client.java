@@ -2,15 +2,9 @@ package prr.core;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.logging.Level;
-
-import prr.core.ClientLevel;
-import prr.core.TariffPlan;
-import prr.core.Terminal;
 
 public class Client implements Serializable{
   private static final long serialVersionUID = 202208091753L;
@@ -59,33 +53,6 @@ public class Client implements Serializable{
     return this._level.toString();
   }
 
-    /* 
-    public double getDepts(){
-        double sum=0;
-        Iterator<Communication> iter = _communicationsDept.iterator();
-        while(iter.hasNext()){
-            Communication communication = iter.next();
-            sum = sum + communication.getCost();
-        }
-        return sum;
-  public double getDepts(){
-    double sum=0;
-    Iterator<Communication> iter = _communicationsDept.iterator();
-    while(iter.hasNext()){
-      Communication communication = iter.next();
-      sum = sum + communication.getCost();
-    }
-    return sum;
-  }
-
-  public double getPayments(){
-    double sum=0;
-    Iterator<Communication> iter = _communicationsPaid.iterator();
-    while(iter.hasNext()){
-      Communication communication = iter.next();
-      sum = sum + communication.getCost();
-    }
-    */
     public int getValue(List<Communication> list){
       double sum=0;
       Iterator<Communication> iter = list.iterator();

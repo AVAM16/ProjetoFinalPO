@@ -2,7 +2,6 @@ package prr.core;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
@@ -52,7 +51,10 @@ public class Network implements Serializable {
     //FIXME implement method
     Parser parser = new Parser(this);
     parser.parseFile(filename);
+   
   }
+
+  
 
 
   /*-------METODOS DOS CLIENTES------*/

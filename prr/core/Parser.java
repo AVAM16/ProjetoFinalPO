@@ -1,12 +1,8 @@
 package prr.core;
 
-import java.io.Reader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.BufferedReader;
-
-import java.util.Collection;
-import java.util.ArrayList;
 
 import prr.app.exception.DuplicateClientKeyException;
 import prr.app.exception.DuplicateTerminalKeyException;
@@ -71,11 +67,12 @@ public class Parser {
   }
 
   // parse a line with format terminal-type|idTerminal|idClient|state
-  private void parseTerminal(String[] components, String line) throws UnrecognizedEntryException, DuplicateClientKeyException,InvalidTerminalKeyException, UnknownClientKeyException {
+  private void parseTerminal(String[] components, String line) throws 
+    UnrecognizedEntryException,UnknownClientKeyException{
+
     checkComponentsLength(components, 4, line);
 
     try {
-       // retirei o , components[2]
       Terminal terminal = _network.registerTerminal(components[0], components[1], components[2]);
       switch(components[3]) {
         case "SILENCE" -> terminal.setOnSilent();
