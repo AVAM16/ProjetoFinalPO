@@ -90,11 +90,13 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
 
   // isto nao esta void porque e assim que a clase parser quer estes metodos 
   public TerminalMode setOnSilent() {
-    return TerminalMode.SILENCE;
+    _mode=TerminalMode.SILENCE;
+    return _mode;
   }
-
+  
   public TerminalMode turnOff() {
-    return TerminalMode.OFF;
+    _mode=TerminalMode.OFF;
+    return _mode;
   } 
 
   //add

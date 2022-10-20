@@ -9,13 +9,23 @@ import pt.tecnico.uilib.menus.CommandException;
  * Turn on the terminal.
  */
 class DoTurnOnTerminal extends TerminalCommand {
+  Network _network;
 
   DoTurnOnTerminal(Network context, Terminal terminal) {
     super(Label.POWER_ON, context, terminal);
+    addStringField("id", Message.terminalKey());
+    _network=context;
   }
   
   @Override
   protected final void execute() throws CommandException {
     //FIXME implement command
+    String id = stringField("id");
+    Terminal terminal = _network.findTerminal(id);
+    if(terminal.getMode().equals("ON")){
+      _display.addLine(Message.alreadyOn());
+    }
+    _display.display();
+
   }
 }
