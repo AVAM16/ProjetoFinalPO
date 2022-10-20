@@ -18,8 +18,8 @@ class DoRegisterTerminal extends Command<Network> {
   DoRegisterTerminal(Network receiver) {
     super(Label.REGISTER_TERMINAL, receiver);
     //FIXME add command fields
-    addStringField("id", Message.terminalKey());
     addOptionField("type", Message.terminalType(), "BASIC", "FANCY");
+    addStringField("id", Message.terminalKey());
     addStringField("clientID", Message.clientKey());
   }
 
@@ -32,7 +32,7 @@ class DoRegisterTerminal extends Command<Network> {
     //Client client = _receiver.findClient(clientID);
     //Terminal terminal = _receiver.findTerminalB(id);
     //terminal.setClient(client);
-    Terminal terminal = _receiver.registerTerminal(id, type,clientID);
+    _receiver.registerTerminal(type,id,clientID);
     
   }
 }
