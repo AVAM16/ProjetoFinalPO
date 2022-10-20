@@ -34,7 +34,7 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     this._communicationsReceived = new ArrayList<>();
     this._communicationsMade = new ArrayList<>();
     this._friends = new ArrayList<>();
-    this._mode = TerminalMode.IDLE;
+    this._mode = TerminalMode.ON;
   }
   // FIXME define methods
 
@@ -48,7 +48,11 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     return this._client;
   }
 
-  public String getMode(){
+  public String getModeDisplay(){
+    if(_mode == TerminalMode.ON){
+      return "IDLE";
+    }
+
     return _mode.toString();
   }
 

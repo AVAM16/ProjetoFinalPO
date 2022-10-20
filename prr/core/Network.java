@@ -96,7 +96,7 @@ public class Network implements Serializable {
     }
 
  
-  public void registerTerminal(String id, String type,String clientID) throws InvalidTerminalKeyException,DuplicateTerminalKeyException, UnknownClientKeyException{
+  public Terminal registerTerminal(String id, String type,String clientID) throws InvalidTerminalKeyException,DuplicateTerminalKeyException, UnknownClientKeyException{
     if(id.length() != 6 || !onlyDigits(id,6)){
       throw new InvalidTerminalKeyException(id);
     }
@@ -123,6 +123,8 @@ public class Network implements Serializable {
     client.addTerminal(terminalNovo);
     terminalNovo.setClient(client);
     _terminals.add(terminalNovo);
+
+    return terminalNovo;
   }
 
 

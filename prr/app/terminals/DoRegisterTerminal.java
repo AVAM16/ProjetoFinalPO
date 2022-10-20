@@ -32,6 +32,7 @@ class DoRegisterTerminal extends Command<Network> {
     //Client client = _receiver.findClient(clientID);
     //Terminal terminal = _receiver.findTerminalB(id);
     //terminal.setClient(client);
-    _receiver.registerTerminal(id, type,clientID);
+    Terminal terminal = _receiver.registerTerminal(id, type,clientID);
+    
   }
 }

@@ -22,7 +22,7 @@ class DoTurnOffTerminal extends TerminalCommand {
     //FIXME implement command
     String id = stringField("id");
     Terminal terminal = _network.findTerminal(id);
-    if(terminal.getMode().equals("OFF")){
+    if(terminal.getModeDisplay().equals("OFF")){
       _display.popup(Message.alreadyOff());
     }
     else{
