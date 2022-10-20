@@ -1,6 +1,9 @@
 package prr.core;
 
-abstract public class Communication {
+import java.io.Serializable;
+
+abstract public class Communication implements Serializable{
+    private static final long serialVersionUID = 202208091753L;
     private String _id;
     private Terminal _terminalOrigin;
     private Terminal _terminalDestination;

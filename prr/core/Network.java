@@ -167,7 +167,7 @@ public class Network implements Serializable {
   }
 
   // isto deve ser para tirar acho eu
-  public Terminal findTerminalB(String id) {
+  public Terminal findTerminalNoError(String id) {
     for(Terminal t: _terminals){
       if(t.getID() == id){
         return t;

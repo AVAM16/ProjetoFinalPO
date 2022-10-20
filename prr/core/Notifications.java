@@ -1,6 +1,9 @@
 package prr.core;
 
-public class Notifications {
+import java.io.Serializable;
+
+public class Notifications implements Serializable{
+    private static final long serialVersionUID = 202208091753L;
     private Client _client;
     private Communication _communication;
     private NotificationType _type;
