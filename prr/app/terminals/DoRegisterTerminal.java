@@ -12,7 +12,7 @@ class DoRegisterTerminal extends Command<Network> {
 
   DoRegisterTerminal(Network receiver) {
     super(Label.REGISTER_TERMINAL, receiver);
-    //FIXME add command fields
+    // FIXME add command fields
     addStringField("id", Message.terminalKey());
     addOptionField("type", Message.terminalType(), "BASIC", "FANCY");
     addStringField("clientID", Message.clientKey());
@@ -20,11 +20,11 @@ class DoRegisterTerminal extends Command<Network> {
 
   @Override
   protected final void execute() throws CommandException {
-    //FIXME implement command
+    // FIXME implement command
     String type = optionField("type");
     String id = stringField("id");
     String clientID = stringField("clientID");
     _receiver.registerTerminal(type, id, clientID);
-    
+
   }
 }

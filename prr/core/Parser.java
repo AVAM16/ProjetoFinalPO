@@ -27,40 +27,44 @@ public class Parser {
     _network = network;
   }
 
-  void parseFile(String filename) throws IOException, UnrecognizedEntryException, InvalidTerminalKeyException, UnknownClientKeyException {
+  void parseFile(String filename)
+      throws IOException, UnrecognizedEntryException, InvalidTerminalKeyException, UnknownClientKeyException {
     try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
       String line;
-      
-      while ((line = reader.readLine()) != null){
+
+      while ((line = reader.readLine()) != null) {
         parseLine(line);
       }
     }
   }
-  
-  private void parseLine(String line) throws UnrecognizedEntryException, InvalidTerminalKeyException, UnknownClientKeyException {
+
+  private void parseLine(String line)
+      throws UnrecognizedEntryException, InvalidTerminalKeyException, UnknownClientKeyException {
     String[] components = line.split("\\|");
 
-    switch(components[0]) {
-      case "CLIENT" :
+    switch (components[0]) {
+      case "CLIENT":
         parseClient(components, line);
         break;
       case "BASIC":
-      case "FANCY":
-        parseTerminal(components,line);
         break;
-      case "FRIENDS" :
+      case "FANCY":
+        parseTerminal(components, line);
+        break;
+      case "FRIENDS":
         parseFriends(components, line);
         break;
-      default :
+      default:
         throw new UnrecognizedEntryException("Line with wong type: " + components[0]);
     }
   }
 
-  private void checkComponentsLength(String[] components, int expectedSize, String line) throws UnrecognizedEntryException {
+  private void checkComponentsLength(String[] components, int expectedSize, String line)
+      throws UnrecognizedEntryException {
     if (components.length != expectedSize) // isto originalmente era component.length acho que era um erro
       throw new UnrecognizedEntryException("Invalid number of fields in line: " + line);
   }
-  
+
   // parse a client with format CLIENT|id|nome|taxId
   private void parseClient(String[] components, String line) throws UnrecognizedEntryException {
     checkComponentsLength(components, 4, line);
@@ -76,37 +80,38 @@ public class Parser {
   }
 
   // parse a line with format terminal-type|idTerminal|idClient|state
-  private void parseTerminal(String[] components, String line) throws UnrecognizedEntryException,UnknownClientKeyException{
+  private void parseTerminal(String[] components, String line)
+      throws UnrecognizedEntryException, UnknownClientKeyException {
 
     checkComponentsLength(components, 4, line);
 
     try {
       Terminal terminal = _network.registerTerminal(components[0], components[1], components[2]);
-      switch(components[3]) {
-        case "SILENCE" :
+      switch (components[3]) {
+        case "SILENCE":
           terminal.setOnSilent();
           break;
-        case "OFF" :
+        case "OFF":
           terminal.turnOff(); // isto originalmente era terminal->turnOff(); acho que era um erro
           break;
-        case "ON" :
-          break; 
-        default :
-          throw new UnrecognizedEntryException("Invalid specification in line: " + line); 
+        case "ON":
+          break;
+        default:
+          throw new UnrecognizedEntryException("Invalid specification in line: " + line);
       }
     } catch (InvalidTerminalKeyException | DuplicateTerminalKeyException itke) {
       throw new UnrecognizedEntryException("Invalid specification: " + line, itke);
     }
   }
 
-  //Parse a line with format FRIENDS|idTerminal|idTerminal1,...,idTerminalN
+  // Parse a line with format FRIENDS|idTerminal|idTerminal1,...,idTerminalN
   private void parseFriends(String[] components, String line) throws UnrecognizedEntryException {
     checkComponentsLength(components, 3, line);
-      
+
     try {
       String terminal = components[1];
       String[] friends = components[2].split(",");
-      
+
       for (String friend : friends)
         _network.addFriend(terminal, friend);
     } catch (UnknownTerminalKeyException utke) {
