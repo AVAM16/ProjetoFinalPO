@@ -130,6 +130,10 @@ public class Network implements Serializable {
 
   public Terminal registerTerminal(String type,String id,String clientID) throws InvalidTerminalKeyException, UnknownClientKeyException, DuplicateTerminalKeyException{
 
+    if(id.length() != 6 || !onlyDigits(id,6)){
+      throw new InvalidTerminalKeyException(id);
+    } 
+
     Iterator<Terminal> iter = _terminals.iterator();
     while(iter.hasNext()){
       Terminal terminal = iter.next();
@@ -138,10 +142,6 @@ public class Network implements Serializable {
       }
     }
     
-    if(id.length() != 6 || !onlyDigits(id,6)){
-      throw new InvalidTerminalKeyException(id);
-
-    }
     Terminal terminalNovo = null;
     Client client = findClient(clientID);
     
