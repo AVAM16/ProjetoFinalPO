@@ -45,10 +45,10 @@ public class Network implements Serializable {
    * @throws InvalidTerminalKeyException if there is an invalid terminal key
    * @throws DuplicateClientKeyException if there client key already exists
    * @throws UnknownClientKeyException if the client does not exist
+   * @throws DuplicateTerminalKeyException
    */
 
-  void importFile(String filename) throws UnrecognizedEntryException, IOException , DuplicateClientKeyException, 
-  InvalidTerminalKeyException, UnknownClientKeyException  { /* FIXME maybe other exceptions */
+  void importFile(String filename) throws UnrecognizedEntryException, IOException , InvalidTerminalKeyException, UnknownClientKeyException  { /* FIXME maybe other exceptions */
     //FIXME implement method
     Parser parser = new Parser(this);
     parser.parseFile(filename);
@@ -123,13 +123,12 @@ public class Network implements Serializable {
    * @param id id of the terminal
    * @param clientID the id of the owner of the terminal
    * @returns the created terminal
-   * @throws DuplicateTerminalKeyException if the created terminal already exists
    * @throws InvalidTerminalKeyException if the created terminal has an invalid id
    * @throws UnknownClientKeyException if the client assigned to the terminal does not exist
+   * @throws DuplicateTerminalKeyException
    */
 
-  public Terminal registerTerminal(String type,String id,String clientID) throws InvalidTerminalKeyException,
-  DuplicateTerminalKeyException, UnknownClientKeyException{
+  public Terminal registerTerminal(String type,String id,String clientID) throws InvalidTerminalKeyException, UnknownClientKeyException, DuplicateTerminalKeyException{
 
     Iterator<Terminal> iter = _terminals.iterator();
     while(iter.hasNext()){

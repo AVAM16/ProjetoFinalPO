@@ -97,7 +97,6 @@ public class Parser {
     } catch (InvalidTerminalKeyException | DuplicateTerminalKeyException itke) {
       throw new UnrecognizedEntryException("Invalid specification: " + line, itke);
     }
-
   }
 
   //Parse a line with format FRIENDS|idTerminal|idTerminal1,...,idTerminalN
