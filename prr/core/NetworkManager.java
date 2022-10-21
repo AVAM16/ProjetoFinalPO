@@ -26,47 +26,53 @@ public class NetworkManager {
   /** The network itself. */
   private Network _network = new Network();
   private String _filename;
-  //FIXME  addmore fields if needed
-  
+  // FIXME addmore fields if needed
+
   public NetworkManager() {
     Network._ocurrence = _network;
-}
+  }
 
   public Network getNetwork() {
     return _network;
   }
-  
+
   /**
-   * @param filename name of the file containing the serialized application's state
-   *        to load.
-   * @throws UnavailableFileException if the specified file does not exist or there is
-   *         an error while processing this file.
+   * @param filename name of the file containing the serialized application's
+   *                 state
+   *                 to load.
+   * @throws UnavailableFileException if the specified file does not exist or
+   *                                  there is
+   *                                  an error while processing this file.
    * @throws ClassNotFoundException
    */
   public void load(String filename) throws UnavailableFileException {
-    //FIXME implement serialization method
+    // FIXME implement serialization method
     try (ObjectInputStream objIn = new ObjectInputStream(new FileInputStream(filename))) {
-      _network = (Network)objIn.readObject();
+      _network = (Network) objIn.readObject();
       Network._ocurrence = _network;
-      _filename = (String)objIn.readObject();
-    }
-    catch (IOException e) {
+      _filename = (String) objIn.readObject();
+    } catch (IOException e) {
       throw new UnavailableFileException(filename);
     } catch (ClassNotFoundException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
   }
-  
+
   /**
-   * Saves the serialized application's state into the file associated to the current network.
+   * Saves the serialized application's state into the file associated to the
+   * current network.
    *
-   * @throws FileNotFoundException if for some reason the file cannot be created or opened. 
-   * @throws MissingFileAssociationException if the current network does not have a file.
-   * @throws IOException if there is some error while serializing the state of the network to disk.
+   * @throws FileNotFoundException           if for some reason the file cannot be
+   *                                         created or opened.
+   * @throws MissingFileAssociationException if the current network does not have
+   *                                         a file.
+   * @throws IOException                     if there is some error while
+   *                                         serializing the state of the network
+   *                                         to disk.
    */
   public void save() throws FileNotFoundException, MissingFileAssociationException, IOException {
-    //FIXME implement serialization method
+    // FIXME implement serialization method
     if (_filename == null) {
       throw new MissingFileAssociationException();
     }
@@ -75,22 +81,27 @@ public class NetworkManager {
       obOut.writeObject(_filename);
     }
   }
-  
+
   /**
-   * Saves the serialized application's state into the specified file. The current network is
+   * Saves the serialized application's state into the specified file. The current
+   * network is
    * associated to this file.
    *
    * @param filename the name of the file.
-   * @throws FileNotFoundException if for some reason the file cannot be created or opened.
-   * @throws MissingFileAssociationException if the current network does not have a file.
-   * @throws IOException if there is some error while serializing the state of the network to disk.
+   * @throws FileNotFoundException           if for some reason the file cannot be
+   *                                         created or opened.
+   * @throws MissingFileAssociationException if the current network does not have
+   *                                         a file.
+   * @throws IOException                     if there is some error while
+   *                                         serializing the state of the network
+   *                                         to disk.
    */
   public void saveAs(String filename) throws FileNotFoundException, MissingFileAssociationException, IOException {
-    //FIXME implement serialization method
+    // FIXME implement serialization method
     _filename = filename;
     save();
   }
-  
+
   /**
    * Read text input file and create domain entities..
    * 
@@ -100,14 +111,15 @@ public class NetworkManager {
    * @throws DuplicateClientKeyException
    * @throws UnknownClientKeyException
    */
-  public void importFile(String filename) throws ImportFileException, DuplicateClientKeyException, InvalidTerminalKeyException, UnknownClientKeyException {
+  public void importFile(String filename)
+      throws ImportFileException, DuplicateClientKeyException, InvalidTerminalKeyException, UnknownClientKeyException {
     try {
       _network.importFile(filename);
     } catch (IOException | UnrecognizedEntryException /* FIXME maybe other exceptions */ e) {
       throw new ImportFileException(filename, e);
     }
-  } 
-  
+  }
+
   public boolean hasFilename() {
     return _filename != null;
   }
