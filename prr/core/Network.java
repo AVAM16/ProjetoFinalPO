@@ -106,7 +106,7 @@ public class Network implements Serializable {
    * @returns a boolean
    */
 
-  public static boolean onlyDigits(String key, int comprimento)
+  public boolean onlyDigits(String key, int comprimento)
     {
         for (int i = 0; i < comprimento; i++) {
             if (!Character.isDigit(key.charAt(i))) {
