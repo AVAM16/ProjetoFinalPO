@@ -75,6 +75,7 @@ public class Client implements Serializable{
         return "NO";
       }
     }
+
     //CLIENT|key|name|taxId|type|notifications|terminals|payments|debts
     // tipo-de-notificação|idTerminal
 
@@ -114,7 +115,4 @@ public class Client implements Serializable{
     _notifications.clear();
   }
 
-  //CLIENT|key|name|taxId|type|notifications|terminals|payments|debts
-  // tipo-de-notificação|idTerminal
- 
 }
