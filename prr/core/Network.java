@@ -157,8 +157,8 @@ public class Network implements Serializable {
     
 
     client.addTerminal(terminalNovo);
-    terminalNovo.setClient(client);
     _terminals.add(terminalNovo);
+    terminalNovo.setClient(client);
 
     return terminalNovo;
   }
