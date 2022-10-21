@@ -2,6 +2,7 @@ package pt.tecnico.uilib.menus;
 
 import java.util.function.Predicate;
 
+import prr.core.exception.MissingFileAssociationException;
 import pt.tecnico.uilib.Display;
 import pt.tecnico.uilib.forms.Form;
 
@@ -145,10 +146,14 @@ public abstract class Command<Receiver> {
   /**
    * @throws CommandException
    */
-  public final void performCommand() throws CommandException {
+  public final void performCommand() throws CommandException{
     _display.clear();
     _form.parse();
-    execute();
+    try {
+      execute();
+    } catch (MissingFileAssociationException e) {
+      throw new RuntimeException(e);
+    }
   }
 
   /**
@@ -157,6 +162,6 @@ public abstract class Command<Receiver> {
    * 
    * @throws CommandException if something wrong or unexpected occurs.
    */
-  protected abstract void execute() throws CommandException;
+  protected abstract void execute() throws CommandException, MissingFileAssociationException;
 
 }

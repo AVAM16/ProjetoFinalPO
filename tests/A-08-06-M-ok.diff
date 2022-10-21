@@ -1,27 +1,13 @@
-<<<<<<< HEAD
-*** tests/A-08-06-M-ok.out	2022-10-20 18:23:38.827866900 +0100
---- tests/A-08-06-M-ok.outhyp	2022-10-20 21:56:12.347866900 +0100
-=======
-*** tests/A-08-06-M-ok.out	2022-10-05 21:24:49.000000000 +0100
---- tests/A-08-06-M-ok.outhyp	2022-10-20 21:01:18.295944294 +0100
->>>>>>> f910f102753162229c4b73525e48cf13ba49b500
+*** tests/A-08-06-M-ok.out	2022-10-05 21:24:50.000000000 +0100
+--- tests/A-08-06-M-ok.outhyp	2022-10-21 01:57:36.000000000 +0100
 ***************
-*** 16,25 ****
-  2 - Registar terminal
+*** 17,24 ****
   3 - Operações de terminal
   0 - Sair
-! Escolha uma opção: BASIC|969001|cli001|IDLE|0|0
-! BASIC|969002|cli002|IDLE|0|0
-! BASIC|969003|cli003|IDLE|0|0
-! BASIC|999000|cli001|IDLE|0|0
+  Escolha uma opção: BASIC|969001|cli001|IDLE|0|0
+- BASIC|969002|cli002|IDLE|0|0
+- BASIC|969003|cli003|IDLE|0|0
+  BASIC|999000|cli001|IDLE|0|0
   GESTÃO DE TERMINAIS
   1 - Mostrar todos os terminais
-  2 - Registar terminal
---- 16,22 ----
-  2 - Registar terminal
-  3 - Operações de terminal
-  0 - Sair
-! Escolha uma opção: BASIC|999000|cli001|IDLE|0|0
-  GESTÃO DE TERMINAIS
-  1 - Mostrar todos os terminais
-  2 - Registar terminal
+--- 17,22 ----

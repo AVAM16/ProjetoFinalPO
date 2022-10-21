@@ -21,8 +21,8 @@ class DoRegisterTerminal extends Command<Network> {
   @Override
   protected final void execute() throws CommandException {
     //FIXME implement command
-    String id = stringField("id");
     String type = optionField("type");
+    String id = stringField("id");
     String clientID = stringField("clientID");
     _receiver.registerTerminal(type, id, clientID);
     

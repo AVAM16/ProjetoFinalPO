@@ -25,14 +25,14 @@ public class Network implements Serializable {
  
   // FIXME define attributes
   private static final long serialVersionUID = 202208091753L;
-  private static ArrayList<Client> _clients;
-  private static ArrayList<Terminal> _terminals;
+  private  ArrayList<Client> _clients;
+  private  ArrayList<Terminal> _terminals;
   static Network _ocurrence;
   
   // FIXME define contructor(s)
   public Network(){
-    Network._clients = new ArrayList<>();
-    Network._terminals = new ArrayList<>();
+    _clients = new ArrayList<>();
+    _terminals = new ArrayList<>();
   }
   // FIXME define methods
   

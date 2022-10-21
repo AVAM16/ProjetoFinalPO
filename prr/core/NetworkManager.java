@@ -6,6 +6,7 @@ import java.io.ObjectOutputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.util.List;
 
 import prr.app.exception.DuplicateClientKeyException;
 import prr.app.exception.InvalidTerminalKeyException;
@@ -46,6 +47,7 @@ public class NetworkManager {
     //FIXME implement serialization method
     try (ObjectInputStream objIn = new ObjectInputStream(new FileInputStream(filename))) {
       _network = (Network)objIn.readObject();
+      List<Client> s = _network.getClients();
       Network._ocurrence = _network;
       _filename = (String)objIn.readObject();
     }

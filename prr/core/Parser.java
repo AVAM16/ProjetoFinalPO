@@ -40,10 +40,17 @@ public class Parser {
     String[] components = line.split("\\|");
 
     switch(components[0]) {
-      case "CLIENT" -> parseClient(components, line);
-      case "BASIC", "FANCY" -> parseTerminal(components, line);
-      case "FRIENDS" -> parseFriends(components, line);
-      default -> throw new UnrecognizedEntryException("Line with wong type: " + components[0]);
+      case "CLIENT" :
+        parseClient(components, line);
+        break;
+      case "BASIC":
+        parseTerminal(components, line);
+      case "FANCY":
+        parseTerminal(components,line);
+      case "FRIENDS" :
+        parseFriends(components, line);
+      default :
+        throw new UnrecognizedEntryException("Line with wong type: " + components[0]);
     }
   }
 
@@ -75,21 +82,19 @@ public class Parser {
     try {
       Terminal terminal = _network.registerTerminal(components[0], components[1], components[2]);
       switch(components[3]) {
-        case "SILENCE" -> terminal.setOnSilent();
-        case "OFF" -> terminal.turnOff(); // isto originalmente era terminal->turnOff(); acho que era um erro
-        default -> {
+        case "SILENCE" :
+          terminal.setOnSilent();
+        case "OFF" :
+          terminal.turnOff(); // isto originalmente era terminal->turnOff(); acho que era um erro
+        default : {
          if (!components[3].equals("ON"))
            throw new UnrecognizedEntryException("Invalid specification in line: " + line);
         } 
       }
-    } catch (InvalidTerminalKeyException itke) {
+    } catch (InvalidTerminalKeyException | DuplicateTerminalKeyException itke) {
       throw new UnrecognizedEntryException("Invalid specification: " + line, itke);
     }
 
-     catch (DuplicateTerminalKeyException dtke) {
-      throw new UnrecognizedEntryException("Invalid specification: " + line, dtke);
-    }
-    
   }
 
   //Parse a line with format FRIENDS|idTerminal|idTerminal1,...,idTerminalN
