@@ -121,10 +121,11 @@ public class Network implements Serializable {
         throw new DuplicateTerminalKeyException(id);
       }
     }
-
-    client.addTerminal(terminalNovo);
-    terminalNovo.setClient(client);
     _terminals.add(terminalNovo);
+    terminalNovo.setClient(client);
+    client.addTerminal(terminalNovo);
+    
+    
 
     return terminalNovo;
   }

@@ -27,16 +27,17 @@ public class Parser {
     _network = network;
   }
 
-  void parseFile(String filename) throws IOException, UnrecognizedEntryException, DuplicateClientKeyException, InvalidTerminalKeyException, UnknownClientKeyException {
+  void parseFile(String filename) throws IOException, UnrecognizedEntryException, InvalidTerminalKeyException, UnknownClientKeyException {
     try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
       String line;
       
-      while ((line = reader.readLine()) != null)
+      while ((line = reader.readLine()) != null){
         parseLine(line);
+      }
     }
   }
   
-  private void parseLine(String line) throws UnrecognizedEntryException, DuplicateClientKeyException, InvalidTerminalKeyException, UnknownClientKeyException {
+  private void parseLine(String line) throws UnrecognizedEntryException, InvalidTerminalKeyException, UnknownClientKeyException {
     String[] components = line.split("\\|");
 
     switch(components[0]) {
@@ -44,11 +45,12 @@ public class Parser {
         parseClient(components, line);
         break;
       case "BASIC":
-        parseTerminal(components, line);
       case "FANCY":
         parseTerminal(components,line);
+        break;
       case "FRIENDS" :
         parseFriends(components, line);
+        break;
       default :
         throw new UnrecognizedEntryException("Line with wong type: " + components[0]);
     }
@@ -60,7 +62,7 @@ public class Parser {
   }
   
   // parse a client with format CLIENT|id|nome|taxId
-  private void parseClient(String[] components, String line) throws UnrecognizedEntryException,DuplicateClientKeyException {
+  private void parseClient(String[] components, String line) throws UnrecognizedEntryException {
     checkComponentsLength(components, 4, line);
 
     try {
@@ -74,8 +76,7 @@ public class Parser {
   }
 
   // parse a line with format terminal-type|idTerminal|idClient|state
-  private void parseTerminal(String[] components, String line) throws 
-    UnrecognizedEntryException,UnknownClientKeyException{
+  private void parseTerminal(String[] components, String line) throws UnrecognizedEntryException,UnknownClientKeyException{
 
     checkComponentsLength(components, 4, line);
 
@@ -84,12 +85,14 @@ public class Parser {
       switch(components[3]) {
         case "SILENCE" :
           terminal.setOnSilent();
+          break;
         case "OFF" :
           terminal.turnOff(); // isto originalmente era terminal->turnOff(); acho que era um erro
-        default : {
-         if (!components[3].equals("ON"))
-           throw new UnrecognizedEntryException("Invalid specification in line: " + line);
-        } 
+          break;
+        case "ON" :
+          break; 
+        default :
+          throw new UnrecognizedEntryException("Invalid specification in line: " + line); 
       }
     } catch (InvalidTerminalKeyException | DuplicateTerminalKeyException itke) {
       throw new UnrecognizedEntryException("Invalid specification: " + line, itke);
