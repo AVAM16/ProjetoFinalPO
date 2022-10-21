@@ -47,7 +47,6 @@ public class NetworkManager {
     //FIXME implement serialization method
     try (ObjectInputStream objIn = new ObjectInputStream(new FileInputStream(filename))) {
       _network = (Network)objIn.readObject();
-      List<Client> s = _network.getClients();
       Network._ocurrence = _network;
       _filename = (String)objIn.readObject();
     }
