@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Abstract terminal.
  */
-abstract public class Terminal implements Serializable /* FIXME maybe addd more interfaces */ {
+abstract public class Terminal implements Serializable /* FIXME maybe addd more interfaces */{
 
   /** Serial number for serialization. */
   private static final long serialVersionUID = 202208091753L;
@@ -24,9 +24,9 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
   private List<Communication> _communicationsReceived;
   private List<Communication> _communicationsMade;
   private TerminalMode _mode;
-
+  
   // FIXME define contructor(s)
-  public Terminal(String id) {
+  public Terminal(String  id){
     this._id = id;
     this._client = null;
     this._payments = new ArrayList<>();
@@ -38,98 +38,98 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
   }
   // FIXME define methods
 
-  // gets
+  //gets
 
-  public String getID() {
+  public String getID(){
     return this._id;
   }
 
-  public Client getClient() {
+  public Client getClient(){
     return this._client;
   }
 
-  public String getModeDisplay() {
-    if (_mode == TerminalMode.ON) {
+  public String getModeDisplay(){
+    if(_mode == TerminalMode.ON){
       return "IDLE";
     }
 
     return _mode.toString();
   }
 
-  public List<Communication> getPayments() {
+  public List<Communication> getPayments(){
     return this._payments;
   }
 
-  public List<Communication> getDepts() {
+  public List<Communication> getDepts(){
     return this._depts;
   }
 
-  public int getValue(List<Communication> list) {
-    double sum = 0;
+  public int getValue(List<Communication> list){
+    double sum=0;
     Iterator<Communication> iter = list.iterator();
-    while (iter.hasNext()) {
-      Communication communication = iter.next();
-      sum = sum + communication.getCost();
+    while(iter.hasNext()){
+        Communication communication = iter.next();
+        sum = sum + communication.getCost();
     }
-    return (int) Math.round(sum);
+    return (int)Math.round(sum);
   }
 
-  public String getFriends() {
-    String friends = "|";
-    if (_friends.size() > 0) {
+  public String getFriends(){
+    String friends="|";
+    if(_friends.size()>0){
       Iterator<Terminal> iter = _friends.iterator();
-      while (iter.hasNext()) {
+      while(iter.hasNext()){
         Terminal friend = iter.next();
-        friends = friends + friend + ",";
-      }
-      return friends.substring(0, friends.length() - 1);
+        friends=friends + friend+",";
     }
-    friends = "";
-    return friends;
+    return friends.substring(0, friends.length()-1);
+  }
+  friends="";
+  return friends;
   }
 
-  // sets
-  public void setClient(Client client) {
-    this._client = client;
+  //sets
+  public void setClient(Client client){
+    this._client=client;
   }
 
-  // isto nao esta void porque e assim que a clase parser quer estes metodos
+  // isto nao esta void porque e assim que a clase parser quer estes metodos 
   public TerminalMode setOnSilent() {
-    _mode = TerminalMode.SILENCE;
+    _mode=TerminalMode.SILENCE;
     return _mode;
   }
-
+  
   public TerminalMode turnOff() {
-    _mode = TerminalMode.OFF;
+    _mode=TerminalMode.OFF;
     return _mode;
-  }
+  } 
 
-  // add
-  public void addFriend(Terminal terminal) {
+  //add
+  public void addFriend(Terminal terminal){
     _friends.add(terminal);
   }
 
   // Is
-  public boolean isUnused() {
-    return _communicationsMade.size() == 0 && _communicationsReceived.size() == 0;
+  public boolean isUnused(){
+    return _communicationsMade.size()==0 && _communicationsReceived.size()==0;
   }
 
-  // other methods
-  // terminalType|terminalId|clientId|terminalStatus|balance-paid|balance-debts|friend1,...,friend
+  //other methods
+  //terminalType|terminalId|clientId|terminalStatus|balance-paid|balance-debts|friend1,...,friend
   abstract public String showTerminal();
 
+  
   /**
    * Checks if this terminal can end the current interactive communication.
    *
-   * @return true if this terminal is busy (i.e., it has an active interactive
-   *         communication) and
-   *         it was the originator of this communication.
+   * @return true if this terminal is busy (i.e., it has an active interactive communication) and
+   *          it was the originator of this communication.
    **/
   public boolean canEndCurrentCommunication() {
     // FIXME add implementation code
     return false;
   }
-
+  
   /**
    * Checks if this terminal can start a new communication.
    *
@@ -140,4 +140,5 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     return true;
   }
 
+ 
 }
