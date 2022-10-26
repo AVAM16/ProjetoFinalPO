@@ -2,14 +2,10 @@ package prr.app.client;
 
 import prr.core.Client;
 import prr.core.Network;
-
-import java.util.ArrayList;
 import java.util.List;
-
 import prr.app.exception.UnknownClientKeyException;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
-import prr.core.Notifications;
 //FIXME add more imports if needed
 
 /**

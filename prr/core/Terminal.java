@@ -3,7 +3,6 @@ package prr.core;
 import java.io.Serializable;
 import java.util.Iterator;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 // FIXME add more import if needed (cannot import from pt.tecnico or prr.app)

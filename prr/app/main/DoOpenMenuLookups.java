@@ -1,6 +1,5 @@
 package prr.app.main;
 
-import prr.core.Network;
 import prr.core.NetworkManager;
 import pt.tecnico.uilib.menus.Command;
 
@@ -18,4 +17,3 @@ class DoOpenMenuLookups extends Command<NetworkManager> {
     (new prr.app.lookup.Menu(_receiver.getNetwork())).open();
   }
 }
-
