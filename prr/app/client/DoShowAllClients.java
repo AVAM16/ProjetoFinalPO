@@ -2,8 +2,6 @@ package prr.app.client;
 
 import prr.core.Network;
 
-import java.util.List;
-
 import prr.core.Client;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
