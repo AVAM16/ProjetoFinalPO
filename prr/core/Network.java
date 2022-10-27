@@ -176,10 +176,10 @@ public class Network implements Serializable {
     Iterator<Terminal> iter = _terminals.iterator();
     while(iter.hasNext() && (terminalWantsFriend==null || terminalIsFriend==null)){
       Terminal currentTerminal = iter.next();
-      if(currentTerminal.getID()==terminal){
+      if(currentTerminal.getID().equals(terminal)){
         terminalWantsFriend = currentTerminal;
       }
-      if(currentTerminal.getID()==friend){
+      if(currentTerminal.getID().equals(friend)){
         terminalIsFriend = currentTerminal;
       }
     }
