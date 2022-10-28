@@ -30,16 +30,16 @@ public class Network implements Serializable {
  
   // FIXME define attributes
   private static final long serialVersionUID = 202208091753L;
-  private  ArrayList<Terminal> _terminals;
   private ArrayList<Communication> _communications;
   private  TreeMap<String, Client> _clients;
+  private  TreeMap<String, Terminal> _terminals;
   static Network _ocurrence;
   
   // FIXME define contructor(s)
   public Network(){
-    _terminals = new ArrayList<>();
     _communications = new ArrayList<>();
     _clients = new TreeMap<>(new IdComparator());
+    _terminals = new TreeMap<>(new IdComparator());
   }
   // FIXME define methods
   
@@ -81,8 +81,9 @@ public class Network implements Serializable {
   public Client findClient(String key) throws UnknownClientKeyException{
     if (_clients.containsKey(key)){
       return _clients.get(key);
-    }
+    } else{
     throw new UnknownClientKeyException(key);
+    }
   }
 
   public Client getClient(String key){
@@ -145,12 +146,8 @@ public class Network implements Serializable {
 
   public Terminal registerTerminal(String type,String id,String clientID) throws InvalidTerminalKeyException, UnknownClientKeyException, DuplicateTerminalKeyException{
 
-    Iterator<Terminal> iter = _terminals.iterator();
-    while(iter.hasNext()){
-      Terminal terminal = iter.next();
-      if(id.equals(terminal.getID())){
-        throw new DuplicateTerminalKeyException(id);
-      }
+    if (_clients.containsKey(id)){
+      throw new DuplicateTerminalKeyException(id);
     }
     
     if(id.length() != 6 || !onlyDigits(id,6)){
@@ -171,7 +168,7 @@ public class Network implements Serializable {
     
 
     client.addTerminal(terminalNovo);
-    _terminals.add(terminalNovo);
+    _terminals.put(id, terminalNovo);
     terminalNovo.setClient(client);
 
     return terminalNovo;
@@ -188,7 +185,7 @@ public class Network implements Serializable {
   public void addFriend(String terminal, String friend) throws UnknownTerminalKeyException{
     Terminal terminalWantsFriend=null;
     Terminal terminalIsFriend=null;
-    Iterator<Terminal> iter = _terminals.iterator();
+    Iterator<Terminal> iter = _terminals.values().iterator();
     while(iter.hasNext() && (terminalWantsFriend==null || terminalIsFriend==null)){
       Terminal currentTerminal = iter.next();
       if(currentTerminal.getID().equals(terminal)){
@@ -219,12 +216,11 @@ public class Network implements Serializable {
    * @throws UnknownClientKeyException if the terminal does not exist
    */
   public Terminal findTerminal(String id) throws UnknownTerminalKeyException{
-    for(Terminal t: _terminals){
-      if(id.equals(t.getID())){
-        return t;
-      }
-    }
+    if (_terminals.containsKey(id)){
+      return _terminals.get(id);
+    } else{
     throw new UnknownTerminalKeyException(id);
+    }
   }
 
    /**
@@ -251,7 +247,9 @@ public class Network implements Serializable {
    * @returns the terminals
    */
   public List<Terminal> getTerminals(){
-    return Collections.unmodifiableList(_terminals);
+    Collection<Terminal> orderedterminals = _terminals.values();
+    ArrayList<Terminal> orderedlist = new ArrayList<>(orderedterminals);
+    return Collections.unmodifiableList(orderedlist);
   }
 
   //private  TreeMap<String, Client> _clients; 
