@@ -11,11 +11,17 @@ Escolha uma opção: GESTÃO DE TERMINAIS
 2 - Registar terminal
 3 - Operações de terminal
 0 - Sair
-Escolha uma opção: BASIC|999002|cli004|IDLE|0|0
-BASIC|969001|cli002|IDLE|0|0
-BASIC|963001|cli001|IDLE|0|0
-BASIC|969012|cli201|IDLE|0|0
-BASIC|969003|cli003|IDLE|0|0
+Escolha uma opção: Número do terminal: Tipo de terminal (BASIC ou FANCY): Identificador do cliente: GESTÃO DE TERMINAIS
+1 - Mostrar todos os terminais
+2 - Registar terminal
+3 - Operações de terminal
+0 - Sair
+Escolha uma opção: Número do terminal: Tipo de terminal (BASIC ou FANCY): Identificador do cliente: GESTÃO DE TERMINAIS
+1 - Mostrar todos os terminais
+2 - Registar terminal
+3 - Operações de terminal
+0 - Sair
+Escolha uma opção: FANCY|100009|cli002|IDLE|0|0
 GESTÃO DE TERMINAIS
 1 - Mostrar todos os terminais
 2 - Registar terminal
