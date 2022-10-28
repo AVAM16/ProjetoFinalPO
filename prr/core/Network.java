@@ -27,12 +27,14 @@ public class Network implements Serializable {
   private static final long serialVersionUID = 202208091753L;
   private  ArrayList<Client> _clients;
   private  ArrayList<Terminal> _terminals;
+  private ArrayList<Communication> _communications;
   static Network _ocurrence;
   
   // FIXME define contructor(s)
   public Network(){
     _clients = new ArrayList<>();
     _terminals = new ArrayList<>();
+    _communications = new ArrayList<>();
   }
   // FIXME define methods
   
@@ -219,6 +221,17 @@ public class Network implements Serializable {
 
   public List<Client> getClients(){
     return Collections.unmodifiableList(_clients);
+  }
+
+  public List<Communication> getComms(){
+    return Collections.unmodifiableList(_communications);
+  }
+
+  public ArrayList<Client> getClientsWithDepts(){
+    ArrayList<Client> clients = new ArrayList<>();
+    for(Client c : _clients){
+      if(c.get)
+    }
   }
 
   /**

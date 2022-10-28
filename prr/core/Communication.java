@@ -10,11 +10,14 @@ abstract public class Communication implements Serializable{
     private double _cost;
     private boolean _isOngoing;
     private CommunicationType _type;
+    private int _duration; //units
 
     public Communication(String id,Terminal terminalOrigin,Terminal terminalDestination){
         this._id = id;
         this._terminalOrigin = terminalOrigin;
         this._terminalDestination = terminalDestination;
+        this._cost=0;
+        this._duration=0;
     }
 
     //gets
@@ -35,6 +38,21 @@ abstract public class Communication implements Serializable{
         return this._cost;
     }
 
+    public String getType(){
+        return _type.toString();
+    }
+
+    public int getUnits(){
+        return _duration;
+    }
+
+    public String getStatus(){
+        if(_isOngoing){
+            return "ONGOING";
+        }
+        return "FINISHED";
+    }
+
     public boolean isOngoing(){
         return this._isOngoing;
     }
@@ -44,5 +62,13 @@ abstract public class Communication implements Serializable{
 
     public void setCost(Double cost){
         this._cost = cost;
+    }
+
+    //show type|idCommunication|idSender|idReceiver|units|price|status
+    public String showCommunication(){
+       String com = String.format("%s|%d|%s|%s|%d|%d|%s",getType(),getID(),_terminalOrigin.getID(),
+       _terminalDestination.getID(),getUnits(),getCost(),getStatus());
+
+        return com;
     }
 }

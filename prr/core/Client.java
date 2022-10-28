@@ -53,6 +53,10 @@ public class Client implements Serializable {
     return this._level.toString();
   }
 
+  public List<Communication> getComsMade(){
+    return _communicationsMade;
+  }
+
   public int getValue(List<Communication> list) {
     double sum = 0;
     Iterator<Communication> iter = list.iterator();
@@ -112,6 +116,12 @@ public class Client implements Serializable {
 
   public void clearNotifications() {
     _notifications.clear();
+  }
+
+  //is
+
+  public boolean isDebtor(){
+    return _communicationsDept.size()>0;
   }
 
 }
