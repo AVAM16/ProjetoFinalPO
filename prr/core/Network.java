@@ -2,9 +2,12 @@ package prr.core;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
+import java.util.TreeMap;
 import java.io.IOException;
 
 import prr.app.exception.DuplicateClientKeyException;
@@ -25,14 +28,14 @@ public class Network implements Serializable {
  
   // FIXME define attributes
   private static final long serialVersionUID = 202208091753L;
-  private  ArrayList<Client> _clients;
   private  ArrayList<Terminal> _terminals;
+  private  TreeMap<String, Client> _clients;
   static Network _ocurrence;
   
   // FIXME define contructor(s)
   public Network(){
-    _clients = new ArrayList<>();
     _terminals = new ArrayList<>();
+    _clients = new TreeMap<>(new IdComparator());
   }
   // FIXME define methods
   
@@ -46,7 +49,13 @@ public class Network implements Serializable {
    * @throws DuplicateClientKeyException if there client key already exists
    * @throws UnknownClientKeyException if the client does not exist
    * @throws DuplicateTerminalKeyException
-   */
+  */
+
+  public static class IdComparator implements Comparator<String>, Serializable{
+    public int compare (String id1, String id2) {
+        return id1.compareTo(id2);
+    }
+  }
 
   void importFile(String filename) throws UnrecognizedEntryException, IOException , InvalidTerminalKeyException, UnknownClientKeyException  { /* FIXME maybe other exceptions */
     //FIXME implement method
@@ -66,10 +75,8 @@ public class Network implements Serializable {
    */
 
   public Client findClient(String key) throws UnknownClientKeyException{
-    for(Client c: _clients){
-      if(key.equals(c.getKey())){
-        return c;
-      }
+    if (_clients.containsKey(key)){
+      return _clients.get(key);
     }
     throw new UnknownClientKeyException(key);
   }
@@ -85,15 +92,12 @@ public class Network implements Serializable {
 
   public void registerClient(String key, String name, int taxNumber) throws DuplicateClientKeyException {
     Client newClient = new Client(key, name, taxNumber);
-    Iterator<Client> iter = _clients.iterator();
-    while(iter.hasNext()){
-      Client client = iter.next();
-      if(key.equals(client.getKey())){
-        throw new DuplicateClientKeyException(key);
-      }
+    if (_clients.containsKey(key)){
+      throw new DuplicateClientKeyException(key);
     }
-    _clients.add(newClient);
-  }
+    _clients.put(key, newClient);
+  }   
+    
 
 
   /*-------METODOS DOS TERMINAIS------*/
@@ -218,7 +222,9 @@ public class Network implements Serializable {
    */
 
   public List<Client> getClients(){
-    return Collections.unmodifiableList(_clients);
+    Collection<Client> orderedclients = _clients.values();
+    ArrayList<Client> orderedlist = new ArrayList<>(orderedclients);
+    return Collections.unmodifiableList(orderedlist);
   }
 
   /**
