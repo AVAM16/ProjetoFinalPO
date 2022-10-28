@@ -1,12 +1,14 @@
 package prr.core;
 
 import java.io.Serializable;
+import java.security.KeyStore.Entry;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.TreeMap;
 import java.io.IOException;
 
@@ -81,6 +83,13 @@ public class Network implements Serializable {
       return _clients.get(key);
     }
     throw new UnknownClientKeyException(key);
+  }
+
+  public Client getClient(String key){
+    if (_clients.containsKey(key)){
+      return _clients.get(key);
+    }
+    return null;
   }
 
   /**
@@ -233,6 +242,8 @@ public class Network implements Serializable {
     return Collections.unmodifiableList(_communications);
   }
 
+
+
   
 
   /**
@@ -241,6 +252,29 @@ public class Network implements Serializable {
    */
   public List<Terminal> getTerminals(){
     return Collections.unmodifiableList(_terminals);
+  }
+
+  //private  TreeMap<String, Client> _clients; 
+  // isto e capaz de estar errado no compare
+  public ArrayList<Client> getClientsWithDepts(){
+    ArrayList<Client> clients = new ArrayList<>();
+    for(Map.Entry<String, Client> entry : _clients.entrySet()){
+      if(entry.getValue().isDebtor()){
+        clients.add(entry.getValue());
+      }
+    }
+    Collections.sort(clients,new Comparator<Client>(){
+      public int compare(Client a, Client b){
+        if(a.getDeptsSum()>b.getDeptsSum()){
+          return -1;
+        }
+        else{
+          return 1;
+        }
+      }
+    });
+    
+    return clients;
   }
 
 }

@@ -57,6 +57,11 @@ public class Client implements Serializable {
     return _communicationsMade;
   }
 
+  public List<Communication> getComsReceived(){
+    return _communicationsReceived;
+  }
+
+  
   public int getValue(List<Communication> list) {
     double sum = 0;
     Iterator<Communication> iter = list.iterator();
@@ -65,6 +70,10 @@ public class Client implements Serializable {
       sum = sum + communication.getCost();
     }
     return (int) Math.round(sum);
+  }
+  
+  public int getDeptsSum(){
+    return getValue(_communicationsDept);
   }
 
   public int getTerminals() {
