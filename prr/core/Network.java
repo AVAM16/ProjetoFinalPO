@@ -155,8 +155,7 @@ public class Network implements Serializable {
 
     }
     Terminal terminalNovo = null;
-    Client client = findClient(clientID);
-    
+    Client client = findClient(clientID);  
    
     if(type.equals("FANCY")){
       terminalNovo = new FancyTerminal(id);   

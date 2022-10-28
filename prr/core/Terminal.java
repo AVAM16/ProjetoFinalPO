@@ -48,6 +48,10 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     return this._client;
   }
 
+  public double getBalance(){
+    return getValue(_payments) - getValue(_depts);
+  }
+
   public String getModeDisplay() {
     if (_mode == TerminalMode.ON) {
       return "IDLE";
