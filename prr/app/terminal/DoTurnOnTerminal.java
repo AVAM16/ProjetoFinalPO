@@ -22,10 +22,13 @@ class DoTurnOnTerminal extends TerminalCommand {
     //FIXME implement command
     String id = stringField("id");
     Terminal terminal = _network.findTerminal(id);
-    if(terminal.getModeDisplay().equals("OFF")){
-      _display.addLine(Message.alreadyOn());
+    if(terminal.getModeDisplay().equals("ON")){
+      _display.popup(Message.alreadyOn());
+      _display.display();
     }
-    _display.display();
+    else{
+      terminal.turnOn();
+    }
 
   }
 }

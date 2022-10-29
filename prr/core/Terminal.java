@@ -108,6 +108,16 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     return _mode;
   }
 
+  public TerminalMode turnOn() {
+    _mode = TerminalMode.ON;
+    return _mode;
+  }
+
+  public TerminalMode turnSilence() {
+    _mode = TerminalMode.SILENCE;
+    return _mode;
+  }
+
   // add
   public void addFriend(Terminal terminal) {
     _friends.add(terminal);
