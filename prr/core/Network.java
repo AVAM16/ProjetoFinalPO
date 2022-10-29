@@ -82,7 +82,7 @@ public class Network implements Serializable {
     if (_clients.containsKey(key)){
       return _clients.get(key);
     } else{
-    throw new UnknownClientKeyException(key);
+      throw new UnknownClientKeyException(key);
     }
   }
 
@@ -218,7 +218,7 @@ public class Network implements Serializable {
     if (_terminals.containsKey(id)){
       return _terminals.get(id);
     } else{
-    throw new UnknownTerminalKeyException(id);
+      throw new UnknownTerminalKeyException(id);
     }
   }
 
