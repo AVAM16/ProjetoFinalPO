@@ -10,4 +10,5 @@ public class VideoCommunication extends InteractiveCommunication{
     //para a versao intermedia ainda nao e necessario
     return 0;
   }
+
 }

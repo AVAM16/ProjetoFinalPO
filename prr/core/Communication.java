@@ -10,14 +10,14 @@ abstract public class Communication implements Serializable{
     private double _cost;
     private boolean _isOngoing;
     private CommunicationType _type;
-    private int _duration; //units
+    private int _units; //units e o os minutos os a lenght da mensagem
 
     public Communication(String id,Terminal terminalOrigin,Terminal terminalDestination){
         this._id = id;
         this._terminalOrigin = terminalOrigin;
         this._terminalDestination = terminalDestination;
         this._cost=0;
-        this._duration=0;
+        this._units=0;
     }
 
     //gets
@@ -43,7 +43,7 @@ abstract public class Communication implements Serializable{
     }
 
     public int getUnits(){
-        return _duration;
+        return _units;
     }
 
     public String getStatus(){
@@ -56,6 +56,7 @@ abstract public class Communication implements Serializable{
     public boolean isOngoing(){
         return this._isOngoing;
     }
+
 
 
     //sets
