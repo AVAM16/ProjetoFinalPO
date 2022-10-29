@@ -146,7 +146,7 @@ public class Network implements Serializable {
 
   public Terminal registerTerminal(String type,String id,String clientID) throws InvalidTerminalKeyException, UnknownClientKeyException, DuplicateTerminalKeyException{
 
-    if (_clients.containsKey(id)){
+    if (_terminals.containsKey(id)){
       throw new DuplicateTerminalKeyException(id);
     }
     
