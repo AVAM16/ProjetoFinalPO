@@ -4,8 +4,8 @@ public class GoldPlan extends TariffPlan{
     private Client _client;
     private Communication _communication;
 
-    public GoldPlan(Communication communication, Client client) {
-        super(communication, client);
+    public GoldPlan(String name, Communication communication, Client client) {
+        super(name, communication, client);
     }
 
     @Override

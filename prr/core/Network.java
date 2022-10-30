@@ -30,9 +30,10 @@ public class Network implements Serializable {
  
   // FIXME define attributes
   private static final long serialVersionUID = 202208091753L;
-  private ArrayList<Communication> _communications;
-  private  TreeMap<String, Client> _clients;
-  private  TreeMap<String, Terminal> _terminals;
+  private List<Communication> _communications;
+  private TreeMap<String, Client> _clients;
+  private TreeMap<String, Terminal> _terminals;
+  private List<TariffPlan> _tariffPlans;
   static Network _ocurrence;
   
   // FIXME define contructor(s)
@@ -40,6 +41,7 @@ public class Network implements Serializable {
     _communications = new ArrayList<>();
     _clients = new TreeMap<>(new IdComparator());
     _terminals = new TreeMap<>(new IdComparator());
+    _tariffPlans = new ArrayList<>();
   }
   // FIXME define methods
   

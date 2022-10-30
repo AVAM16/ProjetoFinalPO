@@ -17,7 +17,7 @@ public class Client implements Serializable {
   private List<Communication> _communicationsMade;
   private List<Communication> _communicationsPaid;
   private List<Communication> _communicationsDept;
-  private List<Notifications> _notifications;
+  private List<Notification> _notifications;
   private TariffPlan _plan;
   private List<Terminal> _terminals;
 
@@ -102,14 +102,14 @@ public class Client implements Serializable {
 
   public List<String> showClientNotifications() {
     LinkedList<String> notifications = new LinkedList<>();
-    for (Notifications notification : _notifications) {
+    for (Notification notification : _notifications) {
       notifications.add(String.format("%s|%s", notification.getType().toString(), notification.getTeminalOrigin()));
     }
     _notifications.clear();
     return notifications;
   }
 
-  public List<Notifications> getNotifications() {
+  public List<Notification> getNotifications() {
     return _notifications;
   }
 
@@ -119,7 +119,7 @@ public class Client implements Serializable {
   }
 
   public void addNotification(Communication communication, Client client, NotificationType type) {
-    Notifications notification = new Notifications(communication, client, type);
+    Notification notification = new Notification(communication, client, type);
     _notifications.add(notification);
   }
 

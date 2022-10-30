@@ -24,6 +24,8 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
   private List<Communication> _communicationsReceived;
   private List<Communication> _communicationsMade;
   private TerminalMode _mode;
+  private InteractiveCommunication _ongoingCommunication;
+  private List<Client> _toNotify;
 
   // FIXME define contructor(s)
   public Terminal(String id) {
@@ -35,6 +37,7 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     this._communicationsMade = new ArrayList<>();
     this._friends = new LinkedList<>();
     this._mode = TerminalMode.ON;
+    this._toNotify = new ArrayList<>();
   }
   // FIXME define methods
 

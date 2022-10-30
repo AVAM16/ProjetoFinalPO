@@ -4,8 +4,8 @@ public class PlatinumPlan extends TariffPlan{
     private Client _client;
     private Communication _communication;
 
-    public PlatinumPlan(Communication communication, Client client) {
-        super(communication, client);
+    public PlatinumPlan(String name, Communication communication, Client client) {
+        super(name, communication, client);
     }
 
     @Override
