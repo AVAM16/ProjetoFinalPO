@@ -93,6 +93,13 @@ public class Network implements Serializable {
     return null;
   }
 
+  public boolean isRealClients(String key1,String key2){
+    if (_clients.containsKey(key1) && _clients.containsKey(key2)){
+      return true;
+    }
+    return false;
+  }
+
   /**
    * Registers the client.
    * 
@@ -230,6 +237,8 @@ public class Network implements Serializable {
     }
   }
 
+
+
    /**
    * Returns a Collection of all the clients.
    * @returns the clients
@@ -273,8 +282,12 @@ public class Network implements Serializable {
         if(a.getDeptsSum()>b.getDeptsSum()){
           return -1;
         }
-        else{
+        else if(a.getDeptsSum()<b.getDeptsSum()) {
           return 1;
+        }
+
+        else{
+          return a.getKey().compareToIgnoreCase(b.getKey());
         }
       }
     });

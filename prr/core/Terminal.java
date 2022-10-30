@@ -33,7 +33,7 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     this._depts = new ArrayList<>();
     this._communicationsReceived = new ArrayList<>();
     this._communicationsMade = new ArrayList<>();
-    this._friends = new ArrayList<>();
+    this._friends = new LinkedList<>();
     this._mode = TerminalMode.ON;
   }
   // FIXME define methods
@@ -92,6 +92,10 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     return friends;
   }
 
+  public List<Terminal> getFriendslist(){
+    return _friends;
+  }
+
   // sets
   public void setClient(Client client) {
     this._client = client;
@@ -121,6 +125,10 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
   // add
   public void addFriend(Terminal terminal) {
     _friends.add(terminal);
+  }
+
+  public void removeFriend(Terminal terminal){
+    _friends.remove(terminal);
   }
 
   // Is
