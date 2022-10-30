@@ -34,7 +34,7 @@ public class Network implements Serializable {
   private TreeMap<String, Client> _clients;
   private TreeMap<String, Terminal> _terminals;
   private List<TariffPlan> _tariffPlans;
-  static Network _ocurrence;
+  private static Network _ocurrence;
   
   // FIXME define contructor(s)
   public Network(){
@@ -45,6 +45,11 @@ public class Network implements Serializable {
   }
   // FIXME define methods
   
+  public static void getConnection(){
+    if ( _ocurrence == null)
+      _ocurrence = new Network();
+  }
+
   /**
    * Read text input file and create corresponding domain entities.
    * 

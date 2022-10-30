@@ -29,7 +29,7 @@ public class NetworkManager {
   // FIXME addmore fields if needed
 
   public NetworkManager() {
-    Network._ocurrence = _network;
+    Network.getConnection();
   }
 
   public Network getNetwork() {
@@ -49,7 +49,7 @@ public class NetworkManager {
     // FIXME implement serialization method
     try (ObjectInputStream objIn = new ObjectInputStream(new FileInputStream(filename))) {
       _network = (Network) objIn.readObject();
-      Network._ocurrence = _network;
+      Network.getConnection();
       _filename = (String) objIn.readObject();
     } catch (IOException e) {
       throw new UnavailableFileException(filename);
