@@ -2,16 +2,17 @@ package prr.core;
 
 import java.io.Serializable;
 
-public class Notifications implements Serializable{
+public class Notification implements Serializable{
     private static final long serialVersionUID = 202208091753L;
     private Client _client;
     private Communication _communication;
     private NotificationType _type;
-
-    public Notifications(Communication communication,Client client,NotificationType type){
-        this._communication=communication;
-        this._client=client;
-        this._type=type;
+    private Terminal _notifyingTerminal;
+    
+    public Notification(Communication communication,Client client,NotificationType type){
+        this._communication = communication;
+        this._client = client;
+        this._type = type;
     }
 
     //gets

@@ -1,14 +1,16 @@
 package prr.core;
 
 abstract public class TariffPlan {
+  private String _name;
   private double _cost;
   private Client _client;
   private Communication _communication;
 
   //
-  public TariffPlan(Communication communication, Client client){
-    this._client=client;
-    this._communication=communication;
+  public TariffPlan(String name, Communication communication, Client client){
+    this._name = name;
+    this._client = client;
+    this._communication = communication;
   }
 
   protected abstract double getCostVideo();
@@ -25,7 +27,7 @@ abstract public class TariffPlan {
     return _communication;
   }
 
-  public double getCost(){
+  public double computeCost(){
     return _cost;
   }
 

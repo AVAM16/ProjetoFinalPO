@@ -4,8 +4,8 @@ public class NormalPlan extends TariffPlan{
     private Client _client;
     private Communication _communication;
 
-    public NormalPlan(Communication communication, Client client) {
-        super(communication, client);
+    public NormalPlan(String name, Communication communication, Client client) {
+        super(name, communication, client);
     }
 
     @Override

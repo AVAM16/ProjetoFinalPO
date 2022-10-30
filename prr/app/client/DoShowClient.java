@@ -9,7 +9,7 @@ import java.util.List;
 import prr.app.exception.UnknownClientKeyException;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
-import prr.core.Notifications;
+import prr.core.Notification;
 //FIXME add more imports if needed
 
 /**
