@@ -222,6 +222,14 @@ public class Network implements Serializable {
     }
   }
 
+  public Terminal findTerminalNull(String id) throws UnknownTerminalKeyException{
+    if (_terminals.containsKey(id)){
+      return _terminals.get(id);
+    } else{
+      return null;
+    }
+  }
+
    /**
    * Returns a Collection of all the clients.
    * @returns the clients
