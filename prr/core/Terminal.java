@@ -3,8 +3,12 @@ package prr.core;
 import java.io.Serializable;
 import java.util.Iterator;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 // FIXME add more import if needed (cannot import from pt.tecnico or prr.app)
 
@@ -18,7 +22,7 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
   // FIXME define attributes
   private String _id;
   private Client _client;
-  private List<Terminal> _friends;
+  private Set<Terminal> _friends;
   private List<Communication> _payments;
   private List<Communication> _depts;
   private List<Communication> _communicationsReceived;
@@ -35,13 +39,19 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     this._depts = new ArrayList<>();
     this._communicationsReceived = new ArrayList<>();
     this._communicationsMade = new ArrayList<>();
-    this._friends = new LinkedList<>();
+    this._friends = new TreeSet<>(new TerminalComparator());
     this._mode = TerminalMode.ON;
     this._toNotify = new ArrayList<>();
   }
   // FIXME define methods
 
   // gets
+
+  public static class TerminalComparator implements Comparator<Terminal>, Serializable{
+    public int compare (Terminal t1, Terminal t2) {
+      return t1.getID().compareToIgnoreCase(t2.getID());
+    }
+  }
 
   public String getID() {
     return this._id;
@@ -96,7 +106,8 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
   }
 
   public List<Terminal> getFriendslist(){
-    return _friends;
+    List<Terminal> orderedlist = new ArrayList<>(_friends);
+    return Collections.unmodifiableList(orderedlist);
   }
 
   // sets

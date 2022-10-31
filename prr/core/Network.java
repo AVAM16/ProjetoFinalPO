@@ -64,7 +64,7 @@ public class Network implements Serializable {
 
   public static class IdComparator implements Comparator<String>, Serializable{
     public int compare (String id1, String id2) {
-        return id1.compareToIgnoreCase(id2);
+      return id1.compareToIgnoreCase(id2);
     }
   }
 
