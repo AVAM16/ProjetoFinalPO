@@ -71,6 +71,22 @@ public class Client implements Serializable {
     }
     return (int) Math.round(sum);
   }
+
+  //este e para ser usado quando nao queres arredondamentos
+  public double getRealValue(List<Communication> list) {
+    double sum = 0;
+    Iterator<Communication> iter = list.iterator();
+    while (iter.hasNext()) {
+      Communication communication = iter.next();
+      sum = sum + communication.getCost();
+    }
+    return sum;
+  }
+
+  //isto e o saldo
+  public double getBalance(){
+    return getRealValue(_communicationsPaid) - getRealValue(_communicationsDept);
+  }
   
   public int getDeptsSum(){
     return getValue(_communicationsDept);
@@ -87,7 +103,10 @@ public class Client implements Serializable {
       return "NO";
     }
   }
-
+  
+  public List<Notification> getNotifications() {
+    return _notifications;
+  }
   // CLIENT|key|name|taxId|type|notifications|terminals|payments|debts
   // tipo-de-notificação|idTerminal
 
@@ -109,9 +128,71 @@ public class Client implements Serializable {
     return notifications;
   }
 
-  public List<Notification> getNotifications() {
-    return _notifications;
+private void upgradeClient(){
+  if(_level.equals(ClientLevel.NORMAL)){
+    _level = ClientLevel.GOLD;
   }
+
+  if(_level.equals(ClientLevel.GOLD)){
+    _level = ClientLevel.PLATINUM;
+  }
+}
+
+private void downgradeClient(){
+  if(_level.equals(ClientLevel.GOLD)){
+    _level = ClientLevel.NORMAL;
+  }
+
+  if(_level.equals(ClientLevel.PLATINUM)){
+    _level = ClientLevel.GOLD;
+  }
+}
+
+private void resetClient(){
+    _level=ClientLevel.NORMAL;
+}
+
+private boolean fiveVideoCalls(){
+  int size = _communicationsMade.size();
+  int i;
+  for(i = 1; i <= 5;i++){
+  if(!_communicationsMade.get(size-i).getType().equals("VIDEO")){
+    return false;
+    }
+  }
+  return true;
+}
+
+private boolean twoText(){
+  int size = _communicationsMade.size();
+  int i;
+  for(i = 1; i <= 2;i++){
+  if(!_communicationsMade.get(size-i).getType().equals("TEXT")){
+    return false;
+    }
+  }
+  return true;
+}
+
+//tierCliente: 0 -> normal | 1 -> gold | 2 -> premium
+public void updateClientLevel(){
+    if(getBalance()<0){
+      resetClient();
+    }
+    else if(_level.equals(ClientLevel.NORMAL) && getBalance()>=500){ //normal -> gold
+      upgradeClient();    
+    }
+
+    else if(_level.equals(ClientLevel.GOLD) && fiveVideoCalls() && getBalance()>=0){ //gold -> premium
+        upgradeClient(); 
+    }
+
+    else if(_level.equals(ClientLevel.PLATINUM) && twoText() && getBalance()>=0){
+      downgradeClient();
+    }
+ 
+}
+
 
   // adds
   public void addTerminal(Terminal terminal) {
