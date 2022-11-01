@@ -22,9 +22,8 @@ class DoRemoveFriend extends TerminalCommand {
   protected final void execute() throws CommandException {
     //FIXME implement command
     String friendId = stringField("friend");
-    Terminal friend = _network.findTerminalNull(friendId);
-    List<Terminal> friends = _receiver.getFriendslist();
-    if(friends.contains(friend)){
+    Terminal friend = _receiver.findFriend(friendId);
+    if(friend != null){
       _receiver.removeFriend(friend);
     }
   }

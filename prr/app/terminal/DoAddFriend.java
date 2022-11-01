@@ -16,23 +16,16 @@ class DoAddFriend extends TerminalCommand {
     super(Label.ADD_FRIEND, context, terminal);
     //FIXME add command fields
     addStringField("friend", Message.terminalKey());
-    _network=context;
-
   }
   
   @Override
   protected final void execute() throws CommandException {
     //FIXME implement command
     String friendId = stringField("friend");
-    Terminal terminal = _receiver;
     Terminal friend = _network.findTerminalNull(friendId);
     boolean alreadyFriend = false;
     
-    // estas exceptions secalhar nao sao precisas
-    if(friend == null){
-      throw new UnknownTerminalKeyException(friendId);
-    }
-    List<Terminal> friends = terminal.getFriendslist();
+    List<Terminal> friends = _receiver.getFriendslist();
     for(Terminal t : friends){
       if(t.getID().equals(friendId)){
         alreadyFriend = true;
@@ -41,7 +34,7 @@ class DoAddFriend extends TerminalCommand {
     }
 
     if(friend != null && !alreadyFriend){
-      terminal.addFriend(friend);
+      _receiver.addFriend(friend);
     }
 
   }
