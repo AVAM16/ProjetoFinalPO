@@ -20,7 +20,7 @@ class DoShowTerminalBalance extends TerminalCommand {
   protected final void execute() throws CommandException {
     //FIXME implement command
     String id = stringField("id");
-    Terminal terminal = _network.findTerminal(id);
+    Terminal terminal = _receiver;
     if(terminal==null){
       throw new UnknownTerminalKeyException(id);
     }

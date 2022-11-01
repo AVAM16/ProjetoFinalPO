@@ -12,14 +12,12 @@ class DoSilenceTerminal extends TerminalCommand {
 
   DoSilenceTerminal(Network context, Terminal terminal) {
     super(Label.MUTE_TERMINAL, context, terminal);
-    addStringField("id", Message.terminalKey());
   }
   
   @Override
   protected final void execute() throws CommandException {
     //FIXME implement command
-    String id = stringField("id");
-    Terminal terminal = _network.findTerminal(id);
+    Terminal terminal = _receiver;
     if(terminal.getModeDisplay().equals("SILENCE")){
       _display.popup(Message.alreadySilent());
       _display.display();
