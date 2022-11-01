@@ -28,8 +28,6 @@ OPERAÇÕES DO TERMINAL
 0 - Sair
 Escolha uma opção: 4
 Número do terminal: 969008
-Número do terminal: 4
-Adicionar amigo: Operação inválida: O terminal '4' não existe.
 OPERAÇÕES DO TERMINAL
 1 - Ligar
 2 - Colocar no silêncio
@@ -42,8 +40,9 @@ OPERAÇÕES DO TERMINAL
 9 - Iniciar comunicação
 11 - Mostrar comunicação em curso
 0 - Sair
-Escolha uma opção: 969000
-Opção inválida!
+Escolha uma opção: 4
+Número do terminal: 969000
+Adicionar amigo: Operação inválida: O terminal '969000' não existe.
 OPERAÇÕES DO TERMINAL
 1 - Ligar
 2 - Colocar no silêncio
@@ -69,7 +68,7 @@ BASIC|969006|cli002|IDLE|0|0
 BASIC|969007|cli003|IDLE|0|0
 BASIC|969008|cli003|SILENCE|0|0
 FANCY|969011|cli001|IDLE|0|0
-FANCY|969013|cli001|SILENCE|0|0
+FANCY|969013|cli001|SILENCE|0|0|prr.core.BasicTerminal@77459877
 FANCY|969014|cli002|IDLE|0|0
 FANCY|969015|cli003|IDLE|0|0
 GESTÃO DE TERMINAIS

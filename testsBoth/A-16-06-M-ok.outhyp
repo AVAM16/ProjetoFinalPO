@@ -28,8 +28,6 @@ OPERAÇÕES DO TERMINAL
 0 - Sair
 Escolha uma opção: 4
 Número do terminal: 969014
-Número do terminal: 4
-Adicionar amigo: Operação inválida: O terminal '4' não existe.
 OPERAÇÕES DO TERMINAL
 1 - Ligar
 2 - Colocar no silêncio
@@ -42,8 +40,8 @@ OPERAÇÕES DO TERMINAL
 9 - Iniciar comunicação
 11 - Mostrar comunicação em curso
 0 - Sair
-Escolha uma opção: 969003
-Opção inválida!
+Escolha uma opção: 4
+Número do terminal: 969003
 OPERAÇÕES DO TERMINAL
 1 - Ligar
 2 - Colocar no silêncio
@@ -86,8 +84,6 @@ OPERAÇÕES DO TERMINAL
 0 - Sair
 Escolha uma opção: 4
 Número do terminal: 969011
-Número do terminal: 4
-Adicionar amigo: Operação inválida: O terminal '4' não existe.
 OPERAÇÕES DO TERMINAL
 1 - Ligar
 2 - Colocar no silêncio
@@ -100,8 +96,8 @@ OPERAÇÕES DO TERMINAL
 9 - Iniciar comunicação
 11 - Mostrar comunicação em curso
 0 - Sair
-Escolha uma opção: 969008
-Opção inválida!
+Escolha uma opção: 4
+Número do terminal: 969008
 OPERAÇÕES DO TERMINAL
 1 - Ligar
 2 - Colocar no silêncio
@@ -129,7 +125,7 @@ BASIC|969008|cli003|SILENCE|0|0
 FANCY|969011|cli001|IDLE|0|0
 FANCY|969013|cli001|SILENCE|0|0
 FANCY|969014|cli002|IDLE|0|0
-FANCY|969015|cli003|IDLE|0|0
+FANCY|969015|cli003|IDLE|0|0|prr.core.BasicTerminal@54bedef2,prr.core.BasicTerminal@3a71f4dd,prr.core.FancyTerminal@7adf9f5f,prr.core.FancyTerminal@85ede7b
 GESTÃO DE TERMINAIS
 1 - Mostrar todos os terminais
 2 - Registar terminal
@@ -151,97 +147,6 @@ OPERAÇÕES DO TERMINAL
 0 - Sair
 Escolha uma opção: 4
 Número do terminal: 969001
-Número do terminal: 0
-Adicionar amigo: Operação inválida: O terminal '0' não existe.
-OPERAÇÕES DO TERMINAL
-1 - Ligar
-2 - Colocar no silêncio
-3 - Desligar
-4 - Adicionar amigo
-5 - Retirar amigo
-6 - Pagamento
-7 - Consultar saldo
-8 - Enviar comunicação de texto
-9 - Iniciar comunicação
-11 - Mostrar comunicação em curso
-0 - Sair
-Escolha uma opção: 1
-OPERAÇÕES DO TERMINAL
-1 - Ligar
-2 - Colocar no silêncio
-3 - Desligar
-4 - Adicionar amigo
-5 - Retirar amigo
-6 - Pagamento
-7 - Consultar saldo
-8 - Enviar comunicação de texto
-9 - Iniciar comunicação
-11 - Mostrar comunicação em curso
-0 - Sair
-Escolha uma opção: 3
-OPERAÇÕES DO TERMINAL
-1 - Ligar
-2 - Colocar no silêncio
-3 - Desligar
-4 - Adicionar amigo
-5 - Retirar amigo
-6 - Pagamento
-7 - Consultar saldo
-11 - Mostrar comunicação em curso
-0 - Sair
-Escolha uma opção: 969008
-Opção inválida!
-OPERAÇÕES DO TERMINAL
-1 - Ligar
-2 - Colocar no silêncio
-3 - Desligar
-4 - Adicionar amigo
-5 - Retirar amigo
-6 - Pagamento
-7 - Consultar saldo
-11 - Mostrar comunicação em curso
-0 - Sair
-Escolha uma opção: 4
-Número do terminal: 969015
-Número do terminal: 4
-Adicionar amigo: Operação inválida: O terminal '4' não existe.
-OPERAÇÕES DO TERMINAL
-1 - Ligar
-2 - Colocar no silêncio
-3 - Desligar
-4 - Adicionar amigo
-5 - Retirar amigo
-6 - Pagamento
-7 - Consultar saldo
-11 - Mostrar comunicação em curso
-0 - Sair
-Escolha uma opção: 969013
-Opção inválida!
-OPERAÇÕES DO TERMINAL
-1 - Ligar
-2 - Colocar no silêncio
-3 - Desligar
-4 - Adicionar amigo
-5 - Retirar amigo
-6 - Pagamento
-7 - Consultar saldo
-11 - Mostrar comunicação em curso
-0 - Sair
-Escolha uma opção: 4
-Número do terminal: 969003
-Número do terminal: 0
-Adicionar amigo: Operação inválida: O terminal '0' não existe.
-OPERAÇÕES DO TERMINAL
-1 - Ligar
-2 - Colocar no silêncio
-3 - Desligar
-4 - Adicionar amigo
-5 - Retirar amigo
-6 - Pagamento
-7 - Consultar saldo
-11 - Mostrar comunicação em curso
-0 - Sair
-Escolha uma opção: 1
 OPERAÇÕES DO TERMINAL
 1 - Ligar
 2 - Colocar no silêncio
@@ -260,6 +165,98 @@ GESTÃO DE TERMINAIS
 2 - Registar terminal
 3 - Operações de terminal
 0 - Sair
+Escolha uma opção: 1
+BASIC|969001|cli001|IDLE|0|0
+BASIC|969003|cli001|OFF|0|0
+BASIC|969006|cli002|IDLE|0|0
+BASIC|969007|cli003|IDLE|0|0
+BASIC|969008|cli003|SILENCE|0|0
+FANCY|969011|cli001|IDLE|0|0
+FANCY|969013|cli001|SILENCE|0|0
+FANCY|969014|cli002|IDLE|0|0
+FANCY|969015|cli003|IDLE|0|0|prr.core.BasicTerminal@5674cd4d,prr.core.BasicTerminal@54bedef2,prr.core.BasicTerminal@3a71f4dd,prr.core.FancyTerminal@7adf9f5f,prr.core.FancyTerminal@85ede7b
+GESTÃO DE TERMINAIS
+1 - Mostrar todos os terminais
+2 - Registar terminal
+3 - Operações de terminal
+0 - Sair
+Escolha uma opção: 3
+Número do terminal: 969008
+OPERAÇÕES DO TERMINAL
+1 - Ligar
+2 - Colocar no silêncio
+3 - Desligar
+4 - Adicionar amigo
+5 - Retirar amigo
+6 - Pagamento
+7 - Consultar saldo
+8 - Enviar comunicação de texto
+9 - Iniciar comunicação
+11 - Mostrar comunicação em curso
+0 - Sair
+Escolha uma opção: 4
+Número do terminal: 969015
+OPERAÇÕES DO TERMINAL
+1 - Ligar
+2 - Colocar no silêncio
+3 - Desligar
+4 - Adicionar amigo
+5 - Retirar amigo
+6 - Pagamento
+7 - Consultar saldo
+8 - Enviar comunicação de texto
+9 - Iniciar comunicação
+11 - Mostrar comunicação em curso
+0 - Sair
+Escolha uma opção: 4
+Número do terminal: 969013
+OPERAÇÕES DO TERMINAL
+1 - Ligar
+2 - Colocar no silêncio
+3 - Desligar
+4 - Adicionar amigo
+5 - Retirar amigo
+6 - Pagamento
+7 - Consultar saldo
+8 - Enviar comunicação de texto
+9 - Iniciar comunicação
+11 - Mostrar comunicação em curso
+0 - Sair
+Escolha uma opção: 4
+Número do terminal: 969003
+OPERAÇÕES DO TERMINAL
+1 - Ligar
+2 - Colocar no silêncio
+3 - Desligar
+4 - Adicionar amigo
+5 - Retirar amigo
+6 - Pagamento
+7 - Consultar saldo
+8 - Enviar comunicação de texto
+9 - Iniciar comunicação
+11 - Mostrar comunicação em curso
+0 - Sair
+Escolha uma opção: 0
+GESTÃO DE TERMINAIS
+1 - Mostrar todos os terminais
+2 - Registar terminal
+3 - Operações de terminal
+0 - Sair
+Escolha uma opção: 1
+BASIC|969001|cli001|IDLE|0|0
+BASIC|969003|cli001|OFF|0|0
+BASIC|969006|cli002|IDLE|0|0
+BASIC|969007|cli003|IDLE|0|0
+BASIC|969008|cli003|SILENCE|0|0|prr.core.BasicTerminal@54bedef2,prr.core.FancyTerminal@63961c42,prr.core.FancyTerminal@65b54208
+FANCY|969011|cli001|IDLE|0|0
+FANCY|969013|cli001|SILENCE|0|0
+FANCY|969014|cli002|IDLE|0|0
+FANCY|969015|cli003|IDLE|0|0|prr.core.BasicTerminal@5674cd4d,prr.core.BasicTerminal@54bedef2,prr.core.BasicTerminal@3a71f4dd,prr.core.FancyTerminal@7adf9f5f,prr.core.FancyTerminal@85ede7b
+GESTÃO DE TERMINAIS
+1 - Mostrar todos os terminais
+2 - Registar terminal
+3 - Operações de terminal
+0 - Sair
 Escolha uma opção: 0
 MENU PRINCIPAL
 1 - Abrir
@@ -269,4 +266,4 @@ MENU PRINCIPAL
 5 - Menu de consultas
 6 - Ver saldo global
 0 - Sair
-Escolha uma opção: Fim de entrada de dados (R-EOF): pt.tecnico.uilib.text.RuntimeEOFException: Fim do fluxo de dados de entrada
+Escolha uma opção: 0

@@ -1,25 +1,15 @@
-*** testsBoth/A-18-12-M-ok.out	2022-11-01 20:31:13.684676725 +0000
---- testsBoth/A-18-12-M-ok.outhyp	2022-11-01 20:31:13.684676725 +0000
+*** testsBoth/A-18-12-M-ok.out	2022-10-30 22:57:57.302577700 +0000
+--- testsBoth/A-18-12-M-ok.outhyp	2022-11-01 21:33:12.984561000 +0000
 ***************
-*** 29,35 ****
-  Escolha uma opção: 9
+*** 30,35 ****
+--- 30,36 ----
   Número do terminal: 969013
   Tipo de comunicação a iniciar (VOICE, VIDEO): VOICE
-- O terminal de destino ('969013') está desligado.
+  O terminal de destino ('969013') está desligado.
++ O terminal '969006' não pode iniciar comunicações VOICE
   OPERAÇÕES DO TERMINAL
   1 - Ligar
   2 - Colocar no silêncio
---- 29,34 ----
-***************
-*** 81,87 ****
-  Escolha uma opção: 9
-  Número do terminal: 969013
-  Tipo de comunicação a iniciar (VOICE, VIDEO): VIDEO
-- O terminal de destino ('969013') está desligado.
-  OPERAÇÕES DO TERMINAL
-  1 - Ligar
-  2 - Colocar no silêncio
---- 80,85 ----
 ***************
 *** 163,169 ****
   Escolha uma opção: 1
@@ -29,7 +19,7 @@
   GESTÃO DE CLIENTES
   1 - Visualizar cliente
   2 - Visualizar todos os clientes
---- 161,166 ----
+--- 164,169 ----
 ***************
 *** 175,181 ****
   Escolha uma opção: 1
@@ -39,4 +29,4 @@
   GESTÃO DE CLIENTES
   1 - Visualizar cliente
   2 - Visualizar todos os clientes
---- 172,177 ----
+--- 175,180 ----

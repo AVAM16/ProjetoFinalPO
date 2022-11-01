@@ -1,5 +1,6 @@
 package prr.app.terminal;
 
+import prr.core.BasicTerminal;
 import prr.core.Network;
 import prr.core.Terminal;
 
@@ -27,5 +28,18 @@ class DoStartInteractiveCommunication extends TerminalCommand {
     String id = stringField("key");
     String type = optionField("type");
     Terminal terminalDestiny = _network.findTerminal(id);
+    String idOrigin = _receiver.getID();
+    if (terminalDestiny.isOff()) {
+      _display.popup(Message.destinationIsOff(id));
+    } else if (terminalDestiny.isBusy()) {
+      _display.popup(Message.destinationIsBusy(id));
+    } else if (terminalDestiny.isSilent()) {
+      _display.popup(Message.destinationIsSilent(id));
+    }
+    if (_receiver instanceof BasicTerminal && type.equals("VOICE")) {
+      _display.popup(Message.unsupportedAtOrigin(idOrigin, type));
+    } else if (terminalDestiny instanceof BasicTerminal && type.equals("VOICE")){
+      _display.popup(Message.unsupportedAtDestination(id, type));
+    }
   }
 }
