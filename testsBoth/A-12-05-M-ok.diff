@@ -1,0 +1,22 @@
+*** testsBoth/A-12-05-M-ok.out	2022-10-30 22:57:52.837158700 +0000
+--- testsBoth/A-12-05-M-ok.outhyp	2022-11-01 20:23:58.264561000 +0000
+***************
+*** 29,35 ****
+  Escolha uma opção: 9
+  Número do terminal: 969008
+  Tipo de comunicação a iniciar (VOICE, VIDEO): VOICE
+- O terminal de destino ('969008') está em silêncio.
+  OPERAÇÕES DO TERMINAL
+  1 - Ligar
+  2 - Colocar no silêncio
+--- 29,34 ----
+***************
+*** 43,49 ****
+  11 - Mostrar comunicação em curso
+  0 - Sair
+  Escolha uma opção: 11
+- Não existe nenhuma comunicação em curso.
+  OPERAÇÕES DO TERMINAL
+  1 - Ligar
+  2 - Colocar no silêncio
+--- 42,47 ----
