@@ -1,5 +1,15 @@
 *** testsBoth/A-16-03-M-ok.out	2022-10-30 22:57:55.380659300 +0000
---- testsBoth/A-16-03-M-ok.outhyp	2022-11-01 21:33:10.464561000 +0000
+--- testsBoth/A-16-03-M-ok.outhyp	2022-11-01 22:13:09.314561000 +0000
+***************
+*** 42,48 ****
+  0 - Sair
+  Escolha uma opção: 4
+  Número do terminal: 969000
+- Adicionar amigo: Operação inválida: O terminal '969000' não existe.
+  OPERAÇÕES DO TERMINAL
+  1 - Ligar
+  2 - Colocar no silêncio
+--- 42,47 ----
 ***************
 *** 68,74 ****
   BASIC|969007|cli003|IDLE|0|0
@@ -9,11 +19,11 @@
   FANCY|969014|cli002|IDLE|0|0
   FANCY|969015|cli003|IDLE|0|0
   GESTÃO DE TERMINAIS
---- 68,74 ----
+--- 67,73 ----
   BASIC|969007|cli003|IDLE|0|0
   BASIC|969008|cli003|SILENCE|0|0
   FANCY|969011|cli001|IDLE|0|0
-! FANCY|969013|cli001|SILENCE|0|0|prr.core.BasicTerminal@77459877
+! FANCY|969013|cli001|SILENCE|0|0|prr.core.BasicTerminal@2ff4acd0
   FANCY|969014|cli002|IDLE|0|0
   FANCY|969015|cli003|IDLE|0|0
   GESTÃO DE TERMINAIS

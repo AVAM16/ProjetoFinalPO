@@ -116,6 +116,15 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     return Collections.unmodifiableList(orderedlist);
   }
 
+  public Terminal findFriend(String id) {
+    for(Terminal t : _friends) {
+      if (t.getID().equals(id)) {
+        return t;
+      }
+    }
+    return null;
+  }
+
   public Boolean isOff() {
     return _mode == TerminalMode.OFF;
   }
