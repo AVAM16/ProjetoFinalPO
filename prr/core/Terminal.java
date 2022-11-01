@@ -187,4 +187,12 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
 
   abstract protected boolean canMakeVideoCall();
 
+
+  public boolean canMakeInterractiveCall(){
+    if(_mode.equals(TerminalMode.ON){
+      return true;
+    }
+    return false;
+  }
+
 }
