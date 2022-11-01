@@ -92,6 +92,10 @@ public class Client implements Serializable {
     return getValue(_communicationsDept);
   }
 
+  public int getPaymentsSum(){
+    return getValue(_communicationsPaid);
+  }
+
   public int getTerminals() {
     return _terminals.size();
   }
@@ -126,6 +130,22 @@ public class Client implements Serializable {
     }
     _notifications.clear();
     return notifications;
+  }
+
+  public Boolean disableNotifications() {
+    if (_receiveNotifications){
+      _receiveNotifications = false;
+      return true;
+    }
+    return false;
+  }
+
+  public Boolean enableNotifications() {
+    if (!_receiveNotifications){
+      _receiveNotifications = true;
+      return true;
+    }
+    return false;
   }
 
 private void upgradeClient(){
