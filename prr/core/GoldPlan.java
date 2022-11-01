@@ -9,29 +9,34 @@ public class GoldPlan extends TariffPlan{
     }
 
     @Override
-    protected double getCostVideo() {
+    public double getCostVideo() {
         _communication.setCost((double)_communication.getUnits()*20);
+        _client.addCommunicationsDept(_communication);
         return _communication.getUnits()*20;
     }
 
     @Override
-    protected double getCostCall() {
+    public double getCostCall() {
         _communication.setCost((double)_communication.getUnits()*10);
+        _client.addCommunicationsDept(_communication);
         return _communication.getUnits()*10;
     }
 
     @Override
-    protected double getCostText() {
+    public double getCostText() {
         if(_communication.getUnits() < 50){
             _communication.setCost((double)10);
+            _client.addCommunicationsDept(_communication);
             return 10;
         }
         else if(50 <= _communication.getUnits() && _communication.getUnits() < 100 ){
             _communication.setCost((double)10);
+            _client.addCommunicationsDept(_communication);
             return 10;
         }
         else{
             _communication.setCost((double)_communication.getUnits()*2);
+            _client.addCommunicationsDept(_communication);
             return _communication.getUnits()*2;
         }
     }

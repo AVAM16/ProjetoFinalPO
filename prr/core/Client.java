@@ -224,6 +224,22 @@ public void updateClientLevel(){
     _notifications.clear();
   }
 
+  public void addCommunicationsDept(Communication communication){
+    _communicationsDept.add(communication);
+  }
+
+  public void addCommunicationsPaid(Communication communication){
+    _communicationsPaid.add(communication);
+  }
+
+  public void addCommunicationsMade(Communication communication){
+    _communicationsMade.add(communication);
+  }
+
+  public void addCommunicationsRecived(Communication communication){
+    _communicationsReceived.add(communication);
+  }
+
   //is
 
   public boolean isDebtor(){

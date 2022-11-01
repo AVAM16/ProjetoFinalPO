@@ -27,6 +27,7 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
   private List<Communication> _depts;
   private List<Communication> _communicationsReceived;
   private List<Communication> _communicationsMade;
+  private List<Notification> _pendingNotifications; // isto depois e adicionado as nots do cliente
   private TerminalMode _mode;
   private InteractiveCommunication _ongoingCommunication;
   private List<Client> _toNotify;
@@ -42,6 +43,7 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     this._friends = new TreeSet<>(new TerminalComparator());
     this._mode = TerminalMode.ON;
     this._toNotify = new ArrayList<>();
+    this._pendingNotifications = new LinkedList<>();
   }
   // FIXME define methods
 
@@ -79,6 +81,10 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
 
   public List<Communication> getDepts() {
     return this._depts;
+  }
+
+  public List<Notification> getPendingNotifications(){
+    return _pendingNotifications;
   }
 
   public int getValue(List<Communication> list) {
@@ -148,6 +154,10 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
 
   public void addCommunicationRecieved(Communication communication){
     _communicationsReceived.add(communication);
+  }
+
+  public void addPendingNotification(Notification notification){
+    _pendingNotifications.add(notification);
   }
 
   public void removeFriend(Terminal terminal){

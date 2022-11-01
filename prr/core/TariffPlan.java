@@ -13,11 +13,11 @@ abstract public class TariffPlan {
     this._communication = communication;
   }
 
-  protected abstract double getCostVideo();
+  public abstract double getCostVideo();
 
-  protected abstract double getCostCall();
+  public abstract double getCostCall();
 
-  protected abstract double getCostText();
+  public abstract double getCostText();
 
   public Client getClient(){
     return _client;

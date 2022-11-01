@@ -221,6 +221,10 @@ public class Network implements Serializable {
     
   }
 
+  public void addComunication(Communication communication){
+    _communications.add(communication);
+  }
+
     /**
    * Finds a specific terminal.
    * 
@@ -300,6 +304,24 @@ public class Network implements Serializable {
     });
     
     return clients;
+  }
+
+  public int getCommunicationID(){
+    return _communications.size()+1;
+  }
+
+  public TariffPlan tariffPlan(String name, Communication communication, Client client){
+    TariffPlan tariffPlan = null;
+    if(client.getClientLevel().equals("NORMAL")){
+      tariffPlan = new NormalPlan(name, communication, client);
+    }
+    if(client.getClientLevel().equals("GOLD")){
+      tariffPlan = new GoldPlan(name, communication, client);
+    }
+    if(client.getClientLevel().equals("PLATINUM")){
+      tariffPlan = new PlatinumPlan(name, communication, client);
+    }
+    return tariffPlan;
   }
 
 }
