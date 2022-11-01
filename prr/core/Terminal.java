@@ -141,6 +141,15 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     _friends.add(terminal);
   }
 
+  public void addCommunicationMade(Communication communication) {
+    _communicationsMade.add(communication);
+    _depts.add(communication);
+  }
+
+  public void addCommunicationRecieved(Communication communication){
+    _communicationsReceived.add(communication);
+  }
+
   public void removeFriend(Terminal terminal){
     _friends.remove(terminal);
   }
