@@ -1,0 +1,19 @@
+*** testsBoth/A-17-03-M-ok.out	2022-10-30 22:57:56.046979500 +0000
+--- testsBoth/A-17-03-M-ok.outhyp	2022-11-01 20:24:01.994561000 +0000
+***************
+*** 49,55 ****
+  Escolha uma opção: 1
+  BASIC|969001|cli001|IDLE|0|0
+  BASIC|969003|cli001|OFF|0|0
+! BASIC|969006|cli002|IDLE|0|0|969001
+  BASIC|969007|cli003|IDLE|0|0
+  BASIC|969008|cli003|SILENCE|0|0
+  FANCY|969011|cli001|IDLE|0|0
+--- 49,55 ----
+  Escolha uma opção: 1
+  BASIC|969001|cli001|IDLE|0|0
+  BASIC|969003|cli001|OFF|0|0
+! BASIC|969006|cli002|IDLE|0|0|prr.core.BasicTerminal@2ff4acd0
+  BASIC|969007|cli003|IDLE|0|0
+  BASIC|969008|cli003|SILENCE|0|0
+  FANCY|969011|cli001|IDLE|0|0
