@@ -9,10 +9,11 @@ public class Notification implements Serializable{
     private NotificationType _type;
     private Terminal _notifyingTerminal;
     
-    public Notification(Communication communication,Client client,NotificationType type){
+    public Notification(Communication communication,Client client,Terminal notifyingTerminal){
         this._communication = communication;
         this._client = client;
-        this._type = type;
+        this._notifyingTerminal = notifyingTerminal;
+  
     }
 
     //gets
@@ -36,7 +37,5 @@ public class Notification implements Serializable{
         return _communication.getDestination();
     }
 
-    public void addNotification(){
-        _client.addNotification(_communication, _client,_type);    
-    }
+    
 }

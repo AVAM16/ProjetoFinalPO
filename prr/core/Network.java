@@ -324,5 +324,10 @@ public class Network implements Serializable {
     return tariffPlan;
   }
 
+  public Notification createNotification(Communication communication,Client client,Terminal notifyingTerminal){
+    
+    return new Notification(communication, client, notifyingTerminal);
+}
+
 }
 

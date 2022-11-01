@@ -33,25 +33,28 @@ class DoSendTextCommunication extends TerminalCommand {
     Communication communication = new TextCommunication(_receiver, terminal, message);
     communication.setUnits(message.length());
     TariffPlan plan = null;
-    Notification notification = null;
+    
 
     if(terminal.equals(null)){
       throw new UnknownTerminalKeyException(receiverId);
     }
 
-    if(_receiver.canStartCommunication() && terminal.canStartCommunication()){
+    if(_receiver.canStartCommunication() && !terminal.getModeDisplay().equals("OFF")){
       plan = _network.tariffPlan(message, communication, _receiver.getClient());
-      double cost = plan.getCostText();
-      communication.setCost(cost);
+      plan.getCostText();
+      //double cost = plan.getCostText();
+      //communication.setCost(cost);
       communication.setId(_network.getCommunicationID());
       _receiver.addCommunicationMade(communication);
       terminal.addCommunicationRecieved(communication);
       _network.addComunication(communication);
-
+      _receiver.getClient().addCommunicationsMade(communication);
+      _receiver.getClient().updateClientLevel();
     }
 
     else if(terminal.getClient().getReceiveNotifications()){
-      notification = new Notification(message, notification, 0);
+      prr.core.Notification notification = _network.createNotification(communication, terminal.getClient(), terminal);
+      terminal.addPendingNotification(notification);
 
     }
     
