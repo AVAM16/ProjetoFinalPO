@@ -163,7 +163,13 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
    **/
   public boolean canEndCurrentCommunication() {
     // FIXME add implementation code
-    return false;
+    if(_mode.equals(TerminalMode.BUSY)){
+      return true;
+    }
+    else{
+      return false;
+    }
+    
   }
 
   /**
@@ -173,7 +179,12 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
    **/
   public boolean canStartCommunication() {
     // FIXME add implementation code
+    if(_mode.equals(TerminalMode.OFF) || _mode.equals(TerminalMode.BUSY)){
+      return false;
+    }
     return true;
   }
+
+  abstract protected boolean canMakeVideoCall();
 
 }

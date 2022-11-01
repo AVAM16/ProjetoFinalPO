@@ -13,4 +13,10 @@ public class FancyTerminal extends Terminal{
 
       return terminal;
     }
+
+    @Override
+    protected boolean canMakeVideoCall() {
+      // TODO Auto-generated method stub
+      return true;
+    }
 }

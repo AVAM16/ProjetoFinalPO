@@ -10,5 +10,10 @@ public class BasicTerminal extends Terminal{
       getValue(getPayments()),getValue(getDepts()),getFriends());
       return terminal;
     }
+  @Override
+  protected boolean canMakeVideoCall() {
+    // TODO Auto-generated method stub
+    return false;
+  }
   
 }
