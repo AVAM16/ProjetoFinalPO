@@ -23,7 +23,9 @@ class DoDisableClientNotifications extends Command<Network> {
     //FIXME implement command
     String id = stringField("id");
     Client client = _receiver.findClient(id);
-    if (!client.disableNotifications()) {
+    if (client.getReceiveNotifications()) {
+      client.disableNotifications();
+    } else {
       _display.popup(Message.clientNotificationsAlreadyDisabled());
     }
   }

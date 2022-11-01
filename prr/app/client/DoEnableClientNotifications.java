@@ -23,7 +23,9 @@ class DoEnableClientNotifications extends Command<Network> {
     //FIXME implement command
     String id = stringField("id");
     Client client = _receiver.findClient(id);
-    if (!client.enableNotifications()) {
+    if (!client.getReceiveNotifications()) {
+      client.enableNotifications();
+    } else {
       _display.popup(Message.clientNotificationsAlreadyEnabled());
     }
   }
