@@ -1,6 +1,7 @@
 package prr.app.terminal;
 
 import prr.core.Communication;
+import prr.core.CommunicationType;
 import prr.core.Network;
 import prr.core.TariffPlan;
 import prr.core.Terminal;
@@ -27,20 +28,20 @@ class DoSendTextCommunication extends TerminalCommand {
   @Override
   protected final void execute() throws CommandException {
     //FIXME implement command
-    String receiverId = stringField("receiverId");
+    String id = stringField("receiverId");
     String message = stringField("receiverId");
-    Terminal terminal = _network.findTerminalNull(receiverId);
-    Communication communication = new TextCommunication(_receiver, terminal, message);
-    communication.setUnits(message.length());
-    TariffPlan plan = null;
+    Terminal terminal = _network.findTerminalNull(id);
+    Communication communication = new TextCommunication(_receiver, terminal, CommunicationType.TEXT,message);
+    //communication.setUnits(message.length());
     
-
+    
     if(terminal.equals(null)){
-      throw new UnknownTerminalKeyException(receiverId);
+      throw new UnknownTerminalKeyException(id);
     }
-
+    
     if(_receiver.canStartCommunication() && !terminal.getModeDisplay().equals("OFF")){
-      plan = _network.tariffPlan(message, communication, _receiver.getClient());
+      TariffPlan plan = _network.tariffPlan(message, communication, _receiver.getClient());
+      //plan = _network.tariffPlan(message, communication, _receiver.getClient());
       plan.getCostText();
       //double cost = plan.getCostText();
       //communication.setCost(cost);

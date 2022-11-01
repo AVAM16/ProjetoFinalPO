@@ -1,8 +1,7 @@
 package prr.core;
 
 public class NormalPlan extends TariffPlan{
-    private Client _client;
-    private Communication _communication;
+ 
 
     public NormalPlan(String name, Communication communication, Client client) {
         super(name, communication, client);
@@ -10,34 +9,34 @@ public class NormalPlan extends TariffPlan{
 
     @Override
     public double getCostVideo() {
-        _communication.setCost((double)_communication.getUnits()*30);
-        _client.addCommunicationsDept(_communication);
-        return _communication.getUnits()*30;
+        getCommunication().setCost((double)getCommunication().getUnits()*30);
+        getClient().addCommunicationsDept(getCommunication());
+        return getCommunication().getUnits()*30;
     }
 
     @Override
     public double getCostCall() {
-        _communication.setCost((double)_communication.getUnits()*20);
-        _client.addCommunicationsDept(_communication);
-        return _communication.getUnits()*20;
+        getCommunication().setCost((double)getCommunication().getUnits()*20);
+        getClient().addCommunicationsDept(getCommunication());
+        return getCommunication().getUnits()*20;
     }
 
     @Override
     public double getCostText() {
-        if(_communication.getUnits() < 50){
-            _communication.setCost((double)10);
-            _client.addCommunicationsDept(_communication);
+        if(getCommunication().getUnits() < 50){
+            getCommunication().setCost((double)10);
+            getClient().addCommunicationsDept(getCommunication());
             return 10;
         }
-        else if(50 <= _communication.getUnits() && _communication.getUnits() < 100 ){
-            _communication.setCost((double)16);
-            _client.addCommunicationsDept(_communication);
+        else if(50 <= getCommunication().getUnits() && getCommunication().getUnits() < 100 ){
+            getCommunication().setCost((double)16);
+            getClient().addCommunicationsDept(getCommunication());
             return 16;
         }
         else{
-            _communication.setCost((double)_communication.getUnits()*2);
-            _client.addCommunicationsDept(_communication);
-            return _communication.getUnits()*2;
+            getCommunication().setCost((double)getCommunication().getUnits()*2);
+            getClient().addCommunicationsDept(getCommunication());
+            return getCommunication().getUnits()*2;
         }
     }
 
