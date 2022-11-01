@@ -15,7 +15,6 @@ class DoAddFriend extends TerminalCommand {
   DoAddFriend(Network context, Terminal terminal) {
     super(Label.ADD_FRIEND, context, terminal);
     //FIXME add command fields
-    addStringField("id", Message.terminalKey());
     addStringField("friend", Message.terminalKey());
     _network=context;
 
