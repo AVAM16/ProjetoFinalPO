@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 abstract public class Communication implements Serializable{
     private static final long serialVersionUID = 202208091753L;
-    private String _id;
+    private int _id;
     private Terminal _terminalOrigin;
     private Terminal _terminalDestination;
     private double _cost;
@@ -12,8 +12,7 @@ abstract public class Communication implements Serializable{
     private CommunicationType _type;
     private int _units; //units e o os minutos os a lenght da mensagem
 
-    public Communication(String id,Terminal terminalOrigin,Terminal terminalDestination){
-        this._id = id;
+    public Communication(Terminal terminalOrigin,Terminal terminalDestination){
         this._terminalOrigin = terminalOrigin;
         this._terminalDestination = terminalDestination;
         this._cost=0;
@@ -22,7 +21,7 @@ abstract public class Communication implements Serializable{
 
     //gets
 
-    public String getID(){
+    public int getID(){
         return this._id;
     }
 
@@ -60,6 +59,10 @@ abstract public class Communication implements Serializable{
 
 
     //sets
+
+    public void setId(int id){
+        this._id = id;
+    }
 
     public void setCost(Double cost){
         this._cost = cost;

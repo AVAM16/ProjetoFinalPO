@@ -100,6 +100,10 @@ public class Client implements Serializable {
     return _terminals.size();
   }
 
+  public Boolean getReceiveNotifications(){
+    return _receiveNotifications;
+  }
+  
   public String getNotificationsString() {
     if (_receiveNotifications) {
       return "YES";
@@ -132,20 +136,12 @@ public class Client implements Serializable {
     return notifications;
   }
 
-  public Boolean disableNotifications() {
-    if (_receiveNotifications){
-      _receiveNotifications = false;
-      return true;
-    }
-    return false;
+  public void disableNotifications() {
+    _receiveNotifications = false;
   }
 
-  public Boolean enableNotifications() {
-    if (!_receiveNotifications){
-      _receiveNotifications = true;
-      return true;
-    }
-    return false;
+  public void enableNotifications() {
+    _receiveNotifications = true;
   }
 
 private void upgradeClient(){
