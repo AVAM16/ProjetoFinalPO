@@ -240,7 +240,7 @@ public class Network implements Serializable {
     }
   }
 
-  public Terminal findTerminalNull(String id) throws UnknownTerminalKeyException{
+  public Terminal findTerminalNull(String id){
     if (_terminals.containsKey(id)){
       return _terminals.get(id);
     } else{
