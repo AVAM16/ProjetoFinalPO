@@ -116,6 +116,18 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     return Collections.unmodifiableList(orderedlist);
   }
 
+  public Boolean isOff() {
+    return _mode == TerminalMode.OFF;
+  }
+
+  public Boolean isBusy() {
+    return _mode == TerminalMode.BUSY;
+  }
+
+  public Boolean isSilent() {
+    return _mode == TerminalMode.SILENCE;
+  }
+
   // sets
   public void setClient(Client client) {
     this._client = client;

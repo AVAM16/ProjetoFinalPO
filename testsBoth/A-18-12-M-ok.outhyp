@@ -29,6 +29,8 @@ OPERAÇÕES DO TERMINAL
 Escolha uma opção: 9
 Número do terminal: 969013
 Tipo de comunicação a iniciar (VOICE, VIDEO): VOICE
+O terminal de destino ('969013') está desligado.
+O terminal '969006' não pode iniciar comunicações VOICE
 OPERAÇÕES DO TERMINAL
 1 - Ligar
 2 - Colocar no silêncio
@@ -80,6 +82,7 @@ OPERAÇÕES DO TERMINAL
 Escolha uma opção: 9
 Número do terminal: 969013
 Tipo de comunicação a iniciar (VOICE, VIDEO): VIDEO
+O terminal de destino ('969013') está desligado.
 OPERAÇÕES DO TERMINAL
 1 - Ligar
 2 - Colocar no silêncio
