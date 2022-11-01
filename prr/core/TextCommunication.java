@@ -8,6 +8,7 @@ public class TextCommunication extends Communication{
     super(terminalOrigin, terminalDestination,type);
     this._message = message;
     setUnits(getSize());
+    setOngoing(false);
   }
 
   protected double getCost(TariffPlan plan){
