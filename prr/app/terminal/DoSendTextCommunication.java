@@ -35,7 +35,7 @@ class DoSendTextCommunication extends TerminalCommand {
     //communication.setUnits(message.length());
     
     
-    if(terminal.equals(null)){
+    if(terminal==null){
       throw new UnknownTerminalKeyException(id);
     }
     //os terminais quando sao amigos existe um desconto de 50% esueci-me disso
