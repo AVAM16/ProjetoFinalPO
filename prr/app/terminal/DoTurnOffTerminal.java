@@ -19,7 +19,7 @@ class DoTurnOffTerminal extends TerminalCommand {
   protected final void execute() throws CommandException {
     //FIXME implement command
     Terminal terminal = _receiver;
-    if(terminal.getModeDisplay().equals("OFF")){
+    if(terminal.getMode().equals("OFF")){
       _display.popup(Message.alreadyOff());
       _display.display();
     }

@@ -30,7 +30,6 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
   private List<Notification> _pendingNotifications; // isto depois e adicionado as nots do cliente
   private TerminalMode _mode;
   private InteractiveCommunication _ongoingCommunication;
-  private List<Client> _toNotify;
 
   // FIXME define contructor(s)
   public Terminal(String id) {
@@ -42,7 +41,6 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     this._communicationsMade = new ArrayList<>();
     this._friends = new TreeSet<>(new TerminalComparator());
     this._mode = TerminalMode.ON;
-    this._toNotify = new ArrayList<>();
     this._pendingNotifications = new LinkedList<>();
   }
   // FIXME define methods
@@ -72,6 +70,10 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
       return "IDLE";
     }
 
+    return _mode.toString();
+  }
+
+  public String getMode() {
     return _mode.toString();
   }
 

@@ -39,7 +39,7 @@ class DoSendTextCommunication extends TerminalCommand {
       throw new UnknownTerminalKeyException(id);
     }
     //os terminais quando sao amigos existe um desconto de 50% esueci-me disso
-    if(_receiver.canStartCommunication() && !terminal.getModeDisplay().equals("OFF")){
+    if(_receiver.canStartCommunication() && !terminal.getMode().equals("OFF")){
       TariffPlan plan = _network.tariffPlan(message, communication, _receiver.getClient());
       //plan = _network.tariffPlan(message, communication, _receiver.getClient());
       plan.getCostText();
@@ -52,12 +52,17 @@ class DoSendTextCommunication extends TerminalCommand {
       _receiver.getClient().addCommunicationsMade(communication);
       _receiver.getClient().updateClientLevel();
     }
-
-    else if(terminal.getClient().getReceiveNotifications()){
-      prr.core.Notification notification = _network.createNotification(communication, terminal.getClient(), terminal);
-      terminal.addPendingNotification(notification);
-      _receiver.turnBusy();
+    
+    if(terminal.getMode().equals("OFF")){
+      _display.popup(Message.destinationIsOff(id));
     }
+    _display.display();
+
+    if(terminal.getClient().getReceiveNotifications()){
+    prr.core.Notification notification = _network.createNotification(communication, terminal.getClient(), terminal);
+    _receiver.addPendingNotification(notification);
+    }
+    
     
   }
 } 

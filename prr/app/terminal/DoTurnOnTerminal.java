@@ -19,7 +19,7 @@ class DoTurnOnTerminal extends TerminalCommand {
   protected final void execute() throws CommandException {
     //FIXME implement command
     Terminal terminal = _receiver;
-    if(terminal.getModeDisplay().equals("ON")){
+    if(terminal.getMode().equals("ON")){
       _display.popup(Message.alreadyOn());
       _display.display();
     }
