@@ -43,7 +43,13 @@ abstract public class Communication implements Serializable{
     }
 
     public String getType(){
-        return _commType.toString();
+        if (this instanceof TextCommunication){
+            return "TEXT";
+        } else if (this instanceof VoiceCommunication){
+            return "VOICE";
+        } else {
+            return "VIDEO";
+        }
     }
 
     public int getUnits(){
