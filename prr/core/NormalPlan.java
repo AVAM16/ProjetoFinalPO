@@ -9,34 +9,55 @@ public class NormalPlan extends TariffPlan{
 
     @Override
     public double getCostVideo() {
-        getCommunication().setCost((double)getCommunication().getUnits()*30);
+        double cost = getCommunication().getUnits()*30;
+        if(getCommunication().isFriends()){
+            cost=cost*0.5;
+        }
+        getCommunication().setCost((double)cost);
         getClient().addCommunicationsDept(getCommunication());
-        return getCommunication().getUnits()*30;
+        return cost;
     }
 
     @Override
     public double getCostCall() {
-        getCommunication().setCost((double)getCommunication().getUnits()*20);
+        double cost = getCommunication().getUnits()*20;
+        if(getCommunication().isFriends()){
+            cost=cost*0.5;
+        }
+        getCommunication().setCost((double)cost);
         getClient().addCommunicationsDept(getCommunication());
-        return getCommunication().getUnits()*20;
+        return cost;
     }
 
     @Override
     public double getCostText() {
+        double cost;
         if(getCommunication().getUnits() < 50){
+            cost = (double)10;
+            if(getCommunication().isFriends()){
+                cost=cost*0.5;
+            }
             getCommunication().setCost((double)10);
             getClient().addCommunicationsDept(getCommunication());
-            return 10;
+            return cost;
         }
         else if(50 <= getCommunication().getUnits() && getCommunication().getUnits() < 100 ){
-            getCommunication().setCost((double)16);
+            cost = (double)16;
+            if(getCommunication().isFriends()){
+                cost=cost*0.5;
+            }
+            getCommunication().setCost(cost);
             getClient().addCommunicationsDept(getCommunication());
-            return 16;
+            return cost;
         }
         else{
-            getCommunication().setCost((double)getCommunication().getUnits()*2);
+            cost = (double)getCommunication().getUnits()*2;
+            if(getCommunication().isFriends()){
+                cost=cost*0.5;
+            }
+            getCommunication().setCost((double)cost);
             getClient().addCommunicationsDept(getCommunication());
-            return getCommunication().getUnits()*2;
+            return cost;
         }
     }
 

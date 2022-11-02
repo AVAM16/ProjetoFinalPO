@@ -1,5 +1,5 @@
-*** testsBoth/A-16-06-M-ok.out	2022-10-30 22:57:55.657048300 +0000
---- testsBoth/A-16-06-M-ok.outhyp	2022-11-01 22:13:09.684561000 +0000
+*** testsBoth/A-16-06-M-ok.out	2022-11-01 20:31:13.680676746 +0000
+--- testsBoth/A-16-06-M-ok.outhyp	2022-11-02 00:48:28.094117020 +0000
 ***************
 *** 125,131 ****
   FANCY|969011|cli001|IDLE|0|0
@@ -13,7 +13,7 @@
   FANCY|969011|cli001|IDLE|0|0
   FANCY|969013|cli001|SILENCE|0|0
   FANCY|969014|cli002|IDLE|0|0
-! FANCY|969015|cli003|IDLE|0|0|prr.core.BasicTerminal@54bedef2,prr.core.BasicTerminal@3a71f4dd,prr.core.FancyTerminal@7adf9f5f,prr.core.FancyTerminal@85ede7b
+! FANCY|969015|cli003|IDLE|0|0|prr.core.BasicTerminal@4a574795,prr.core.BasicTerminal@f6f4d33,prr.core.FancyTerminal@23fc625e,prr.core.FancyTerminal@3f99bd52
   GESTÃO DE TERMINAIS
   1 - Mostrar todos os terminais
   2 - Registar terminal
@@ -30,7 +30,7 @@
   FANCY|969011|cli001|IDLE|0|0
   FANCY|969013|cli001|SILENCE|0|0
   FANCY|969014|cli002|IDLE|0|0
-! FANCY|969015|cli003|IDLE|0|0|prr.core.BasicTerminal@5674cd4d,prr.core.BasicTerminal@54bedef2,prr.core.BasicTerminal@3a71f4dd,prr.core.FancyTerminal@7adf9f5f,prr.core.FancyTerminal@85ede7b
+! FANCY|969015|cli003|IDLE|0|0|prr.core.BasicTerminal@4f023edb,prr.core.BasicTerminal@4a574795,prr.core.BasicTerminal@f6f4d33,prr.core.FancyTerminal@23fc625e,prr.core.FancyTerminal@3f99bd52
   GESTÃO DE TERMINAIS
   1 - Mostrar todos os terminais
   2 - Registar terminal
@@ -51,11 +51,11 @@
   BASIC|969003|cli001|OFF|0|0
   BASIC|969006|cli002|IDLE|0|0
   BASIC|969007|cli003|IDLE|0|0
-! BASIC|969008|cli003|SILENCE|0|0|prr.core.BasicTerminal@54bedef2,prr.core.FancyTerminal@63961c42,prr.core.FancyTerminal@65b54208
+! BASIC|969008|cli003|SILENCE|0|0|prr.core.BasicTerminal@4a574795,prr.core.FancyTerminal@3a71f4dd,prr.core.FancyTerminal@7adf9f5f
   FANCY|969011|cli001|IDLE|0|0
   FANCY|969013|cli001|SILENCE|0|0
   FANCY|969014|cli002|IDLE|0|0
-! FANCY|969015|cli003|IDLE|0|0|prr.core.BasicTerminal@5674cd4d,prr.core.BasicTerminal@54bedef2,prr.core.BasicTerminal@3a71f4dd,prr.core.FancyTerminal@7adf9f5f,prr.core.FancyTerminal@85ede7b
+! FANCY|969015|cli003|IDLE|0|0|prr.core.BasicTerminal@4f023edb,prr.core.BasicTerminal@4a574795,prr.core.BasicTerminal@f6f4d33,prr.core.FancyTerminal@23fc625e,prr.core.FancyTerminal@3f99bd52
   GESTÃO DE TERMINAIS
   1 - Mostrar todos os terminais
   2 - Registar terminal

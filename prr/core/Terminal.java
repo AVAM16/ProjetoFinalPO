@@ -137,6 +137,15 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     return _mode == TerminalMode.SILENCE;
   }
 
+  public Boolean isFriends(Terminal amigo){
+    for(Terminal t : _friends){
+      if(t.equals(amigo)){
+        return true;
+      }
+    }
+    return false;
+  }
+
   // sets
   public void setClient(Client client) {
     this._client = client;

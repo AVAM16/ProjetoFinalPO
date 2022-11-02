@@ -26,12 +26,12 @@ abstract public class Communication implements Serializable{
         return this._id;
     }
 
-    public String getOrigin(){
-        return this._terminalOrigin.getID();
+    public Terminal getOrigin(){
+        return this._terminalOrigin;
     }
 
-    public String getDestination(){
-        return this._terminalDestination.getID();
+    public Terminal getDestination(){
+        return this._terminalDestination;
     }
 
     public double getCost(){
@@ -61,7 +61,14 @@ abstract public class Communication implements Serializable{
         return this._isOngoing;
     }
 
-
+    public boolean isFriends(){
+        if(_terminalOrigin.isFriends(_terminalDestination)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
     //sets
 

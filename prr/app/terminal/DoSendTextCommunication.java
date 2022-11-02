@@ -38,7 +38,7 @@ class DoSendTextCommunication extends TerminalCommand {
     if(terminal.equals(null)){
       throw new UnknownTerminalKeyException(id);
     }
-    
+    //os terminais quando sao amigos existe um desconto de 50% esueci-me disso
     if(_receiver.canStartCommunication() && !terminal.getModeDisplay().equals("OFF")){
       TariffPlan plan = _network.tariffPlan(message, communication, _receiver.getClient());
       //plan = _network.tariffPlan(message, communication, _receiver.getClient());

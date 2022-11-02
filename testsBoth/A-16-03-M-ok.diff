@@ -1,5 +1,5 @@
-*** testsBoth/A-16-03-M-ok.out	2022-10-30 22:57:55.380659300 +0000
---- testsBoth/A-16-03-M-ok.outhyp	2022-11-01 22:13:09.314561000 +0000
+*** testsBoth/A-16-03-M-ok.out	2022-11-01 20:31:13.680676746 +0000
+--- testsBoth/A-16-03-M-ok.outhyp	2022-11-02 00:48:27.738120877 +0000
 ***************
 *** 42,48 ****
   0 - Sair
@@ -23,7 +23,7 @@
   BASIC|969007|cli003|IDLE|0|0
   BASIC|969008|cli003|SILENCE|0|0
   FANCY|969011|cli001|IDLE|0|0
-! FANCY|969013|cli001|SILENCE|0|0|prr.core.BasicTerminal@2ff4acd0
+! FANCY|969013|cli001|SILENCE|0|0|prr.core.BasicTerminal@452b3a41
   FANCY|969014|cli002|IDLE|0|0
   FANCY|969015|cli003|IDLE|0|0
   GESTÃO DE TERMINAIS

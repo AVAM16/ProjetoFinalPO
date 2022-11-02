@@ -30,11 +30,11 @@ public class Notification implements Serializable{
     }
 
     public String getTeminalOrigin(){
-        return _communication.getOrigin();
+        return _communication.getOrigin().toString();
     }
 
     public String getTeminalDestination(){
-        return _communication.getDestination();
+        return _communication.getDestination().toString();
     }
 
     

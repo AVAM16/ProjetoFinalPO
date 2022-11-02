@@ -47,7 +47,7 @@ GESTÃO DE TERMINAIS
 3 - Operações de terminal
 0 - Sair
 Escolha uma opção: 1
-BASIC|969001|cli001|IDLE|0|0|prr.core.BasicTerminal@36baf30c
+BASIC|969001|cli001|IDLE|0|0|prr.core.BasicTerminal@24d46ca6
 BASIC|969003|cli001|OFF|0|0
 BASIC|969006|cli002|IDLE|0|0
 BASIC|969007|cli003|IDLE|0|0
