@@ -100,8 +100,4 @@ abstract public class Communication implements Serializable{
 
         return com;
     }
-
-    public void iterateID(){
-        _id++;
-    }
 }

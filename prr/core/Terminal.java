@@ -103,7 +103,7 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
       Iterator<Terminal> iter = _friends.iterator();
       while (iter.hasNext()) {
         Terminal friend = iter.next();
-        friends = friends + friend + ",";
+        friends = friends + friend.getID() + ",";
       }
       return friends.substring(0, friends.length() - 1);
     }
@@ -139,7 +139,7 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
 
   public Boolean isFriends(Terminal amigo){
     for(Terminal t : _friends){
-      if(t.equals(amigo)){
+      if(t.getID().equals(amigo.getID())){
         return true;
       }
     }
