@@ -4,9 +4,8 @@ abstract public class InteractiveCommunication extends Communication{
   
   private int _duration;
 
-  public InteractiveCommunication(Terminal terminalOrigin,Terminal terminalDestination,CommunicationType type, int duration){
-    super(terminalOrigin, terminalDestination, type);
-    this._duration = duration;
+  public InteractiveCommunication(Terminal terminalOrigin,Terminal terminalDestination){
+    super(terminalOrigin, terminalDestination);
   }
 
   protected int getSize(){
@@ -15,5 +14,9 @@ abstract public class InteractiveCommunication extends Communication{
 
   public int getDuration(){
     return _duration;
+  }
+
+  public void setDuration(int duration) {
+    this._duration = duration;
   }
 }

@@ -1,8 +1,12 @@
 package prr.app.terminal;
 
 import prr.core.BasicTerminal;
+import prr.core.CommunicationType;
+import prr.core.InteractiveCommunication;
 import prr.core.Network;
 import prr.core.Terminal;
+import prr.core.VideoCommunication;
+import prr.core.VoiceCommunication;
 
 import javax.swing.text.AbstractDocument.Content;
 
@@ -35,11 +39,19 @@ class DoStartInteractiveCommunication extends TerminalCommand {
       _display.popup(Message.destinationIsBusy(id));
     } else if (terminalDestiny.isSilent()) {
       _display.popup(Message.destinationIsSilent(id));
-    }
-    if (_receiver instanceof BasicTerminal && type.equals("VOICE")) {
+    } else if (_receiver instanceof BasicTerminal && type.equals("VIDEO")) {
       _display.popup(Message.unsupportedAtOrigin(idOrigin, type));
-    } else if (terminalDestiny instanceof BasicTerminal && type.equals("VOICE")){
+    } else if (terminalDestiny instanceof BasicTerminal && type.equals("VIDEO")){
       _display.popup(Message.unsupportedAtDestination(id, type));
+    } else {
+      InteractiveCommunication interactiveComm = null;
+      if (type.equals("VOICE")) {
+        interactiveComm = new VoiceCommunication(terminalDestiny, terminalDestiny);
+      } else {
+        interactiveComm = new VideoCommunication(terminalDestiny, terminalDestiny);
+      }
+      _receiver.setOngoingCommunication(interactiveComm);
+
     }
   }
 }

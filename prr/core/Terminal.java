@@ -151,6 +151,10 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     this._client = client;
   }
 
+  public void setOngoingCommunication(InteractiveCommunication interactiveCommunication) {
+    this._ongoingCommunication = interactiveCommunication;
+  }
+
   // isto nao esta void porque e assim que a clase parser quer estes metodos
   public TerminalMode setOnSilent() {
     _mode = TerminalMode.SILENCE;

@@ -9,13 +9,11 @@ abstract public class Communication implements Serializable{
     private Terminal _terminalDestination;
     private double _cost;
     private boolean _isOngoing;
-    private CommunicationType _type;
     private int _units; //units e o os minutos os a lenght da mensagem
 
-    public Communication(Terminal terminalOrigin,Terminal terminalDestination,CommunicationType type){
+    public Communication(Terminal terminalOrigin,Terminal terminalDestination){
         this._terminalOrigin = terminalOrigin;
         this._terminalDestination = terminalDestination;
-        this._type=type;
         this._cost=0;
         this._units=0;
     }
@@ -43,7 +41,13 @@ abstract public class Communication implements Serializable{
     }
 
     public String getType(){
-        return _type.toString();
+        if (this instanceof TextCommunication) {
+            return "TEXT";
+        } else if (this instanceof VoiceCommunication) {
+            return "VOICE";
+        } else {
+            return "VIDEO";
+        }
     }
 
     public int getUnits(){
@@ -78,11 +82,6 @@ abstract public class Communication implements Serializable{
 
     public void setOngoing(boolean bool){
         _isOngoing = bool;
-    }
-
-    //CommunicationType
-    public CommunicationType setCommunicationType(){
-        return _type;
     }
 
     //show type|idCommunication|idSender|idReceiver|units|price|status

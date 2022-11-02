@@ -31,7 +31,7 @@ class DoSendTextCommunication extends TerminalCommand {
     String id = stringField("receiverId");
     String message = stringField("receiverId");
     Terminal terminal = _network.findTerminalNull(id);
-    Communication communication = new TextCommunication(_receiver, terminal, CommunicationType.TEXT,message);
+    Communication communication = new TextCommunication(_receiver, terminal, message);
     //communication.setUnits(message.length());
     
     
