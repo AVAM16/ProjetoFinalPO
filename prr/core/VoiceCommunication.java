@@ -3,7 +3,7 @@ package prr.core;
 public class VoiceCommunication extends InteractiveCommunication{
   
   public VoiceCommunication(Terminal terminalOrigin,Terminal terminalDestination){
-    super(terminalOrigin, terminalDestination, CommunicationType.VOICE);
+    super(terminalOrigin, terminalDestination);
   }
 
   protected double getCost(TariffPlan plan){

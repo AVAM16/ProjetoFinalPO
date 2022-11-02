@@ -3,7 +3,7 @@ package prr.core;
 public class VideoCommunication extends InteractiveCommunication{
   
   public VideoCommunication(Terminal terminalOrigin,Terminal terminalDestination){
-    super(terminalOrigin, terminalDestination, CommunicationType.VIDEO);
+    super(terminalOrigin, terminalDestination);
   }
 
   protected double getCost(TariffPlan plan){

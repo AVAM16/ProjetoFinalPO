@@ -8,16 +8,14 @@ abstract public class Communication implements Serializable{
     private Terminal _terminalOrigin;
     private Terminal _terminalDestination;
     private double _cost;
-    private CommunicationType _commType;
     private boolean _isOngoing;
     private int _units; //units e o os minutos os a lenght da mensagem
 
-    public Communication(Terminal terminalOrigin,Terminal terminalDestination, CommunicationType commType){
+    public Communication(Terminal terminalOrigin,Terminal terminalDestination){
         this._terminalOrigin = terminalOrigin;
         this._terminalDestination = terminalDestination;
         this._cost=0;
         this._units=0;
-        this._commType = commType;
     }
 
     //gets
