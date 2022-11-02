@@ -46,9 +46,9 @@ class DoStartInteractiveCommunication extends TerminalCommand {
     } else {
       InteractiveCommunication interactiveComm = null;
       if (type.equals("VOICE")) {
-        interactiveComm = new VoiceCommunication(terminalDestiny, terminalDestiny);
+        interactiveComm = new VoiceCommunication(terminalDestiny, terminalDestiny,CommunicationType.VOICE);
       } else {
-        interactiveComm = new VideoCommunication(terminalDestiny, terminalDestiny);
+        interactiveComm = new VideoCommunication(terminalDestiny, terminalDestiny,CommunicationType.VIDEO);
       }
       _receiver.setOngoingCommunication(interactiveComm);
       interactiveComm.setOngoing(true);
