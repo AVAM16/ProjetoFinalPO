@@ -52,6 +52,9 @@ class DoStartInteractiveCommunication extends TerminalCommand {
       }
       _receiver.setOngoingCommunication(interactiveComm);
       interactiveComm.setOngoing(true);
+      _receiver.isBusy();
+      terminalDestiny.turnBusy();
+      terminalDestiny.setOngoingCommunication(interactiveComm);
     }
   }
 }

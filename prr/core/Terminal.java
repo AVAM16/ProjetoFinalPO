@@ -75,6 +75,10 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     return _mode.toString();
   }
 
+  public InteractiveCommunication getOngoingCommunication() {
+    return this._ongoingCommunication;
+  }
+
   public List<Communication> getPayments() {
     return this._payments;
   }
@@ -176,6 +180,11 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     return _mode;
   }
 
+  public TerminalMode turnBusy() {
+    _mode = TerminalMode.BUSY;
+    return _mode;
+  }
+
   // add
   public void addFriend(Terminal terminal) {
     _friends.add(terminal);
@@ -216,12 +225,13 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
    **/
   public boolean canEndCurrentCommunication() {
     // FIXME add implementation code
-    if(_mode.equals(TerminalMode.BUSY)){
-      return true;
-    }
-    else{
+    if (_ongoingCommunication != null){
+      Terminal t = _ongoingCommunication.getOrigin();
+      return this.equals(t);
+    } else {
       return false;
     }
+    
     
   }
 

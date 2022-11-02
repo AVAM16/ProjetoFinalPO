@@ -1,55 +1,74 @@
 *** testsBoth/A-13-05-M-ok.out	2022-10-30 22:57:54.106368000 +0000
---- testsBoth/A-13-05-M-ok.outhyp	2022-11-02 11:41:34.505186800 +0000
+--- testsBoth/A-13-05-M-ok.outhyp	2022-11-02 15:50:47.535766400 +0000
 ***************
-*** 37,47 ****
+*** 37,105 ****
   5 - Retirar amigo
   6 - Pagamento
   7 - Consultar saldo
-! 10 - Terminar comunicação activa
-  11 - Mostrar comunicação em curso
-  0 - Sair
-  Escolha uma opção: 11
+- 10 - Terminar comunicação activa
+- 11 - Mostrar comunicação em curso
+- 0 - Sair
+- Escolha uma opção: 11
 - VOICE|1|969014|969011|0|0|ONGOING
-  OPERAÇÕES DO TERMINAL
-  1 - Ligar
-  2 - Colocar no silêncio
---- 37,47 ----
-  5 - Retirar amigo
-  6 - Pagamento
-  7 - Consultar saldo
-! 8 - Enviar comunicação de texto
-! 9 - Iniciar comunicação
-  11 - Mostrar comunicação em curso
-  0 - Sair
-  Escolha uma opção: 11
-  OPERAÇÕES DO TERMINAL
-  1 - Ligar
-  2 - Colocar no silêncio
-***************
-*** 50,56 ****
-  5 - Retirar amigo
-  6 - Pagamento
-  7 - Consultar saldo
-! 10 - Terminar comunicação activa
-  11 - Mostrar comunicação em curso
-  0 - Sair
-  Escolha uma opção: 0
---- 50,57 ----
-  5 - Retirar amigo
-  6 - Pagamento
-  7 - Consultar saldo
-! 8 - Enviar comunicação de texto
-! 9 - Iniciar comunicação
-  11 - Mostrar comunicação em curso
-  0 - Sair
-  Escolha uma opção: 0
-***************
-*** 74,80 ****
+- OPERAÇÕES DO TERMINAL
+- 1 - Ligar
+- 2 - Colocar no silêncio
+- 3 - Desligar
+- 4 - Adicionar amigo
+- 5 - Retirar amigo
+- 6 - Pagamento
+- 7 - Consultar saldo
+- 10 - Terminar comunicação activa
+- 11 - Mostrar comunicação em curso
+- 0 - Sair
+- Escolha uma opção: 0
+- GESTÃO DE TERMINAIS
+- 1 - Mostrar todos os terminais
+- 2 - Registar terminal
+- 3 - Operações de terminal
+- 0 - Sair
+- Escolha uma opção: 3
+- Número do terminal: 969001
+- OPERAÇÕES DO TERMINAL
+- 1 - Ligar
+- 2 - Colocar no silêncio
+- 3 - Desligar
+- 4 - Adicionar amigo
+- 5 - Retirar amigo
+- 6 - Pagamento
+- 7 - Consultar saldo
+  8 - Enviar comunicação de texto
+  9 - Iniciar comunicação
   11 - Mostrar comunicação em curso
   0 - Sair
   Escolha uma opção: 11
 - Não existe nenhuma comunicação em curso.
-  OPERAÇÕES DO TERMINAL
-  1 - Ligar
-  2 - Colocar no silêncio
---- 75,80 ----
+- OPERAÇÕES DO TERMINAL
+- 1 - Ligar
+- 2 - Colocar no silêncio
+- 3 - Desligar
+- 4 - Adicionar amigo
+- 5 - Retirar amigo
+- 6 - Pagamento
+- 7 - Consultar saldo
+- 8 - Enviar comunicação de texto
+- 9 - Iniciar comunicação
+- 11 - Mostrar comunicação em curso
+- 0 - Sair
+- Escolha uma opção: 0
+- GESTÃO DE TERMINAIS
+- 1 - Mostrar todos os terminais
+- 2 - Registar terminal
+- 3 - Operações de terminal
+- 0 - Sair
+- Escolha uma opção: 0
+- MENU PRINCIPAL
+- 1 - Abrir
+- 2 - Guardar
+- 3 - Gestão de clientes
+- 4 - Gestão de terminais
+- 5 - Menu de consultas
+- 6 - Ver saldo global
+- 0 - Sair
+- Escolha uma opção: 0
+--- 37,44 ----
