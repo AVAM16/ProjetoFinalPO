@@ -37,5 +37,28 @@ public class Notification implements Serializable{
         return _communication.getDestination().toString();
     }
 
+    //sets
+    public void setNotificationType(NotificationType type){
+        switch(type){
+            case O2S:
+            _type = NotificationType.O2S;
+            break;
+
+            case O2I:
+            _type = NotificationType.O2I;
+            break;
+
+            case S2I:
+            _type = NotificationType.S2I;
+            break;
+            
+            case B2I:
+            _type = NotificationType.B2I;
+            break;
+
+        }
+        
+    }
+
     
 }

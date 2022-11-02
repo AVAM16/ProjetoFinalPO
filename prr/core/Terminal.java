@@ -159,8 +159,15 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     this._ongoingCommunication = interactiveCommunication;
   }
 
-  // isto nao esta void porque e assim que a clase parser quer estes metodos
+  // off - to - silent
   public TerminalMode setOnSilent() {
+    if(_mode.equals(TerminalMode.OFF)){
+      for(Notification n : _pendingNotifications){
+        n.setNotificationType(NotificationType.O2S);
+        _client.addNotification(n.getCommunication(), _client, n.getCommunication().getDestination());
+      }
+      _pendingNotifications.clear();
+    }
     _mode = TerminalMode.SILENCE;
     return _mode;
   }
@@ -170,7 +177,30 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     return _mode;
   }
 
+  //off - to - idle || silent - to - idle || busy - to - idle
   public TerminalMode turnOn() {
+    if(_mode.equals(TerminalMode.OFF)){
+      for(Notification n : _pendingNotifications){
+        n.setNotificationType(NotificationType.O2I);
+        _client.addNotification(n.getCommunication(), _client, n.getCommunication().getDestination());
+      }
+      _pendingNotifications.clear();
+    }
+    else if(_mode.equals(TerminalMode.SILENCE)){
+      for(Notification n : _pendingNotifications){
+        n.setNotificationType(NotificationType.S2I);
+        _client.addNotification(n.getCommunication(), _client, n.getCommunication().getDestination());
+      }
+      _pendingNotifications.clear();
+    }
+    else if(_mode.equals(TerminalMode.BUSY)){
+      for(Notification n : _pendingNotifications){
+        n.setNotificationType(NotificationType.B2I);
+        _client.addNotification(n.getCommunication(), _client, n.getCommunication().getDestination());
+      }
+      _pendingNotifications.clear();
+    }
+
     _mode = TerminalMode.ON;
     return _mode;
   }
