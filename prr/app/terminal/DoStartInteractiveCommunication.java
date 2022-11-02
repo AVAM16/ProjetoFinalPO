@@ -51,7 +51,7 @@ class DoStartInteractiveCommunication extends TerminalCommand {
         interactiveComm = new VideoCommunication(terminalDestiny, terminalDestiny);
       }
       _receiver.setOngoingCommunication(interactiveComm);
-
+      interactiveComm.setOngoing(true);
     }
   }
 }

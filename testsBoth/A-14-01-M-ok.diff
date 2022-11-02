@@ -1,15 +1,5 @@
-*** testsBoth/A-14-01-M-ok.out	2022-11-01 20:31:13.676676769 +0000
---- testsBoth/A-14-01-M-ok.outhyp	2022-11-02 08:25:58.710135276 +0000
-***************
-*** 44,49 ****
---- 44,50 ----
-  Escolha uma opção: 9
-  Número do terminal: 969007
-  Tipo de comunicação a iniciar (VOICE, VIDEO): VOICE
-+ O terminal '969001' não pode iniciar comunicações VOICE
-  OPERAÇÕES DO TERMINAL
-  1 - Ligar
-  2 - Colocar no silêncio
+*** testsBoth/A-14-01-M-ok.out	2022-10-30 22:57:54.198652700 +0000
+--- testsBoth/A-14-01-M-ok.outhyp	2022-11-02 11:41:34.615186800 +0000
 ***************
 *** 52,62 ****
   5 - Retirar amigo
@@ -23,7 +13,7 @@
   OPERAÇÕES DO TERMINAL
   1 - Ligar
   2 - Colocar no silêncio
---- 53,63 ----
+--- 52,62 ----
   5 - Retirar amigo
   6 - Pagamento
   7 - Consultar saldo
@@ -48,7 +38,7 @@
   OPERAÇÕES DO TERMINAL
   1 - Ligar
   2 - Colocar no silêncio
---- 66,76 ----
+--- 65,75 ----
   5 - Retirar amigo
   6 - Pagamento
   7 - Consultar saldo
@@ -74,7 +64,7 @@
   OPERAÇÕES DO TERMINAL
   1 - Ligar
   2 - Colocar no silêncio
---- 79,103 ----
+--- 78,102 ----
   5 - Retirar amigo
   6 - Pagamento
   7 - Consultar saldo
@@ -109,7 +99,7 @@
   BASIC|969003|cli001|OFF|0|0
   BASIC|969006|cli002|IDLE|0|0
   BASIC|969007|cli003|IDLE|0|0
---- 117,123 ----
+--- 116,122 ----
   3 - Operações de terminal
   0 - Sair
   Escolha uma opção: 1

@@ -1,15 +1,5 @@
-*** testsBoth/A-12-06-M-ok.out	2022-11-01 20:31:13.676676769 +0000
---- testsBoth/A-12-06-M-ok.outhyp	2022-11-02 08:25:57.482135749 +0000
-***************
-*** 29,34 ****
---- 29,35 ----
-  Escolha uma opção: 9
-  Número do terminal: 969005
-  Tipo de comunicação a iniciar (VOICE, VIDEO): VOICE
-+ O terminal '969001' não pode iniciar comunicações VOICE
-  OPERAÇÕES DO TERMINAL
-  1 - Ligar
-  2 - Colocar no silêncio
+*** testsBoth/A-12-06-M-ok.out	2022-10-30 22:57:52.925297200 +0000
+--- testsBoth/A-12-06-M-ok.outhyp	2022-11-02 11:41:33.305186800 +0000
 ***************
 *** 37,47 ****
   5 - Retirar amigo
@@ -23,7 +13,7 @@
   OPERAÇÕES DO TERMINAL
   1 - Ligar
   2 - Colocar no silêncio
---- 38,48 ----
+--- 37,47 ----
   5 - Retirar amigo
   6 - Pagamento
   7 - Consultar saldo
@@ -44,7 +34,7 @@
   11 - Mostrar comunicação em curso
   0 - Sair
   Escolha uma opção: 0
---- 51,58 ----
+--- 50,57 ----
   5 - Retirar amigo
   6 - Pagamento
   7 - Consultar saldo
@@ -58,18 +48,11 @@
   Escolha uma opção: 9
   Número do terminal: 969005
   Tipo de comunicação a iniciar (VOICE, VIDEO): VOICE
-! O terminal de destino ('969005') está ocupado.
+- O terminal de destino ('969005') está ocupado.
   OPERAÇÕES DO TERMINAL
   1 - Ligar
   2 - Colocar no silêncio
---- 78,84 ----
-  Escolha uma opção: 9
-  Número do terminal: 969005
-  Tipo de comunicação a iniciar (VOICE, VIDEO): VOICE
-! O terminal '969002' não pode iniciar comunicações VOICE
-  OPERAÇÕES DO TERMINAL
-  1 - Ligar
-  2 - Colocar no silêncio
+--- 77,82 ----
 ***************
 *** 90,96 ****
   11 - Mostrar comunicação em curso
@@ -79,4 +62,4 @@
   OPERAÇÕES DO TERMINAL
   1 - Ligar
   2 - Colocar no silêncio
---- 92,97 ----
+--- 90,95 ----

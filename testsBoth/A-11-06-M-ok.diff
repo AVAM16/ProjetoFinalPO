@@ -1,15 +1,5 @@
-*** testsBoth/A-11-06-M-ok.out	2022-11-01 20:31:13.676676769 +0000
---- testsBoth/A-11-06-M-ok.outhyp	2022-11-02 08:25:56.770136063 +0000
-***************
-*** 29,34 ****
---- 29,35 ----
-  Escolha uma opção: 9
-  Número do terminal: 969005
-  Tipo de comunicação a iniciar (VOICE, VIDEO): VOICE
-+ O terminal '969001' não pode iniciar comunicações VOICE
-  OPERAÇÕES DO TERMINAL
-  1 - Ligar
-  2 - Colocar no silêncio
+*** testsBoth/A-11-06-M-ok.out	2022-10-30 22:57:52.141358000 +0000
+--- testsBoth/A-11-06-M-ok.outhyp	2022-11-02 11:41:32.575186800 +0000
 ***************
 *** 37,43 ****
   5 - Retirar amigo
@@ -19,7 +9,7 @@
   11 - Mostrar comunicação em curso
   0 - Sair
   Escolha uma opção: 0
---- 38,45 ----
+--- 37,44 ----
   5 - Retirar amigo
   6 - Pagamento
   7 - Consultar saldo
@@ -37,7 +27,7 @@
   OPERAÇÕES DO TERMINAL
   1 - Ligar
   2 - Colocar no silêncio
---- 78,85 ----
+--- 77,84 ----
   11 - Mostrar comunicação em curso
   0 - Sair
   Escolha uma opção: 7
@@ -52,7 +42,7 @@
   6 - Ver saldo global
   0 - Sair
 ! Escolha uma opção: 0
---- 107,110 ----
+--- 106,109 ----
   5 - Menu de consultas
   6 - Ver saldo global
   0 - Sair
