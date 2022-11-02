@@ -1,7 +1,6 @@
 package prr.app.terminal;
 
 import prr.core.Communication;
-import prr.core.CommunicationType;
 import prr.core.Network;
 import prr.core.TariffPlan;
 import prr.core.Terminal;
