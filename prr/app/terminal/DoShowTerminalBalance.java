@@ -13,19 +13,14 @@ class DoShowTerminalBalance extends TerminalCommand {
 
   DoShowTerminalBalance(Network context, Terminal terminal) {
     super(Label.SHOW_BALANCE, context, terminal);
-    addStringField("id", Message.terminalKey());
   }
   
   @Override
   protected final void execute() throws CommandException {
     //FIXME implement command
-    String id = stringField("id");
-    Terminal terminal = _receiver;
-    if(terminal==null){
-      throw new UnknownTerminalKeyException(id);
-    }
-    _display.popup(Message.terminalPaymentsAndDebts(id,terminal.getValue(terminal.getPayments()),
-    terminal.getValue(terminal.getDepts())));
+  
+    _display.addLine(Message.terminalPaymentsAndDebts(_receiver.getID(),_receiver.getValue(_receiver.getPayments()),
+    _receiver.getValue(_receiver.getDepts())));
     _display.display();
   }
 }
