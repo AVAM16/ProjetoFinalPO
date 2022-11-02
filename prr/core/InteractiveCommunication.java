@@ -4,7 +4,7 @@ abstract public class InteractiveCommunication extends Communication{
   
   private int _duration;
 
-  public InteractiveCommunication(Terminal terminalOrigin,Terminal terminalDestination, CommunicationType voice){
+  public InteractiveCommunication(Terminal terminalOrigin,Terminal terminalDestination, CommunicationType type){
     super(terminalOrigin, terminalDestination, null);
   }
 

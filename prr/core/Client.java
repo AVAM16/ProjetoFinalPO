@@ -130,7 +130,7 @@ public class Client implements Serializable {
   public List<String> showClientNotifications() {
     LinkedList<String> notifications = new LinkedList<>();
     for (Notification notification : _notifications) {
-      notifications.add(String.format("%s|%s", notification.getType().toString(), notification.getTeminalOrigin()));
+      notifications.add(String.format("%s|%s", notification.getType().toString(), notification.getTeminalDestination()));
     }
     _notifications.clear();
     return notifications;

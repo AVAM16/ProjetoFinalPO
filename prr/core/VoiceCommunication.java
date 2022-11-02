@@ -2,7 +2,7 @@ package prr.core;
 
 public class VoiceCommunication extends InteractiveCommunication{
   
-  public VoiceCommunication(Terminal terminalOrigin,Terminal terminalDestination){
+  public VoiceCommunication(Terminal terminalOrigin,Terminal terminalDestination,CommunicationType type){
     super(terminalOrigin, terminalDestination, CommunicationType.VOICE);
   }
 
