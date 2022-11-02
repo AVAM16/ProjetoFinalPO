@@ -61,14 +61,6 @@ abstract public class Communication implements Serializable{
         return this._isOngoing;
     }
 
-    public boolean isFriends(){
-        if(_terminalOrigin.isFriends(_terminalDestination)){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
 
     //sets
 

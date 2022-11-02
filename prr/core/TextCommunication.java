@@ -7,7 +7,7 @@ public class TextCommunication extends Communication{
   public TextCommunication(Terminal terminalOrigin,Terminal terminalDestination,CommunicationType type,String message){
     super(terminalOrigin, terminalDestination,type);
     this._message = message;
-    setUnits(getSize());
+    setUnits(message.length());
     setOngoing(false);
   }
 

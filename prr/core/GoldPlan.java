@@ -8,34 +8,55 @@ public class GoldPlan extends TariffPlan{
 
     @Override
     public double getCostVideo() {
-        getCommunication().setCost((double)getCommunication().getUnits()*20);
+        double cost = getCommunication().getUnits()*20;
+        if(terminalsAreFriends(getCommunication().getOrigin(), getCommunication().getDestination())){
+            cost=cost*0.5;
+        }
+        getCommunication().setCost((double)cost);
         getClient().addCommunicationsDept(getCommunication());
-        return getCommunication().getUnits()*20;
+        return cost;
     }
 
     @Override
     public double getCostCall() {
-        getCommunication().setCost((double)getCommunication().getUnits()*10);
+        double cost = getCommunication().getUnits()*10;
+        if(terminalsAreFriends(getCommunication().getOrigin(), getCommunication().getDestination())){
+            cost=cost*0.5;
+        }
+        getCommunication().setCost((double)cost);
         getClient().addCommunicationsDept(getCommunication());
-        return getCommunication().getUnits()*10;
+        return cost;
     }
 
     @Override
     public double getCostText() {
+        double cost;
         if(getCommunication().getUnits() < 50){
-            getCommunication().setCost((double)10);
+            cost = (double)10;
+            if(terminalsAreFriends(getCommunication().getOrigin(), getCommunication().getDestination())){
+                cost=cost*0.5;
+            }
+            getCommunication().setCost((double)cost);
             getClient().addCommunicationsDept(getCommunication());
-            return 10;
+            return cost;
         }
         else if(50 <= getCommunication().getUnits() && getCommunication().getUnits() < 100 ){
-            getCommunication().setCost((double)10);
+            cost = (double)10;
+            if(terminalsAreFriends(getCommunication().getOrigin(), getCommunication().getDestination())){
+                cost=cost*0.5;
+            }
+            getCommunication().setCost((double)cost);
             getClient().addCommunicationsDept(getCommunication());
-            return 10;
+            return cost;
         }
         else{
-            getCommunication().setCost((double)getCommunication().getUnits()*2);
+            cost = getCommunication().getUnits()*2;
+            if(terminalsAreFriends(getCommunication().getOrigin(), getCommunication().getDestination())){
+                cost=cost*0.5;
+            }
+            getCommunication().setCost((double)cost);
             getClient().addCommunicationsDept(getCommunication());
-            return getCommunication().getUnits()*2;
+            return cost;
         }
     }
 }

@@ -1,5 +1,7 @@
 package prr.core;
 
+import java.util.List;
+
 abstract public class TariffPlan {
   private String _name;
   private double _cost;
@@ -34,5 +36,15 @@ abstract public class TariffPlan {
   // isto secalhar tambem devia adicionar o custo ao cliente e aos terminais
   public void setCost(double cost){
     _cost=cost;
+  }
+
+  public boolean terminalsAreFriends(Terminal terminal, Terminal friend){
+    List<Terminal> friendslist = terminal.getFriendslist();
+    for(Terminal t : friendslist){
+      if(friend.getID().equals(t.getID())){
+        return true;
+      }
+    }
+    return false;
   }
 }
