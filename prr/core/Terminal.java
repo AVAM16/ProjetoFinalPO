@@ -176,11 +176,16 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
   // off - to - silent
   public TerminalMode setOnSilent() {
     if(_mode.equals(TerminalMode.OFF) && _client.getReceiveNotifications()){
-      for(Notification n : _pendingNotifications){
-        n.setNotificationType("O2S");
-        n.getClient().addNotification(n);
+      Iterator<Notification> iter = _pendingNotifications.iterator();
+      while(iter.hasNext()){
+        Notification notification = iter.next();
+        if(!(notification.getCommunication() instanceof VoiceCommunication && 
+        notification.getCommunication() instanceof VideoCommunication)){
+          notification.setNotificationType("O2S");
+          notification.getClient().addNotification(notification);
+          iter.remove();
+        }
       }
-      _pendingNotifications.clear();
     }
     _mode = TerminalMode.SILENCE;
     return _mode;
