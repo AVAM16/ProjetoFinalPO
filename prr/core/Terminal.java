@@ -29,6 +29,7 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
   private List<Communication> _communicationsMade;
   private List<Notification> _pendingNotifications; // isto depois e adicionado as nots do cliente
   private TerminalMode _mode;
+  private TerminalMode _previousMode;
   private InteractiveCommunication _ongoingCommunication;
 
   // FIXME define contructor(s)
@@ -77,6 +78,10 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     return _mode.toString();
   }
 
+  public TerminalMode getModeNoString(){
+    return _mode;
+  }
+
   public InteractiveCommunication getOngoingCommunication() {
     return this._ongoingCommunication;
   }
@@ -122,6 +127,10 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     return Collections.unmodifiableList(orderedlist);
   }
 
+  public TerminalMode getPreviousMode(){
+    return this._previousMode;
+  }
+
   public Terminal findFriend(String id) {
     for(Terminal t : _friends) {
       if (t.getID().equals(id)) {
@@ -157,6 +166,9 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     this._client = client;
   }
 
+  public void setPreviousMode(TerminalMode mode){
+    this._previousMode = mode;
+  }
   public void setOngoingCommunication(InteractiveCommunication interactiveCommunication) {
     this._ongoingCommunication = interactiveCommunication;
   }
@@ -215,6 +227,11 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     return _mode;
   }
 
+
+  public void setMode(TerminalMode mode){
+    this._mode = mode;
+  }
+  
   // add
   public void addFriend(Terminal terminal) {
     _friends.add(terminal);

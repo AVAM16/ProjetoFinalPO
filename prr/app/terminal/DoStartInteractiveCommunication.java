@@ -6,6 +6,7 @@ import prr.core.InteractiveCommunication;
 import prr.core.Network;
 import prr.core.Notification;
 import prr.core.Terminal;
+import prr.core.TerminalMode;
 import prr.core.VideoCommunication;
 import prr.core.VoiceCommunication;
 
@@ -77,6 +78,10 @@ class DoStartInteractiveCommunication extends TerminalCommand {
       Client cReceived = terminalDestiny.getClient();
       cMade.addCommunicationsMade(interactiveComm);
       cReceived.addCommunicationsRecived(interactiveComm);
+      TerminalMode terminalmode = _receiver.getModeNoString();
+      TerminalMode terminalModeDestiny = terminalDestiny.getModeNoString();
+      _receiver.setPreviousMode(terminalmode);
+      terminalDestiny.setPreviousMode(terminalModeDestiny);
       _receiver.turnBusy(); //_receiver.isBusy(); acho que este isBusy e um erro
       terminalDestiny.turnBusy();
     }
