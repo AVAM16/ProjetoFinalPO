@@ -52,8 +52,6 @@ OPERAÇÕES DO TERMINAL
 5 - Retirar amigo
 6 - Pagamento
 7 - Consultar saldo
-8 - Enviar comunicação de texto
-9 - Iniciar comunicação
 11 - Mostrar comunicação em curso
 0 - Sair
 Escolha uma opção: 11
@@ -66,8 +64,6 @@ OPERAÇÕES DO TERMINAL
 5 - Retirar amigo
 6 - Pagamento
 7 - Consultar saldo
-8 - Enviar comunicação de texto
-9 - Iniciar comunicação
 11 - Mostrar comunicação em curso
 0 - Sair
 Escolha uma opção: 11
@@ -80,8 +76,6 @@ OPERAÇÕES DO TERMINAL
 5 - Retirar amigo
 6 - Pagamento
 7 - Consultar saldo
-8 - Enviar comunicação de texto
-9 - Iniciar comunicação
 11 - Mostrar comunicação em curso
 0 - Sair
 Escolha uma opção: 10
@@ -94,12 +88,9 @@ OPERAÇÕES DO TERMINAL
 5 - Retirar amigo
 6 - Pagamento
 7 - Consultar saldo
-8 - Enviar comunicação de texto
-9 - Iniciar comunicação
 11 - Mostrar comunicação em curso
 0 - Sair
 Escolha uma opção: 1
-O terminal já estava ligado.
 OPERAÇÕES DO TERMINAL
 1 - Ligar
 2 - Colocar no silêncio

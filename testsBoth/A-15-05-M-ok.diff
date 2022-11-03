@@ -1,11 +1,11 @@
-*** testsBoth/A-15-05-M-ok.out	2022-11-01 20:31:13.680676746 +0000
---- testsBoth/A-15-05-M-ok.outhyp	2022-11-03 08:26:04.733731973 +0000
+*** testsBoth/A-15-05-M-ok.out	2022-10-30 22:57:55.127603700 +0000
+--- testsBoth/A-15-05-M-ok.outhyp	2022-11-03 08:37:56.159848900 +0000
 ***************
 *** 37,48 ****
   5 - Retirar amigo
   6 - Pagamento
   7 - Consultar saldo
-! 10 - Terminar comunicação activa
+- 10 - Terminar comunicação activa
   11 - Mostrar comunicação em curso
   0 - Sair
   Escolha uma opção: 10
@@ -14,12 +14,10 @@
   OPERAÇÕES DO TERMINAL
   1 - Ligar
   2 - Colocar no silêncio
---- 37,62 ----
+--- 37,58 ----
   5 - Retirar amigo
   6 - Pagamento
   7 - Consultar saldo
-! 8 - Enviar comunicação de texto
-! 9 - Iniciar comunicação
   11 - Mostrar comunicação em curso
   0 - Sair
   Escolha uma opção: 10
@@ -32,8 +30,6 @@
 ! 5 - Retirar amigo
 ! 6 - Pagamento
 ! 7 - Consultar saldo
-! 8 - Enviar comunicação de texto
-! 9 - Iniciar comunicação
 ! 11 - Mostrar comunicação em curso
 ! 0 - Sair
 ! Escolha uma opção: 30
@@ -41,6 +37,17 @@
   OPERAÇÕES DO TERMINAL
   1 - Ligar
   2 - Colocar no silêncio
+***************
+*** 51,58 ****
+  5 - Retirar amigo
+  6 - Pagamento
+  7 - Consultar saldo
+- 8 - Enviar comunicação de texto
+- 9 - Iniciar comunicação
+  11 - Mostrar comunicação em curso
+  0 - Sair
+  Escolha uma opção: 0
+--- 61,66 ----
 ***************
 *** 81,87 ****
   7 - Mostrar terminais com saldo positivo
@@ -50,4 +57,4 @@
   CONSULTAS
   1 - Mostrar todas as comunicações
   2 - Mostrar comunicações feitas por um cliente
---- 95,100 ----
+--- 89,94 ----

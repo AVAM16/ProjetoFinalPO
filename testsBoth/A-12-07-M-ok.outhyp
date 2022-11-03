@@ -37,8 +37,6 @@ OPERAÇÕES DO TERMINAL
 5 - Retirar amigo
 6 - Pagamento
 7 - Consultar saldo
-8 - Enviar comunicação de texto
-9 - Iniciar comunicação
 11 - Mostrar comunicação em curso
 0 - Sair
 Escolha uma opção: 11
@@ -51,8 +49,6 @@ OPERAÇÕES DO TERMINAL
 5 - Retirar amigo
 6 - Pagamento
 7 - Consultar saldo
-8 - Enviar comunicação de texto
-9 - Iniciar comunicação
 11 - Mostrar comunicação em curso
 0 - Sair
 Escolha uma opção: 0
@@ -78,6 +74,7 @@ OPERAÇÕES DO TERMINAL
 Escolha uma opção: 9
 Número do terminal: 969001
 Tipo de comunicação a iniciar (VOICE, VIDEO): VOICE
+O terminal de destino ('969001') está ocupado.
 OPERAÇÕES DO TERMINAL
 1 - Ligar
 2 - Colocar no silêncio
@@ -91,7 +88,7 @@ OPERAÇÕES DO TERMINAL
 11 - Mostrar comunicação em curso
 0 - Sair
 Escolha uma opção: 11
-VOICE|0|969001|969001|0|0|ONGOING
+Não existe nenhuma comunicação em curso.
 OPERAÇÕES DO TERMINAL
 1 - Ligar
 2 - Colocar no silêncio

@@ -1,11 +1,11 @@
-*** testsBoth/A-14-01-M-ok.out	2022-11-01 20:31:13.676676769 +0000
---- testsBoth/A-14-01-M-ok.outhyp	2022-11-03 08:26:03.805707923 +0000
+*** testsBoth/A-14-01-M-ok.out	2022-10-30 22:57:54.198652700 +0000
+--- testsBoth/A-14-01-M-ok.outhyp	2022-11-03 08:37:55.159848900 +0000
 ***************
 *** 52,62 ****
   5 - Retirar amigo
   6 - Pagamento
   7 - Consultar saldo
-! 10 - Terminar comunicação activa
+- 10 - Terminar comunicação activa
   11 - Mostrar comunicação em curso
   0 - Sair
   Escolha uma opção: 11
@@ -13,12 +13,10 @@
   OPERAÇÕES DO TERMINAL
   1 - Ligar
   2 - Colocar no silêncio
---- 52,63 ----
+--- 52,61 ----
   5 - Retirar amigo
   6 - Pagamento
   7 - Consultar saldo
-! 8 - Enviar comunicação de texto
-! 9 - Iniciar comunicação
   11 - Mostrar comunicação em curso
   0 - Sair
   Escolha uma opção: 11
@@ -31,7 +29,7 @@
   5 - Retirar amigo
   6 - Pagamento
   7 - Consultar saldo
-! 10 - Terminar comunicação activa
+- 10 - Terminar comunicação activa
   11 - Mostrar comunicação em curso
   0 - Sair
   Escolha uma opção: 11
@@ -39,12 +37,10 @@
   OPERAÇÕES DO TERMINAL
   1 - Ligar
   2 - Colocar no silêncio
---- 66,77 ----
+--- 64,73 ----
   5 - Retirar amigo
   6 - Pagamento
   7 - Consultar saldo
-! 8 - Enviar comunicação de texto
-! 9 - Iniciar comunicação
   11 - Mostrar comunicação em curso
   0 - Sair
   Escolha uma opção: 11
@@ -57,7 +53,7 @@
   5 - Retirar amigo
   6 - Pagamento
   7 - Consultar saldo
-! 10 - Terminar comunicação activa
+- 10 - Terminar comunicação activa
   11 - Mostrar comunicação em curso
   0 - Sair
   Escolha uma opção: 10
@@ -66,12 +62,10 @@
   OPERAÇÕES DO TERMINAL
   1 - Ligar
   2 - Colocar no silêncio
---- 80,105 ----
+--- 76,96 ----
   5 - Retirar amigo
   6 - Pagamento
   7 - Consultar saldo
-! 8 - Enviar comunicação de texto
-! 9 - Iniciar comunicação
   11 - Mostrar comunicação em curso
   0 - Sair
   Escolha uma opção: 10
@@ -84,12 +78,9 @@
 ! 5 - Retirar amigo
 ! 6 - Pagamento
 ! 7 - Consultar saldo
-! 8 - Enviar comunicação de texto
-! 9 - Iniciar comunicação
 ! 11 - Mostrar comunicação em curso
 ! 0 - Sair
 ! Escolha uma opção: 1
-! O terminal já estava ligado.
   OPERAÇÕES DO TERMINAL
   1 - Ligar
   2 - Colocar no silêncio
@@ -105,7 +96,7 @@
   BASIC|969008|cli003|SILENCE|0|0
   FANCY|969011|cli001|IDLE|0|0
   FANCY|969013|cli001|SILENCE|0|0
---- 119,128 ----
+--- 110,119 ----
   3 - Operações de terminal
   0 - Sair
   Escolha uma opção: 1
