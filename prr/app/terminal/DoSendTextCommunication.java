@@ -39,7 +39,7 @@ class DoSendTextCommunication extends TerminalCommand {
       throw new UnknownTerminalKeyException(id);
     }
 
-    if(_receiver.canStartCommunication() && !terminal.getMode().equals("OFF")){
+    if(!terminal.getMode().equals("OFF")){
       TariffPlan plan = _network.tariffPlan(_receiver.getID(), communication, _receiver.getClient());
       plan.getCostText();
       communication.setId(_network.getCommunicationID());
@@ -53,10 +53,11 @@ class DoSendTextCommunication extends TerminalCommand {
     if(terminal.getMode().equals("OFF")){
       _display.popup(Message.destinationIsOff(id));
     
-    
       if(_receiver.getClient().getReceiveNotifications()){
         Notification notification = _network.createNotification(communication, _receiver.getClient(), terminal);
-        terminal.addPendingNotification(notification);
+        if(!terminal.isNotificationDuplicate(notification)){
+          terminal.addPendingNotification(notification);
+        }
       }
     }
     
