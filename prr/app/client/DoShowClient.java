@@ -30,6 +30,7 @@ class DoShowClient extends Command<Network> {
     Client client = _receiver.findClient(key);
     _display.popup(client.showClient());
     List<Notification> notifications = client.getNotifications();
+    //_display.popup(notifications.size());
 
     if(!notifications.isEmpty()){
     for(Notification n: notifications){

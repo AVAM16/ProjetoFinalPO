@@ -32,7 +32,7 @@ class DoSendTextCommunication extends TerminalCommand {
     String message = stringField("message");
     Terminal terminal = _network.findTerminalNull(id);
     Communication communication = new TextCommunication(_receiver, terminal, message);
-    
+    //_display.popup(communication);
     
     
     if(terminal==null){
@@ -52,13 +52,13 @@ class DoSendTextCommunication extends TerminalCommand {
     
     if(terminal.getMode().equals("OFF")){
       _display.popup(Message.destinationIsOff(id));
-    }
     
-    if(_receiver.getClient().getReceiveNotifications() && _receiver.canStartCommunication()){
-      Notification notification = _network.createNotification(communication, _receiver.getClient(), terminal);
-      terminal.addPendingNotification(notification);
-    }
     
+      if(_receiver.getClient().getReceiveNotifications()){
+        Notification notification = _network.createNotification(communication, _receiver.getClient(), terminal);
+        terminal.addPendingNotification(notification);
+      }
+    }
     
    
   }

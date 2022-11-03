@@ -282,7 +282,7 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
 
 
   public boolean canMakeInterractiveCall(){
-    if(_mode.equals(TerminalMode.ON)){
+    if(_mode.equals(TerminalMode.ON) || _mode.equals(TerminalMode.SILENCE)){
       return true;
     }
     return false;
