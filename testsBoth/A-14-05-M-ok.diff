@@ -1,15 +1,5 @@
 *** testsBoth/A-14-05-M-ok.out	2022-11-01 20:31:13.680676746 +0000
---- testsBoth/A-14-05-M-ok.outhyp	2022-11-03 17:54:14.516378374 +0000
-***************
-*** 101,107 ****
-  0 - Sair
-  Escolha uma opção: 10
-  Duração da comunicação (em minutos): 1
-- Custo da comunicação: 30 unidades.
-  OPERAÇÕES DO TERMINAL
-  1 - Ligar
-  2 - Colocar no silêncio
---- 101,106 ----
+--- testsBoth/A-14-05-M-ok.outhyp	2022-11-03 18:26:12.244017099 +0000
 ***************
 *** 127,133 ****
   BASIC|969007|cli003|IDLE|0|0
@@ -19,7 +9,7 @@
   FANCY|969014|cli002|IDLE|0|0
   FANCY|969015|cli003|IDLE|0|0
   GESTÃO DE TERMINAIS
---- 126,132 ----
+--- 127,133 ----
   BASIC|969007|cli003|IDLE|0|0
   BASIC|969008|cli003|SILENCE|0|0
   FANCY|969011|cli001|IDLE|0|0

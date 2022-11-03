@@ -33,11 +33,13 @@ class DoEndInteractiveCommunication extends TerminalCommand {
       terminalDestiny.turnOn();
       _receiver.turnOn();
       TariffPlan plan = _network.tariffPlan(_receiver.getID(), ongoingComm, _receiver.getClient());
+      int cost;
       if (ongoingComm.getType().equals("VOICE")){
-        plan.getCostCall();
+        cost = (int) Math.round(plan.getCostCall());
       } else {
-        plan.getCostVideo();
+        cost = (int) Math.round(plan.getCostVideo());
       }
+      _display.popup(Message.communicationCost(cost));
     }
     return;
 
