@@ -22,7 +22,7 @@ class DoSilenceTerminal extends TerminalCommand {
       _display.popup(Message.alreadySilent());
     }
     else{
-      terminal.turnSilence();
+      terminal.setOnSilent();
     }
 
   }
