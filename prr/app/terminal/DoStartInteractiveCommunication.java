@@ -36,9 +36,9 @@ class DoStartInteractiveCommunication extends TerminalCommand {
     String idOrigin = _receiver.getID();
     InteractiveCommunication interactiveComm = null;
     if (type.equals("VOICE")) {
-      interactiveComm = new VoiceCommunication(terminalDestiny, terminalDestiny);
+      interactiveComm = new VoiceCommunication(_receiver, terminalDestiny);
     } else {
-      interactiveComm = new VideoCommunication(terminalDestiny, terminalDestiny);
+      interactiveComm = new VideoCommunication(_receiver, terminalDestiny);
     }
     if (terminalDestiny.isOff()) {
       _display.popup(Message.destinationIsOff(id));
