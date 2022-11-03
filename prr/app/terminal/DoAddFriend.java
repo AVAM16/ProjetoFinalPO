@@ -24,6 +24,10 @@ class DoAddFriend extends TerminalCommand {
     String friendId = stringField("friend");
     Terminal friend = _network.findTerminalNull(friendId);
     boolean alreadyFriend = false;
+
+    if(friend==null){
+      throw new UnknownTerminalKeyException(friendId);
+    }
     
     List<Terminal> friends = _receiver.getFriendslist();
     for(Terminal t : friends){
