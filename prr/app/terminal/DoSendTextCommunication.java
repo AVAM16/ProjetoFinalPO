@@ -56,8 +56,8 @@ class DoSendTextCommunication extends TerminalCommand {
     _display.display();
 
     if(_receiver.getClient().getReceiveNotifications()){
-    prr.core.Notification notification = _network.createNotification(communication, terminal.getClient(), terminal);
-    _receiver.addPendingNotification(notification);
+    prr.core.Notification notification = _network.createNotification(communication, _receiver.getClient(), terminal);
+    terminal.addPendingNotification(notification);
     }
     
     

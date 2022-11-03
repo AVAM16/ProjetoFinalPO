@@ -30,11 +30,11 @@ public class Notification implements Serializable{
     }
 
     public String getTeminalOrigin(){
-        return _communication.getOrigin().toString();
+        return _communication.getOrigin().getID();
     }
 
     public String getTeminalDestination(){
-        return _communication.getDestination().toString();
+        return _communication.getDestination().getID();
     }
 
     //sets
@@ -59,6 +59,13 @@ public class Notification implements Serializable{
         }
         
     }
+
+    public String showNotification() {
+        String notification=String.format("%s|%s", getType(), _communication.getDestination());
+        
+        //_notifications.clear();
+        return notification;
+      }
 
     
 }
