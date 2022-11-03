@@ -76,8 +76,8 @@ abstract public class Communication implements Serializable{
         this._cost = cost;
     }
 
-    public void setUnits(String n){
-        _units=n.length();
+    public void setUnits(int n){
+        _units=n;
     }
 
     public void setOngoing(boolean bool){

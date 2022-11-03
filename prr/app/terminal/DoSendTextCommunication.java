@@ -29,7 +29,7 @@ class DoSendTextCommunication extends TerminalCommand {
   protected final void execute() throws CommandException {
     //FIXME implement command
     String id = stringField("receiverId");
-    String message = stringField("receiverId");
+    String message = stringField("message");
     Terminal terminal = _network.findTerminalNull(id);
     Communication communication = new TextCommunication(_receiver, terminal, message);
     
