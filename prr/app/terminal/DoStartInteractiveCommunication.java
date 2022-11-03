@@ -43,12 +43,16 @@ class DoStartInteractiveCommunication extends TerminalCommand {
     if (terminalDestiny.isOff()) {
       _display.popup(Message.destinationIsOff(id));
       Notification notification = _network.createNotification(interactiveComm, _receiver.getClient(), terminalDestiny);
-      terminalDestiny.addPendingNotification(notification);
+      if (!terminalDestiny.isNotificationDuplicate(notification)) {
+        terminalDestiny.addPendingNotification(notification);
+      }
       return;
     } else if (terminalDestiny.isBusy()) {
       _display.popup(Message.destinationIsBusy(id));
       Notification notification = _network.createNotification(interactiveComm, _receiver.getClient(), terminalDestiny);
-      terminalDestiny.addPendingNotification(notification);
+      if (!terminalDestiny.isNotificationDuplicate(notification)) {
+        terminalDestiny.addPendingNotification(notification);
+      }
       return;
     } else if (terminalDestiny.isSilent()) {
       _display.popup(Message.destinationIsSilent(id));

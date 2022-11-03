@@ -288,4 +288,14 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     return false;
   }
 
+
+  public boolean isNotificationDuplicate(Notification notification){
+    Client c = notification.getClient();
+    for (Notification n : _pendingNotifications) {
+      if (c.equals(n.getClient())){
+        return true;
+      }
+    }
+    return false;
+  }
 }
