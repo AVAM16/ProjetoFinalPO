@@ -51,7 +51,7 @@ class DoStartInteractiveCommunication extends TerminalCommand {
       }
       _receiver.setOngoingCommunication(interactiveComm);
       interactiveComm.setOngoing(true);
-      _receiver.isBusy();
+      _receiver.turnBusy(); //_receiver.isBusy(); acho que este isBusy e um erro
       terminalDestiny.turnBusy();
       terminalDestiny.setOngoingCommunication(interactiveComm);
     }
