@@ -55,7 +55,9 @@ class DoStartInteractiveCommunication extends TerminalCommand {
       }
       return;
     } else if (terminalDestiny.isSilent()) {
+      Notification notification = _network.createNotification(interactiveComm, _receiver.getClient(), terminalDestiny);
       _display.popup(Message.destinationIsSilent(id));
+      terminalDestiny.addPendingNotification(notification);
       return;
     } else if (_receiver instanceof BasicTerminal && type.equals("VIDEO")) {
       _display.popup(Message.unsupportedAtOrigin(idOrigin, type));
