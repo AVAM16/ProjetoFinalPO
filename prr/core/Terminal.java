@@ -255,9 +255,9 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
    **/
   public boolean canEndCurrentCommunication() {
     // FIXME add implementation code
-    if (_ongoingCommunication != null){
+    if (this._ongoingCommunication != null){
       Terminal t = _ongoingCommunication.getOrigin();
-      return this.equals(t);
+      return !this.equals(t);
     } else {
       return false;
     }

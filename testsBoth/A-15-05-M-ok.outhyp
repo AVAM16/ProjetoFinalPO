@@ -37,10 +37,11 @@ OPERAÇÕES DO TERMINAL
 5 - Retirar amigo
 6 - Pagamento
 7 - Consultar saldo
+10 - Terminar comunicação activa
 11 - Mostrar comunicação em curso
 0 - Sair
 Escolha uma opção: 10
-Opção inválida!
+Duração da comunicação (em minutos): 30
 OPERAÇÕES DO TERMINAL
 1 - Ligar
 2 - Colocar no silêncio
@@ -49,18 +50,8 @@ OPERAÇÕES DO TERMINAL
 5 - Retirar amigo
 6 - Pagamento
 7 - Consultar saldo
-11 - Mostrar comunicação em curso
-0 - Sair
-Escolha uma opção: 30
-Opção inválida!
-OPERAÇÕES DO TERMINAL
-1 - Ligar
-2 - Colocar no silêncio
-3 - Desligar
-4 - Adicionar amigo
-5 - Retirar amigo
-6 - Pagamento
-7 - Consultar saldo
+8 - Enviar comunicação de texto
+9 - Iniciar comunicação
 11 - Mostrar comunicação em curso
 0 - Sair
 Escolha uma opção: 0
@@ -89,6 +80,7 @@ CONSULTAS
 7 - Mostrar terminais com saldo positivo
 0 - Sair
 Escolha uma opção: 1
+VIDEO|1|969014|969014|0|0|FINISHED
 CONSULTAS
 1 - Mostrar todas as comunicações
 2 - Mostrar comunicações feitas por um cliente

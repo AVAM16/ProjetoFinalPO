@@ -1,70 +1,17 @@
-*** testsBoth/A-14-03-M-ok.out	2022-11-01 20:31:13.676676769 +0000
---- testsBoth/A-14-03-M-ok.outhyp	2022-11-03 15:44:50.374504124 +0000
+*** testsBoth/A-14-03-M-ok.out	2022-10-30 22:57:54.418616500 +0000
+--- testsBoth/A-14-03-M-ok.outhyp	2022-11-03 15:59:34.607900300 +0000
 ***************
-*** 37,43 ****
-  5 - Retirar amigo
-  6 - Pagamento
-  7 - Consultar saldo
-- 10 - Terminar comunicação activa
-  11 - Mostrar comunicação em curso
-  0 - Sair
-  Escolha uma opção: 0
---- 37,42 ----
-***************
-*** 71,82 ****
-  5 - Retirar amigo
-  6 - Pagamento
-  7 - Consultar saldo
-- 10 - Terminar comunicação activa
-  11 - Mostrar comunicação em curso
+*** 76,82 ****
   0 - Sair
   Escolha uma opção: 10
-! Duração da comunicação (em minutos): 1
-! Custo da comunicação: 20 unidades.
+  Duração da comunicação (em minutos): 1
+- Custo da comunicação: 20 unidades.
   OPERAÇÕES DO TERMINAL
   1 - Ligar
   2 - Colocar no silêncio
---- 70,90 ----
-  5 - Retirar amigo
-  6 - Pagamento
-  7 - Consultar saldo
-  11 - Mostrar comunicação em curso
-  0 - Sair
-  Escolha uma opção: 10
-! Opção inválida!
-! OPERAÇÕES DO TERMINAL
-! 1 - Ligar
-! 2 - Colocar no silêncio
-! 3 - Desligar
-! 4 - Adicionar amigo
-! 5 - Retirar amigo
-! 6 - Pagamento
-! 7 - Consultar saldo
-! 11 - Mostrar comunicação em curso
-! 0 - Sair
-! Escolha uma opção: 1
-  OPERAÇÕES DO TERMINAL
-  1 - Ligar
-  2 - Colocar no silêncio
+--- 76,81 ----
 ***************
-*** 90,96 ****
-  11 - Mostrar comunicação em curso
-  0 - Sair
-  Escolha uma opção: 11
-! Não existe nenhuma comunicação em curso.
-  OPERAÇÕES DO TERMINAL
-  1 - Ligar
-  2 - Colocar no silêncio
---- 98,104 ----
-  11 - Mostrar comunicação em curso
-  0 - Sair
-  Escolha uma opção: 11
-! VOICE|0|969011|969011|0|0|ONGOING
-  OPERAÇÕES DO TERMINAL
-  1 - Ligar
-  2 - Colocar no silêncio
-***************
-*** 110,121 ****
+*** 110,116 ****
   3 - Operações de terminal
   0 - Sair
   Escolha uma opção: 1
@@ -72,12 +19,7 @@
   BASIC|969003|cli001|OFF|0|0
   BASIC|969006|cli002|IDLE|0|0
   BASIC|969007|cli003|IDLE|0|0
-  BASIC|969008|cli003|SILENCE|0|0
-! FANCY|969011|cli001|IDLE|0|0
-  FANCY|969013|cli001|SILENCE|0|0
-  FANCY|969014|cli002|IDLE|0|0
-  FANCY|969015|cli003|IDLE|0|0
---- 118,129 ----
+--- 109,115 ----
   3 - Operações de terminal
   0 - Sair
   Escolha uma opção: 1
@@ -85,8 +27,3 @@
   BASIC|969003|cli001|OFF|0|0
   BASIC|969006|cli002|IDLE|0|0
   BASIC|969007|cli003|IDLE|0|0
-  BASIC|969008|cli003|SILENCE|0|0
-! FANCY|969011|cli001|BUSY|0|0
-  FANCY|969013|cli001|SILENCE|0|0
-  FANCY|969014|cli002|IDLE|0|0
-  FANCY|969015|cli003|IDLE|0|0

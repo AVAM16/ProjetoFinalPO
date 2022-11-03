@@ -1,11 +1,7 @@
-*** testsBoth/A-14-02-M-ok.out	2022-11-01 20:31:13.676676769 +0000
---- testsBoth/A-14-02-M-ok.outhyp	2022-11-03 15:44:50.266503157 +0000
+*** testsBoth/A-14-02-M-ok.out	2022-10-30 22:57:54.301788300 +0000
+--- testsBoth/A-14-02-M-ok.outhyp	2022-11-03 15:59:34.477900300 +0000
 ***************
-*** 37,47 ****
-  5 - Retirar amigo
-  6 - Pagamento
-  7 - Consultar saldo
-- 10 - Terminar comunicação activa
+*** 41,47 ****
   11 - Mostrar comunicação em curso
   0 - Sair
   Escolha uma opção: 11
@@ -13,34 +9,11 @@
   OPERAÇÕES DO TERMINAL
   1 - Ligar
   2 - Colocar no silêncio
---- 37,46 ----
-  5 - Retirar amigo
-  6 - Pagamento
-  7 - Consultar saldo
+--- 41,47 ----
   11 - Mostrar comunicação em curso
   0 - Sair
   Escolha uma opção: 11
-! VOICE|0|969011|969011|0|0|ONGOING
+! VOICE|1|969011|969011|0|0|ONGOING
   OPERAÇÕES DO TERMINAL
   1 - Ligar
   2 - Colocar no silêncio
-***************
-*** 50,56 ****
-  5 - Retirar amigo
-  6 - Pagamento
-  7 - Consultar saldo
-- 10 - Terminar comunicação activa
-  11 - Mostrar comunicação em curso
-  0 - Sair
-  Escolha uma opção: 0
---- 49,54 ----
-***************
-*** 84,89 ****
---- 82,88 ----
-  5 - Retirar amigo
-  6 - Pagamento
-  7 - Consultar saldo
-+ 10 - Terminar comunicação activa
-  11 - Mostrar comunicação em curso
-  0 - Sair
-  Escolha uma opção: 0
