@@ -166,7 +166,7 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     if(_mode.equals(TerminalMode.OFF) && _client.getReceiveNotifications()){
       for(Notification n : _pendingNotifications){
         n.setNotificationType("O2S");
-        n.getClient().addNotification(n.getCommunication(), _client, n.getCommunication().getDestination());
+        n.getClient().addNotification(n);
       }
       _pendingNotifications.clear();
     }
@@ -184,19 +184,19 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     if(_mode.equals(TerminalMode.OFF) && _client.getReceiveNotifications()){
       for(Notification n : _pendingNotifications){
         n.setNotificationType("O2I");
-        n.getClient().addNotification(n.getCommunication(), _client, n.getCommunication().getDestination());
+        n.getClient().addNotification(n);
       }
     }
     else if(_mode.equals(TerminalMode.SILENCE) && _client.getReceiveNotifications()){
       for(Notification n : _pendingNotifications){
         n.setNotificationType("S2I");
-        n.getClient().addNotification(n.getCommunication(), _client, n.getCommunication().getDestination());
+        n.getClient().addNotification(n);
       }
     }
     else if(_mode.equals(TerminalMode.BUSY) && _client.getReceiveNotifications()){
       for(Notification n : _pendingNotifications){
         n.setNotificationType("B2I");
-        n.getClient().addNotification(n.getCommunication(), _client, n.getCommunication().getDestination());
+        n.getClient().addNotification(n);
       }
     }
     

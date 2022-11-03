@@ -38,6 +38,7 @@ public class Notification implements Serializable{
     }
 
     //sets
+    /* 
     public void setNotificationType(String type){
         switch(type){
             case "O2S":
@@ -56,6 +57,27 @@ public class Notification implements Serializable{
             _type = NotificationType.B2I;
             break;
 
+        }
+        
+    }*/
+
+    public void setNotificationType(String type){
+     
+        if(type.equals("O2S")){
+            _type = NotificationType.O2S;
+            
+        }
+        else if(type.equals("O2I")){
+            _type = NotificationType.O2I;
+            
+        }
+        else if(type.equals("S2I")){
+            _type = NotificationType.S2I;
+            
+        }
+        else if(type.equals("B2I")){
+            _type = NotificationType.B2I;
+            
         }
         
     }

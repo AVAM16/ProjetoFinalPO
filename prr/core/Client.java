@@ -215,8 +215,7 @@ public void updateClientLevel(){
     this._terminals.add(terminal);
   }
 
-  public void addNotification(Communication communication, Client client, Terminal terminal) {
-    Notification notification = new Notification(communication, client, terminal);
+  public void addNotification(Notification notification) {;
     _notifications.add(notification);
   }
 
