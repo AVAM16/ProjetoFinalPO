@@ -36,6 +36,7 @@ class DoShowClient extends Command<Network> {
       _display.addLine(n.showNotification());
     }
   }
+  client.clearNotifications();
   _display.display();
   }
 }
