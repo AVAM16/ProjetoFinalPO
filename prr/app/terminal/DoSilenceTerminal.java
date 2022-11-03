@@ -20,7 +20,6 @@ class DoSilenceTerminal extends TerminalCommand {
     Terminal terminal = _receiver;
     if(terminal.getMode().equals("SILENCE")){
       _display.popup(Message.alreadySilent());
-      _display.display();
     }
     else{
       terminal.turnSilence();

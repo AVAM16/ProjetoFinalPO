@@ -28,13 +28,14 @@ class DoShowClient extends Command<Network> {
     //FIXME implement command
     String key = stringField("key");
     Client client = _receiver.findClient(key);
-    _display.addLine(client.showClient());
-    if(client.getNotifications().size()==0){
-    List<String> notifications = client.showClientNotifications();
-    for(String s: notifications){
-      _display.addLine(s);
+    _display.popup(client.showClient());
+    List<Notification> notifications = client.getNotifications();
+
+    if(!notifications.isEmpty()){
+    for(Notification n: notifications){
+      _display.addLine(n.showNotification());
     }
-    _display.display();
-    }
+  }
+  _display.display();
   }
 }

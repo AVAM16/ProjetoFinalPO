@@ -21,7 +21,6 @@ class DoTurnOffTerminal extends TerminalCommand {
     Terminal terminal = _receiver;
     if(terminal.getMode().equals("OFF")){
       _display.popup(Message.alreadyOff());
-      _display.display();
     }
     else{
       terminal.turnOff();

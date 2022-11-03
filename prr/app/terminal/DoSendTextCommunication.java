@@ -53,13 +53,13 @@ class DoSendTextCommunication extends TerminalCommand {
     if(terminal.getMode().equals("OFF")){
       _display.popup(Message.destinationIsOff(id));
     }
-    _display.display();
-
+    
     if(_receiver.getClient().getReceiveNotifications() && _receiver.canStartCommunication()){
-    prr.core.Notification notification = _network.createNotification(communication, _receiver.getClient(), terminal);
-    terminal.addPendingNotification(notification);
+      prr.core.Notification notification = _network.createNotification(communication, _receiver.getClient(), terminal);
+      terminal.addPendingNotification(notification);
     }
     
     
+   
   }
 } 

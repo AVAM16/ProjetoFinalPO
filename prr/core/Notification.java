@@ -21,8 +21,8 @@ public class Notification implements Serializable{
         return _client;
     }
 
-    public String getType(){
-        return _type.toString();
+    public NotificationType getType(){
+        return _type;
     }
 
     public Communication getCommunication(){
@@ -38,21 +38,21 @@ public class Notification implements Serializable{
     }
 
     //sets
-    public void setNotificationType(NotificationType type){
+    public void setNotificationType(String type){
         switch(type){
-            case O2S:
+            case "O2S":
             _type = NotificationType.O2S;
             break;
 
-            case O2I:
+            case "O2I":
             _type = NotificationType.O2I;
             break;
 
-            case S2I:
+            case "S2I":
             _type = NotificationType.S2I;
             break;
             
-            case B2I:
+            case "B2I":
             _type = NotificationType.B2I;
             break;
 
@@ -61,7 +61,7 @@ public class Notification implements Serializable{
     }
 
     public String showNotification() {
-        String notification=String.format("%s|%s", getType(), _communication.getDestination());
+        String notification=String.format("%s|%s", getType(), _communication.getDestination().getID());
         
         //_notifications.clear();
         return notification;

@@ -21,7 +21,7 @@ class DoTurnOnTerminal extends TerminalCommand {
     Terminal terminal = _receiver;
     if(terminal.getMode().equals("ON")){
       _display.popup(Message.alreadyOn());
-      _display.display();
+
     }
     else{
       terminal.turnOn();
