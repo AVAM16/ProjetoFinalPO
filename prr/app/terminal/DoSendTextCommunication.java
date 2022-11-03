@@ -1,5 +1,6 @@
 package prr.app.terminal;
 
+import prr.core.Client;
 import prr.core.Communication;
 import prr.core.Network;
 import prr.core.TariffPlan;
@@ -31,7 +32,7 @@ class DoSendTextCommunication extends TerminalCommand {
     String message = stringField("receiverId");
     Terminal terminal = _network.findTerminalNull(id);
     Communication communication = new TextCommunication(_receiver, terminal, message);
-    //communication.setUnits(message.length());
+    
     
     
     if(terminal==null){
@@ -39,7 +40,7 @@ class DoSendTextCommunication extends TerminalCommand {
     }
 
     if(_receiver.canStartCommunication() && !terminal.getMode().equals("OFF")){
-      TariffPlan plan = _network.tariffPlan(message, communication, _receiver.getClient());
+      TariffPlan plan = _network.tariffPlan(_receiver.getID(), communication, _receiver.getClient());
       plan.getCostText();
       communication.setId(_network.getCommunicationID());
       _receiver.addCommunicationMade(communication);

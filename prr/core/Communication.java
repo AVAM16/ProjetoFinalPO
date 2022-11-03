@@ -51,7 +51,7 @@ abstract public class Communication implements Serializable{
     }
 
     public int getUnits(){
-        return _units;
+        return this._units;
     }
 
     public String getStatus(){
