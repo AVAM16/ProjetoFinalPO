@@ -175,7 +175,7 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
 
   // off - to - silent
   public TerminalMode setOnSilent() {
-    if(_mode.equals(TerminalMode.OFF) && _client.getReceiveNotifications()){
+    if(_mode.equals(TerminalMode.OFF)){
       Iterator<Notification> iter = _pendingNotifications.iterator();
       while(iter.hasNext()){
         Notification notification = iter.next();
@@ -197,19 +197,19 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
 
   //off - to - idle || silent - to - idle || busy - to - idle
   public TerminalMode turnOn() {
-    if(_mode.equals(TerminalMode.OFF) && _client.getReceiveNotifications()){
+    if(_mode.equals(TerminalMode.OFF)){
       for(Notification n : _pendingNotifications){
         n.setNotificationType("O2I");
         n.getClient().addNotification(n);
       }
     }
-    else if(_mode.equals(TerminalMode.SILENCE) && _client.getReceiveNotifications()){
+    else if(_mode.equals(TerminalMode.SILENCE)){
       for(Notification n : _pendingNotifications){
         n.setNotificationType("S2I");
         n.getClient().addNotification(n);
       }
     }
-    else if(_mode.equals(TerminalMode.BUSY) && _client.getReceiveNotifications()){
+    else if(_mode.equals(TerminalMode.BUSY)){
       for(Notification n : _pendingNotifications){
         n.setNotificationType("B2I");
         n.getClient().addNotification(n);
