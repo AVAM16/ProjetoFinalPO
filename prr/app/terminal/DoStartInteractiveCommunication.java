@@ -4,6 +4,7 @@ import prr.core.BasicTerminal;
 import prr.core.Client;
 import prr.core.InteractiveCommunication;
 import prr.core.Network;
+import prr.core.Notification;
 import prr.core.Terminal;
 import prr.core.VideoCommunication;
 import prr.core.VoiceCommunication;
@@ -33,11 +34,21 @@ class DoStartInteractiveCommunication extends TerminalCommand {
     String type = optionField("type");
     Terminal terminalDestiny = _network.findTerminal(id);
     String idOrigin = _receiver.getID();
+    InteractiveCommunication interactiveComm = null;
+    if (type.equals("VOICE")) {
+      interactiveComm = new VoiceCommunication(terminalDestiny, terminalDestiny);
+    } else {
+      interactiveComm = new VideoCommunication(terminalDestiny, terminalDestiny);
+    }
     if (terminalDestiny.isOff()) {
       _display.popup(Message.destinationIsOff(id));
+      Notification notification = _network.createNotification(interactiveComm, _receiver.getClient(), terminalDestiny);
+      terminalDestiny.addPendingNotification(notification);
       return;
     } else if (terminalDestiny.isBusy()) {
       _display.popup(Message.destinationIsBusy(id));
+      Notification notification = _network.createNotification(interactiveComm, _receiver.getClient(), terminalDestiny);
+      terminalDestiny.addPendingNotification(notification);
       return;
     } else if (terminalDestiny.isSilent()) {
       _display.popup(Message.destinationIsSilent(id));
@@ -49,12 +60,6 @@ class DoStartInteractiveCommunication extends TerminalCommand {
       _display.popup(Message.unsupportedAtDestination(id, type));
       return;
     } else {
-      InteractiveCommunication interactiveComm = null;
-      if (type.equals("VOICE")) {
-        interactiveComm = new VoiceCommunication(terminalDestiny, terminalDestiny);
-      } else {
-        interactiveComm = new VideoCommunication(terminalDestiny, terminalDestiny);
-      }
       _receiver.setOngoingCommunication(interactiveComm);
       terminalDestiny.setOngoingCommunication(interactiveComm);
       interactiveComm.setOngoing(true);

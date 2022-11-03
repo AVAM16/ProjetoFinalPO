@@ -3,11 +3,11 @@ package prr.app.terminal;
 import prr.core.Client;
 import prr.core.Communication;
 import prr.core.Network;
+import prr.core.Notification;
 import prr.core.TariffPlan;
 import prr.core.Terminal;
 import prr.core.TextCommunication;
 
-import javax.management.Notification;
 
 import prr.app.exception.UnknownTerminalKeyException;
 import pt.tecnico.uilib.forms.Form;
@@ -55,7 +55,7 @@ class DoSendTextCommunication extends TerminalCommand {
     }
     
     if(_receiver.getClient().getReceiveNotifications() && _receiver.canStartCommunication()){
-      prr.core.Notification notification = _network.createNotification(communication, _receiver.getClient(), terminal);
+      Notification notification = _network.createNotification(communication, _receiver.getClient(), terminal);
       terminal.addPendingNotification(notification);
     }
     
