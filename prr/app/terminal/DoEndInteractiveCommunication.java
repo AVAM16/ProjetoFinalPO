@@ -37,7 +37,10 @@ class DoEndInteractiveCommunication extends TerminalCommand {
       Client cReceived = t.getClient();
       cMade.addCommunicationsMade(ongoingComm);
       cReceived.addCommunicationsRecived(ongoingComm);
+      t.turnOn();
+      _receiver.turnOn();
     }
+    return;
 
   }
 }

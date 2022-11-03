@@ -11,4 +11,11 @@ public class VideoCommunication extends InteractiveCommunication{
     return 0;
   }
 
+  public String showCommunication(){
+    String com = String.format("%s|%d|%s|%s|%d|%d|%s","VIDEO",getID(),getOrigin().getID(),
+    getDestination().getID(),getUnits(),getCostDisplay(),getStatus());
+
+     return com;
+  }
+
 }

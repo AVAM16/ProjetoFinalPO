@@ -10,4 +10,11 @@ public class VoiceCommunication extends InteractiveCommunication{
     //para a versao intermedia ainda nao e necessario
     return 0;
   }
+
+  public String showCommunication(){
+    String com = String.format("%s|%d|%s|%s|%d|%d|%s","VOICE",getID(),getOrigin().getID(),
+    getDestination().getID(),getUnits(),getCostDisplay(),getStatus());
+
+     return com;
+  }
 }

@@ -6,8 +6,8 @@ public class TextCommunication extends Communication{
 
   public TextCommunication(Terminal terminalOrigin, Terminal terminalDestination, String message){
     super(terminalOrigin, terminalDestination);
+    //super.setUnits(message);
     this._message = message;
-    setUnits(message.length());
     setOngoing(false);
   }
 
@@ -18,5 +18,12 @@ public class TextCommunication extends Communication{
 
   protected int getSize(){
     return _message.length();
+  }
+
+  public String showCommunication(){
+    String com = String.format("%s|%d|%s|%s|%d|%d|%s","TEXT",getID(),getOrigin().getID(),
+    getDestination().getID(),getUnits(),getCostDisplay(),getStatus());
+
+     return com;
   }
 }

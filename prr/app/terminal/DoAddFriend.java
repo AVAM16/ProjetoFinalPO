@@ -37,7 +37,7 @@ class DoAddFriend extends TerminalCommand {
       }
     }
 
-    if(friend != null && !alreadyFriend){
+    if(friend != null && !alreadyFriend && !_receiver.equals(friend)){
       _receiver.addFriend(friend);
     }
 

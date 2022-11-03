@@ -76,8 +76,8 @@ abstract public class Communication implements Serializable{
         this._cost = cost;
     }
 
-    public void setUnits(int n){
-        _units=n;
+    public void setUnits(String n){
+        _units=n.length();
     }
 
     public void setOngoing(boolean bool){
@@ -85,10 +85,5 @@ abstract public class Communication implements Serializable{
     }
 
     //show type|idCommunication|idSender|idReceiver|units|price|status
-    public String showCommunication(){
-       String com = String.format("%s|%d|%s|%s|%d|%d|%s",getType(),getID(),_terminalOrigin.getID(),
-       _terminalDestination.getID(),getUnits(),getCostDisplay(),getStatus());
-
-        return com;
-    }
+    abstract public String showCommunication();
 }

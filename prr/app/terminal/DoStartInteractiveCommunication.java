@@ -34,14 +34,19 @@ class DoStartInteractiveCommunication extends TerminalCommand {
     String idOrigin = _receiver.getID();
     if (terminalDestiny.isOff()) {
       _display.popup(Message.destinationIsOff(id));
+      return;
     } else if (terminalDestiny.isBusy()) {
       _display.popup(Message.destinationIsBusy(id));
+      return;
     } else if (terminalDestiny.isSilent()) {
       _display.popup(Message.destinationIsSilent(id));
+      return;
     } else if (_receiver instanceof BasicTerminal && type.equals("VIDEO")) {
       _display.popup(Message.unsupportedAtOrigin(idOrigin, type));
+      return;
     } else if (terminalDestiny instanceof BasicTerminal && type.equals("VIDEO")){
       _display.popup(Message.unsupportedAtDestination(id, type));
+      return;
     } else {
       InteractiveCommunication interactiveComm = null;
       if (type.equals("VOICE")) {
@@ -50,10 +55,10 @@ class DoStartInteractiveCommunication extends TerminalCommand {
         interactiveComm = new VideoCommunication(terminalDestiny, terminalDestiny);
       }
       _receiver.setOngoingCommunication(interactiveComm);
+      terminalDestiny.setOngoingCommunication(interactiveComm);
       interactiveComm.setOngoing(true);
       _receiver.turnBusy(); //_receiver.isBusy(); acho que este isBusy e um erro
       terminalDestiny.turnBusy();
-      terminalDestiny.setOngoingCommunication(interactiveComm);
     }
   }
 }
