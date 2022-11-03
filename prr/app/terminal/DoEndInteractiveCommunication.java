@@ -25,19 +25,11 @@ class DoEndInteractiveCommunication extends TerminalCommand {
     InteractiveCommunication ongoingComm = _receiver.getOngoingCommunication();
     if (ongoingComm != null) {
       ongoingComm.setDuration(duration);
-      Terminal t = ongoingComm.getDestination();
+      Terminal terminalDestiny = ongoingComm.getDestination();
       _receiver.setOngoingCommunication(null);
-      t.setOngoingCommunication(null);
+      terminalDestiny.setOngoingCommunication(null);
       ongoingComm.setOngoing(false);
-      ongoingComm.setId(_network.getCommunicationID());
-      _network.addComunication(ongoingComm);
-      _receiver.addCommunicationMade(ongoingComm);
-      t.addCommunicationRecieved(ongoingComm);
-      Client cMade = _receiver.getClient();
-      Client cReceived = t.getClient();
-      cMade.addCommunicationsMade(ongoingComm);
-      cReceived.addCommunicationsRecived(ongoingComm);
-      t.turnOn();
+      terminalDestiny.turnOn();
       _receiver.turnOn();
     }
     return;

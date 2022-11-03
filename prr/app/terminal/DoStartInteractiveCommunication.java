@@ -1,6 +1,7 @@
 package prr.app.terminal;
 
 import prr.core.BasicTerminal;
+import prr.core.Client;
 import prr.core.InteractiveCommunication;
 import prr.core.Network;
 import prr.core.Terminal;
@@ -57,6 +58,14 @@ class DoStartInteractiveCommunication extends TerminalCommand {
       _receiver.setOngoingCommunication(interactiveComm);
       terminalDestiny.setOngoingCommunication(interactiveComm);
       interactiveComm.setOngoing(true);
+      interactiveComm.setId(_network.getCommunicationID());
+      _network.addComunication(interactiveComm);
+      _receiver.addCommunicationMade(interactiveComm);
+      terminalDestiny.addCommunicationRecieved(interactiveComm);
+      Client cMade = _receiver.getClient();
+      Client cReceived = terminalDestiny.getClient();
+      cMade.addCommunicationsMade(interactiveComm);
+      cReceived.addCommunicationsRecived(interactiveComm);
       _receiver.turnBusy(); //_receiver.isBusy(); acho que este isBusy e um erro
       terminalDestiny.turnBusy();
     }
