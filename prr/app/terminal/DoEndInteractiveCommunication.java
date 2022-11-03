@@ -3,6 +3,7 @@ package prr.app.terminal;
 import prr.core.Client;
 import prr.core.InteractiveCommunication;
 import prr.core.Network;
+import prr.core.TariffPlan;
 import prr.core.Terminal;
 import pt.tecnico.uilib.forms.Form;
 import pt.tecnico.uilib.menus.CommandException;
@@ -24,13 +25,19 @@ class DoEndInteractiveCommunication extends TerminalCommand {
     int duration = integerField("duration");
     InteractiveCommunication ongoingComm = _receiver.getOngoingCommunication();
     if (ongoingComm != null) {
-      ongoingComm.setDuration(duration);
+      ongoingComm.setUnits(duration);
       Terminal terminalDestiny = ongoingComm.getDestination();
       _receiver.setOngoingCommunication(null);
       terminalDestiny.setOngoingCommunication(null);
       ongoingComm.setOngoing(false);
       terminalDestiny.turnOn();
       _receiver.turnOn();
+      TariffPlan plan = _network.tariffPlan(_receiver.getID(), ongoingComm, _receiver.getClient());
+      if (ongoingComm.getType().equals("VOICE")){
+        plan.getCostCall();
+      } else {
+        plan.getCostVideo();
+      }
     }
     return;
 
