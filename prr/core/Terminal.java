@@ -167,8 +167,7 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
       Iterator<Notification> iter = _pendingNotifications.iterator();
       while(iter.hasNext()){
         Notification notification = iter.next();
-        if(!(notification.getCommunication() instanceof VoiceCommunication || 
-        notification.getCommunication() instanceof VideoCommunication)){
+        if(notification.getCommunication() instanceof TextCommunication){
           notification.setNotificationType("O2S");
           notification.getClient().addNotification(notification);
           iter.remove();
