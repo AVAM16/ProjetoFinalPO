@@ -17,4 +17,9 @@ public class VoiceCommunication extends InteractiveCommunication{
 
      return com;
   }
+
+  @Override
+  public String getType() {
+    return "VOICE";
+  }
 }

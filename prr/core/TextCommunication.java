@@ -26,4 +26,9 @@ public class TextCommunication extends Communication{
 
      return com;
   }
+
+  @Override
+  public String getType() {
+    return "TEXT";
+  }
 }

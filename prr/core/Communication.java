@@ -41,15 +41,7 @@ abstract public class Communication implements Serializable{
         return (int)Math.round(_cost);
     }
 
-    public String getType(){
-        if (this instanceof TextCommunication){
-            return "TEXT";
-        } else if (this instanceof VoiceCommunication){
-            return "VOICE";
-        } else {
-            return "VIDEO";
-        }
-    }
+    public abstract String getType();
 
     public int getUnits(){
         return this._units;
@@ -57,7 +49,7 @@ abstract public class Communication implements Serializable{
 
     public String getStatus(){
         if(_isOngoing){
-            return "ONGOING";
+        return "ONGOING";
         }
         return "FINISHED";
     }

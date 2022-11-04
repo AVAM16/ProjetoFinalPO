@@ -19,4 +19,9 @@ public class FancyTerminal extends Terminal{
       // TODO Auto-generated method stub
       return true;
     }
+
+    @Override
+    public String getType() {
+      return "FANCY";
+    }
 }

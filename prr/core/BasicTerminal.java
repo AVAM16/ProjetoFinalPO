@@ -15,5 +15,9 @@ public class BasicTerminal extends Terminal{
     // TODO Auto-generated method stub
     return false;
   }
+  @Override
+  public String getType() {
+    return "BASIC";
+  }
   
 }

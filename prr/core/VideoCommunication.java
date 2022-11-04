@@ -18,4 +18,9 @@ public class VideoCommunication extends InteractiveCommunication{
      return com;
   }
 
+  @Override
+  public String getType() {
+    return "VIDEO";
+  }
+
 }

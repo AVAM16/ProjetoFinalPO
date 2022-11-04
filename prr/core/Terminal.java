@@ -179,7 +179,7 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
       Iterator<Notification> iter = _pendingNotifications.iterator();
       while(iter.hasNext()){
         Notification notification = iter.next();
-        if(notification.getCommunication() instanceof TextCommunication){
+        if(notification.getCommunication().getType().equals("TEXT")){
           notification.setNotificationType("O2S");
           notification.getClient().addNotification(notification);
           iter.remove();
@@ -336,4 +336,6 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     }
     return null;
   }
+
+  public abstract String getType();
 }

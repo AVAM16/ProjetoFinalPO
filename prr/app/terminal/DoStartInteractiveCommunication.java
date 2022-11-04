@@ -60,10 +60,10 @@ class DoStartInteractiveCommunication extends TerminalCommand {
       _display.popup(Message.destinationIsSilent(id));
       terminalDestiny.addPendingNotification(notification);
       return;
-    } else if (_receiver instanceof BasicTerminal && type.equals("VIDEO")) {
+    } else if (_receiver.getType().equals("BASIC") && type.equals("VIDEO")) {
       _display.popup(Message.unsupportedAtOrigin(idOrigin, type));
       return;
-    } else if (terminalDestiny instanceof BasicTerminal && type.equals("VIDEO")){
+    } else if (terminalDestiny.getType().equals("BASIC") && type.equals("VIDEO")){
       _display.popup(Message.unsupportedAtDestination(id, type));
       return;
     } else {
