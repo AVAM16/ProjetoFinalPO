@@ -25,5 +25,6 @@ class DoPerformPayment extends TerminalCommand {
       return;
     }
     _receiver.findCommunicationAndRemoveOrNull(id);
+    _receiver.getClient().updateClientLevel();
   }
 }

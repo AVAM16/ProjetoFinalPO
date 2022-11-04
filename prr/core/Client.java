@@ -162,7 +162,7 @@ private void upgradeClient(){
     _level = ClientLevel.GOLD;
   }
 
-  if(_level.equals(ClientLevel.GOLD)){
+  else if(_level.equals(ClientLevel.GOLD)){
     _level = ClientLevel.PLATINUM;
   }
 }
@@ -172,7 +172,7 @@ private void downgradeClient(){
     _level = ClientLevel.NORMAL;
   }
 
-  if(_level.equals(ClientLevel.PLATINUM)){
+  else if(_level.equals(ClientLevel.PLATINUM)){
     _level = ClientLevel.GOLD;
   }
 }
@@ -205,20 +205,24 @@ private boolean twoText(){
 
 //tierCliente: 0 -> normal | 1 -> gold | 2 -> premium
 public void updateClientLevel(){
-    if(getBalance()<0){
+  double balance = getBalance();
+
+    if(balance <0){
       resetClient();
     }
-    else if(_level.equals(ClientLevel.NORMAL) && getBalance()>=500){ //normal -> gold
+   
+    else if(_level.equals(ClientLevel.GOLD)  && balance >= 0 && _communicationsMade.size()>=5 && fiveVideoCalls()){ //gold -> premium
+        upgradeClient(); 
+    }
+   
+    else if(_level.equals(ClientLevel.PLATINUM) && twoText() && balance >= 0){
+      downgradeClient();
+    }
+    
+    else if(_level.equals(ClientLevel.NORMAL) && balance >= 500){ //normal -> gold
       upgradeClient();    
     }
 
-    else if(_level.equals(ClientLevel.GOLD) && fiveVideoCalls() && getBalance()>=0){ //gold -> premium
-        upgradeClient(); 
-    }
-
-    else if(_level.equals(ClientLevel.PLATINUM) && twoText() && getBalance()>=0){
-      downgradeClient();
-    }
  
 }
 
