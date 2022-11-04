@@ -1,7 +1,6 @@
 package prr.app.terminal;
 
 import prr.core.Communication;
-import prr.core.InteractiveCommunication;
 import prr.core.Network;
 import prr.core.Terminal;
 import pt.tecnico.uilib.menus.CommandException;

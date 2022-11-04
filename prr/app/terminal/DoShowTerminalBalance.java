@@ -1,6 +1,5 @@
 package prr.app.terminal;
 
-import prr.app.exception.UnknownTerminalKeyException;
 import prr.core.Network;
 import prr.core.Terminal;
 import pt.tecnico.uilib.menus.CommandException;

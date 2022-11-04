@@ -1,12 +1,10 @@
 package prr.app.terminal;
 
-import prr.core.Client;
 import prr.core.InteractiveCommunication;
 import prr.core.Network;
 import prr.core.TariffPlan;
 import prr.core.Terminal;
 import prr.core.TerminalMode;
-import pt.tecnico.uilib.forms.Form;
 import pt.tecnico.uilib.menus.CommandException;
 //FIXME add more imports if needed
 
@@ -35,7 +33,7 @@ class DoEndInteractiveCommunication extends TerminalCommand {
       TerminalMode terminalmodeDestiny = terminalDestiny.getPreviousMode();
       _receiver.setMode(terminalmode);
       terminalDestiny.setMode(terminalmodeDestiny);
-      TariffPlan plan = _network.tariffPlan(_receiver.getID(), ongoingComm, _receiver.getClient());
+      TariffPlan plan = _network.tariffPlan(ongoingComm, _receiver.getClient());
       int cost;
       if (ongoingComm.getType().equals("VOICE")){
         cost = (int) Math.round(plan.getCostCall());

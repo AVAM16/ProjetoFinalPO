@@ -18,7 +18,6 @@ public class Client implements Serializable {
   private List<Communication> _communicationsPaid;
   private List<Communication> _communicationsDept;
   private List<Notification> _notifications;
-  private TariffPlan _plan;
   private List<Terminal> _terminals;
 
   public Client(String key, String name, int nif) {

@@ -1,7 +1,6 @@
 package prr.core;
 
 import java.io.Serializable;
-import java.security.KeyStore.Entry;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -33,7 +32,6 @@ public class Network implements Serializable {
   private List<Communication> _communications;
   private TreeMap<String, Client> _clients;
   private TreeMap<String, Terminal> _terminals;
-  private List<TariffPlan> _tariffPlans;
   private static Network _ocurrence;
   
   // FIXME define contructor(s)
@@ -41,7 +39,6 @@ public class Network implements Serializable {
     _communications = new ArrayList<>();
     _clients = new TreeMap<>(new IdComparator());
     _terminals = new TreeMap<>(new IdComparator());
-    _tariffPlans = new ArrayList<>();
   }
   // FIXME define methods
   
@@ -302,24 +299,23 @@ public class Network implements Serializable {
     return _communications.size()+1;
   }
 
-  public TariffPlan tariffPlan(String name, Communication communication, Client client){
+  public TariffPlan tariffPlan(Communication communication, Client client){
     TariffPlan tariffPlan = null;
     if(client.getClientLevel().equals("NORMAL")){
-      tariffPlan = new NormalPlan(name, communication, client);
+      tariffPlan = new NormalPlan(communication, client);
     }
     if(client.getClientLevel().equals("GOLD")){
-      tariffPlan = new GoldPlan(name, communication, client);
+      tariffPlan = new GoldPlan(communication, client);
     }
     if(client.getClientLevel().equals("PLATINUM")){
-      tariffPlan = new PlatinumPlan(name, communication, client);
+      tariffPlan = new PlatinumPlan(communication, client);
     }
     return tariffPlan;
   }
 
-  public Notification createNotification(Communication communication,Client client,Terminal notifyingTerminal){
-    
-    return new Notification(communication, client, notifyingTerminal);
-}
+  public Notification createNotification(Communication communication,Client client){
+    return new Notification(communication, client);
+  }
 
 }
 

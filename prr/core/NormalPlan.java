@@ -3,8 +3,8 @@ package prr.core;
 public class NormalPlan extends TariffPlan{
  
 
-    public NormalPlan(String name, Communication communication, Client client) {
-        super(name, communication, client);
+    public NormalPlan(Communication communication, Client client) {
+        super(communication, client);
     }
 
     @Override

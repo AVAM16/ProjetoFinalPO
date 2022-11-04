@@ -1,6 +1,5 @@
 package prr.app.terminal;
 
-import prr.core.BasicTerminal;
 import prr.core.Client;
 import prr.core.CommunicationFactory;
 import prr.core.InteractiveCommunication;
@@ -8,13 +7,6 @@ import prr.core.Network;
 import prr.core.Notification;
 import prr.core.Terminal;
 import prr.core.TerminalMode;
-import prr.core.VideoCommunication;
-import prr.core.VoiceCommunication;
-
-import javax.swing.text.AbstractDocument.Content;
-
-import prr.app.exception.UnknownTerminalKeyException;
-import pt.tecnico.uilib.forms.Form;
 import pt.tecnico.uilib.menus.CommandException;
 //FIXME add more imports if needed
 
@@ -40,20 +32,20 @@ class DoStartInteractiveCommunication extends TerminalCommand {
     InteractiveCommunication interactiveComm = factory.createCommunication(type, _receiver, terminalDestiny);
     if (terminalDestiny.isOff()) {
       _display.popup(Message.destinationIsOff(id));
-      Notification notification = _network.createNotification(interactiveComm, _receiver.getClient(), terminalDestiny);
+      Notification notification = _network.createNotification(interactiveComm, _receiver.getClient());
       if (!terminalDestiny.isNotificationDuplicate(notification)) {
         terminalDestiny.addPendingNotification(notification);
       }
       return;
     } else if (terminalDestiny.isBusy()) {
       _display.popup(Message.destinationIsBusy(id));
-      Notification notification = _network.createNotification(interactiveComm, _receiver.getClient(), terminalDestiny);
+      Notification notification = _network.createNotification(interactiveComm, _receiver.getClient());
       if (!terminalDestiny.isNotificationDuplicate(notification)) {
         terminalDestiny.addPendingNotification(notification);
       }
       return;
     } else if (terminalDestiny.isSilent()) {
-      Notification notification = _network.createNotification(interactiveComm, _receiver.getClient(), terminalDestiny);
+      Notification notification = _network.createNotification(interactiveComm, _receiver.getClient());
       _display.popup(Message.destinationIsSilent(id));
       terminalDestiny.addPendingNotification(notification);
       return;

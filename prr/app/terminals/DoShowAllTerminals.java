@@ -1,6 +1,5 @@
 package prr.app.terminals;
 
-import java.util.Collections;
 import java.util.List;
 
 import prr.core.Network;
