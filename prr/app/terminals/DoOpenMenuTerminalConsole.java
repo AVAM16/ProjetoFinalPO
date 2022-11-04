@@ -2,7 +2,6 @@ package prr.app.terminals;
 
 import prr.core.Network;
 import prr.core.Terminal;
-import prr.app.exception.UnknownTerminalKeyException;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
 //FIXME add mode import if needed

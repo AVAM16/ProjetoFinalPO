@@ -3,14 +3,12 @@ package prr.core;
 import java.util.List;
 
 abstract public class TariffPlan {
-  private String _name;
   private double _cost;
   private Client _client;
   private Communication _communication;
 
   //
-  public TariffPlan(String name, Communication communication, Client client){
-    this._name = name;
+  public TariffPlan(Communication communication, Client client){
     this._client = client;
     this._communication = communication;
   }

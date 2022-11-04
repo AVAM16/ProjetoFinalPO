@@ -2,8 +2,8 @@ package prr.core;
 
 public class GoldPlan extends TariffPlan{
 
-    public GoldPlan(String name, Communication communication, Client client) {
-        super(name, communication, client);
+    public GoldPlan(Communication communication, Client client) {
+        super(communication, client);
     }
 
     @Override

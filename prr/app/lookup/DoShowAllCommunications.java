@@ -1,9 +1,7 @@
 package prr.app.lookup;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import prr.core.Client;
 import prr.core.Communication;
 import prr.core.Network;
 import pt.tecnico.uilib.menus.Command;

@@ -1,6 +1,5 @@
 package prr.app.terminal;
 
-import prr.core.Client;
 import prr.core.Communication;
 import prr.core.Network;
 import prr.core.Notification;
@@ -10,7 +9,6 @@ import prr.core.TextCommunication;
 
 
 import prr.app.exception.UnknownTerminalKeyException;
-import pt.tecnico.uilib.forms.Form;
 import pt.tecnico.uilib.menus.CommandException;
 //FIXME add more imports if needed
 
@@ -40,7 +38,7 @@ class DoSendTextCommunication extends TerminalCommand {
     }
 
     if(!terminal.getMode().equals("OFF")){
-      TariffPlan plan = _network.tariffPlan(_receiver.getID(), communication, _receiver.getClient());
+      TariffPlan plan = _network.tariffPlan(communication, _receiver.getClient());
       plan.getCostText();
       communication.setId(_network.getCommunicationID());
       _receiver.addCommunicationMade(communication);
@@ -54,7 +52,7 @@ class DoSendTextCommunication extends TerminalCommand {
       _display.popup(Message.destinationIsOff(id));
     
       if(_receiver.getClient().getReceiveNotifications()){
-        Notification notification = _network.createNotification(communication, _receiver.getClient(), terminal);
+        Notification notification = _network.createNotification(communication, _receiver.getClient());
         if(!terminal.isNotificationDuplicate(notification)){
           terminal.addPendingNotification(notification);
         }

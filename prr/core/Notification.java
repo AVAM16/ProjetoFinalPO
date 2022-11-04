@@ -7,12 +7,10 @@ public class Notification implements Serializable{
     private Client _client;
     private Communication _communication;
     private NotificationType _type;
-    private Terminal _notifyingTerminal;
     
-    public Notification(Communication communication,Client client,Terminal notifyingTerminal){
+    public Notification(Communication communication,Client client){
         this._communication = communication;
         this._client = client;
-        this._notifyingTerminal = notifyingTerminal;
   
     }
 
