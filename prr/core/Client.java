@@ -3,7 +3,6 @@ package prr.core;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 
 public class Client implements Serializable {
@@ -130,22 +129,10 @@ public class Client implements Serializable {
   // CLIENT|key|name|taxId|type|notifications|terminals|payments|debts
   // tipo-de-notificação|idTerminal
 
-  // NOTA IMPORTANTE : para a DoShowAllClients tens de usar a showClient e a
-  // showClientNotifications para todos os clientes.
-
   public String showClient() {
     return String.format("CLIENT|%s|%s|%s|%s|%s|%d|%d|%d", _key, _name, _nif, _level, getNotificationsString(),
         getTerminals(), getValue(_communicationsPaid), getValue(_communicationsDept));
 
-  }
-
-  public List<String> showClientNotifications() {
-    LinkedList<String> notifications = new LinkedList<>();
-    for (Notification notification : _notifications) {
-      notifications.add(String.format("%s|%s", notification.getType().toString(), notification.getTeminalDestination()));
-    }
-    _notifications.clear();
-    return notifications;
   }
 
   public void disableNotifications() {

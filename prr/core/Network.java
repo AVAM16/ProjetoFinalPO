@@ -237,8 +237,6 @@ public class Network implements Serializable {
     }
   }
 
-
-
    /**
    * Returns a Collection of all the clients.
    * @returns the clients
@@ -253,10 +251,6 @@ public class Network implements Serializable {
   public List<Communication> getComms(){
     return Collections.unmodifiableList(_communications);
   }
-
-
-
-  
 
   /**
    * Returns a Collection of all the terminals.

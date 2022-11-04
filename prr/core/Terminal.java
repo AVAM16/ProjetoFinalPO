@@ -313,7 +313,6 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     return false;
   }
 
-  // as notificaçoes podem ser duplicadas nao percebo o objetivo deste metodo
   public boolean isNotificationDuplicate(Notification notification){
     Client c = notification.getClient();
     for (Notification n : _pendingNotifications) {
