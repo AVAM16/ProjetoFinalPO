@@ -244,6 +244,9 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
   public void addCommunicationMade(Communication communication) {
     _communicationsMade.add(communication);
     _depts.add(communication);
+    communication.getOrigin().addCommunicationMade(communication);
+    communication.getDestination().addCommunicationRecieved(communication);
+    communication.getOrigin().getClient().addCommunicationsDept(communication);
   }
 
   public void addCommunicationRecieved(Communication communication){
@@ -252,6 +255,10 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
 
   public void addPendingNotification(Notification notification){
     _pendingNotifications.add(notification);
+  }
+
+  public void addPayments(Communication communication){
+    _payments.add(communication);
   }
 
   public void removeFriend(Terminal terminal){
@@ -309,7 +316,7 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     return false;
   }
 
-
+  // as notificaçoes podem ser duplicadas nao percebo o objetivo deste metodo
   public boolean isNotificationDuplicate(Notification notification){
     Client c = notification.getClient();
     for (Notification n : _pendingNotifications) {
@@ -318,5 +325,18 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
       }
     }
     return false;
+  }
+
+  public Communication findCommunicationAndRemoveOrNull(int n){
+    Iterator<Communication> iter = _depts.iterator();
+    while(iter.hasNext()){
+      Communication comm = iter.next();
+      if(comm.getID()==n){
+        addPayments(comm);
+        iter.remove();
+        return comm;
+      }
+    }
+    return null;
   }
 }

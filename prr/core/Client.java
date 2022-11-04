@@ -61,6 +61,19 @@ public class Client implements Serializable {
     return _communicationsReceived;
   }
 
+  public Communication findCommunicationAndRemoveOrNull(int n){
+    Iterator<Communication> iter = _communicationsDept.iterator();
+    while(iter.hasNext()){
+      Communication comm = iter.next();
+      if(comm.getID()==n){
+        addCommunicationsPaid(comm);
+        iter.remove();
+        return comm;
+      }
+    }
+    return null;
+  }
+
   
   public int getValue(List<Communication> list) {
     double sum = 0;

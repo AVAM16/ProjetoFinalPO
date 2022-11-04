@@ -43,6 +43,7 @@ class DoEndInteractiveCommunication extends TerminalCommand {
         cost = (int) Math.round(plan.getCostVideo());
       }
       _display.popup(Message.communicationCost(cost));
+      _receiver.getClient().updateClientLevel();
     }
     return;
 

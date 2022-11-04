@@ -18,6 +18,7 @@ abstract public class Communication implements Serializable{
         this._units=0;
     }
 
+
     //gets
 
     public int getID(){
