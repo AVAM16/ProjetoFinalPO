@@ -244,9 +244,6 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
   public void addCommunicationMade(Communication communication) {
     _communicationsMade.add(communication);
     _depts.add(communication);
-    communication.getOrigin().addCommunicationMade(communication);
-    communication.getDestination().addCommunicationRecieved(communication);
-    communication.getOrigin().getClient().addCommunicationsDept(communication);
   }
 
   public void addCommunicationRecieved(Communication communication){
