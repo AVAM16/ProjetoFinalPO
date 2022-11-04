@@ -2,6 +2,7 @@ package prr.app.terminal;
 
 import prr.core.BasicTerminal;
 import prr.core.Client;
+import prr.core.CommunicationFactory;
 import prr.core.InteractiveCommunication;
 import prr.core.Network;
 import prr.core.Notification;
@@ -35,12 +36,8 @@ class DoStartInteractiveCommunication extends TerminalCommand {
     String type = optionField("type");
     Terminal terminalDestiny = _network.findTerminal(id);
     String idOrigin = _receiver.getID();
-    InteractiveCommunication interactiveComm = null;
-    if (type.equals("VOICE")) {
-      interactiveComm = new VoiceCommunication(_receiver, terminalDestiny);
-    } else {
-      interactiveComm = new VideoCommunication(_receiver, terminalDestiny);
-    }
+    CommunicationFactory factory = new CommunicationFactory();
+    InteractiveCommunication interactiveComm = factory.createCommunication(type, _receiver, terminalDestiny);
     if (terminalDestiny.isOff()) {
       _display.popup(Message.destinationIsOff(id));
       Notification notification = _network.createNotification(interactiveComm, _receiver.getClient(), terminalDestiny);

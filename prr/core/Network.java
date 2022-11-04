@@ -168,17 +168,9 @@ public class Network implements Serializable {
       throw new InvalidTerminalKeyException(id);
 
     }
-    Terminal terminalNovo = null;
-    Client client = findClient(clientID);  
-   
-    if(type.equals("FANCY")){
-      terminalNovo = new FancyTerminal(id);   
-    }
-
-    if(type.equals("BASIC")){
-      terminalNovo = new BasicTerminal(id);  
-    }
-    
+    Client client = findClient(clientID);
+    TerminalFactory factory = new TerminalFactory();  
+    Terminal terminalNovo = factory.createTerminal(type, id);
 
     client.addTerminal(terminalNovo);
     _terminals.put(id, terminalNovo);
