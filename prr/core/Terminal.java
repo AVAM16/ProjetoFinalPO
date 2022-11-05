@@ -48,8 +48,8 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
 
   // gets
 
-  public static class TerminalComparator implements Comparator<Terminal>, Serializable{
-    public int compare (Terminal t1, Terminal t2) {
+  public static class TerminalComparator implements Comparator<Terminal>, Serializable {
+    public int compare(Terminal t1, Terminal t2) {
       return t1.getID().compareToIgnoreCase(t2.getID());
     }
   }
@@ -62,7 +62,7 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     return this._client;
   }
 
-  public double getBalance(){
+  public double getBalance() {
     return getValue(_payments) - getValue(_depts);
   }
 
@@ -78,7 +78,7 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     return _mode.toString();
   }
 
-  public TerminalMode getModeNoString(){
+  public TerminalMode getModeNoString() {
     return _mode;
   }
 
@@ -94,7 +94,7 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     return this._depts;
   }
 
-  public List<Notification> getPendingNotifications(){
+  public List<Notification> getPendingNotifications() {
     return _pendingNotifications;
   }
 
@@ -122,17 +122,17 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     return friends;
   }
 
-  public List<Terminal> getFriendslist(){
+  public List<Terminal> getFriendslist() {
     List<Terminal> orderedlist = new ArrayList<>(_friends);
     return Collections.unmodifiableList(orderedlist);
   }
 
-  public TerminalMode getPreviousMode(){
+  public TerminalMode getPreviousMode() {
     return this._previousMode;
   }
 
   public Terminal findFriend(String id) {
-    for(Terminal t : _friends) {
+    for (Terminal t : _friends) {
       if (t.getID().equals(id)) {
         return t;
       }
@@ -152,9 +152,9 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     return _mode == TerminalMode.SILENCE;
   }
 
-  public Boolean isFriends(Terminal amigo){
-    for(Terminal t : _friends){
-      if(t.getID().equals(amigo.getID())){
+  public Boolean isFriends(Terminal amigo) {
+    for (Terminal t : _friends) {
+      if (t.getID().equals(amigo.getID())) {
         return true;
       }
     }
@@ -166,20 +166,21 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     this._client = client;
   }
 
-  public void setPreviousMode(TerminalMode mode){
+  public void setPreviousMode(TerminalMode mode) {
     this._previousMode = mode;
   }
+
   public void setOngoingCommunication(InteractiveCommunication interactiveCommunication) {
     this._ongoingCommunication = interactiveCommunication;
   }
 
   // off - to - silent
   public TerminalMode setOnSilent() {
-    if(_mode.equals(TerminalMode.OFF)){
+    if (_mode.equals(TerminalMode.OFF)) {
       Iterator<Notification> iter = _pendingNotifications.iterator();
-      while(iter.hasNext()){
+      while (iter.hasNext()) {
         Notification notification = iter.next();
-        if(notification.getCommunication().getType().equals("TEXT")){
+        if (notification.getCommunication().getType().equals("TEXT")) {
           notification.setNotificationType("O2S");
           notification.getClient().addNotification(notification);
           iter.remove();
@@ -195,27 +196,25 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     return _mode;
   }
 
-  //off - to - idle || silent - to - idle || busy - to - idle
+  // off - to - idle || silent - to - idle || busy - to - idle
   public TerminalMode turnOn() {
-    if(_mode.equals(TerminalMode.OFF)){
-      for(Notification n : _pendingNotifications){
+    if (_mode.equals(TerminalMode.OFF)) {
+      for (Notification n : _pendingNotifications) {
         n.setNotificationType("O2I");
         n.getClient().addNotification(n);
       }
-    }
-    else if(_mode.equals(TerminalMode.SILENCE)){
-      for(Notification n : _pendingNotifications){
+    } else if (_mode.equals(TerminalMode.SILENCE)) {
+      for (Notification n : _pendingNotifications) {
         n.setNotificationType("S2I");
         n.getClient().addNotification(n);
       }
-    }
-    else if(_mode.equals(TerminalMode.BUSY)){
-      for(Notification n : _pendingNotifications){
+    } else if (_mode.equals(TerminalMode.BUSY)) {
+      for (Notification n : _pendingNotifications) {
         n.setNotificationType("B2I");
         n.getClient().addNotification(n);
       }
     }
-    
+
     _pendingNotifications.clear();
     _mode = TerminalMode.ON;
     return _mode;
@@ -231,11 +230,10 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     return _mode;
   }
 
-
-  public void setMode(TerminalMode mode){
+  public void setMode(TerminalMode mode) {
     this._mode = mode;
   }
-  
+
   // add
   public void addFriend(Terminal terminal) {
     _friends.add(terminal);
@@ -246,19 +244,19 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
     _depts.add(communication);
   }
 
-  public void addCommunicationRecieved(Communication communication){
+  public void addCommunicationRecieved(Communication communication) {
     _communicationsReceived.add(communication);
   }
 
-  public void addPendingNotification(Notification notification){
+  public void addPendingNotification(Notification notification) {
     _pendingNotifications.add(notification);
   }
 
-  public void addPayments(Communication communication){
+  public void addPayments(Communication communication) {
     _payments.add(communication);
   }
 
-  public void removeFriend(Terminal terminal){
+  public void removeFriend(Terminal terminal) {
     _friends.remove(terminal);
   }
 
@@ -280,14 +278,13 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
    **/
   public boolean canEndCurrentCommunication() {
     // FIXME add implementation code
-    if (this._ongoingCommunication != null){
+    if (this._ongoingCommunication != null) {
       Terminal t = _ongoingCommunication.getOrigin();
       return this.equals(t);
     } else {
       return false;
     }
-    
-    
+
   }
 
   /**
@@ -297,7 +294,7 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
    **/
   public boolean canStartCommunication() {
     // FIXME add implementation code
-    if(_mode.equals(TerminalMode.OFF) || _mode.equals(TerminalMode.BUSY)){
+    if (_mode.equals(TerminalMode.OFF) || _mode.equals(TerminalMode.BUSY)) {
       return false;
     }
     return true;
@@ -305,29 +302,28 @@ abstract public class Terminal implements Serializable /* FIXME maybe addd more 
 
   abstract protected boolean canMakeVideoCall();
 
-
-  public boolean canMakeInterractiveCall(){
-    if(_mode.equals(TerminalMode.ON) || _mode.equals(TerminalMode.SILENCE)){
+  public boolean canMakeInterractiveCall() {
+    if (_mode.equals(TerminalMode.ON) || _mode.equals(TerminalMode.SILENCE)) {
       return true;
     }
     return false;
   }
 
-  public boolean isNotificationDuplicate(Notification notification){
+  public boolean isNotificationDuplicate(Notification notification) {
     Client c = notification.getClient();
     for (Notification n : _pendingNotifications) {
-      if (c.equals(n.getClient())){
+      if (c.equals(n.getClient())) {
         return true;
       }
     }
     return false;
   }
 
-  public Communication findCommunicationAndRemoveOrNull(int n){
+  public Communication findCommunicationAndRemoveOrNull(int n) {
     Iterator<Communication> iter = _depts.iterator();
-    while(iter.hasNext()){
+    while (iter.hasNext()) {
       Communication comm = iter.next();
-      if(comm.getID()==n){
+      if (comm.getID() == n) {
         addPayments(comm);
         iter.remove();
         return comm;

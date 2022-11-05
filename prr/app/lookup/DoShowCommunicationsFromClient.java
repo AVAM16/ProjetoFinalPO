@@ -18,22 +18,22 @@ class DoShowCommunicationsFromClient extends Command<Network> {
   DoShowCommunicationsFromClient(Network receiver) {
     super(Label.SHOW_COMMUNICATIONS_FROM_CLIENT, receiver);
     addStringField("key", Message.clientKey());
-    //FIXME add command fields
+    // FIXME add command fields
   }
 
   @Override
   protected final void execute() throws CommandException {
-    //FIXME implement command
+    // FIXME implement command
     String key = stringField("key");
     Client client = _receiver.getClient(key);
-    if(client==null){
+    if (client == null) {
       throw new UnknownClientKeyException(key);
     }
     List<Communication> comms = client.getComsMade();
-    for(Communication c : comms){
+    for (Communication c : comms) {
       _display.addLine(c.showCommunication());
     }
     _display.display();
-    //ArrayList<Communication> comms = _re
+    // ArrayList<Communication> comms = _re
   }
 }

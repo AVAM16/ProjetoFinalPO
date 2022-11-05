@@ -18,25 +18,25 @@ class DoShowClient extends Command<Network> {
 
   DoShowClient(Network receiver) {
     super(Label.SHOW_CLIENT, receiver);
-    //FIXME add command fields
+    // FIXME add command fields
     addStringField("key", Message.key());
   }
-  
+
   @Override
-  protected final void execute() throws CommandException,UnknownClientKeyException{
-    //FIXME implement command
+  protected final void execute() throws CommandException, UnknownClientKeyException {
+    // FIXME implement command
     String key = stringField("key");
     Client client = _receiver.findClient(key);
     _display.popup(client.showClient());
     List<Notification> notifications = client.getNotifications();
-    //_display.popup(notifications.size());
+    // _display.popup(notifications.size());
 
-    if(!notifications.isEmpty()){
-    for(Notification n: notifications){
-      _display.addLine(n.showNotification());
+    if (!notifications.isEmpty()) {
+      for (Notification n : notifications) {
+        _display.addLine(n.showNotification());
+      }
     }
-  }
-  client.clearNotifications();
-  _display.display();
+    client.clearNotifications();
+    _display.display();
   }
 }

@@ -7,7 +7,6 @@ import prr.core.TariffPlan;
 import prr.core.Terminal;
 import prr.core.TextCommunication;
 
-
 import prr.app.exception.UnknownTerminalKeyException;
 import pt.tecnico.uilib.menus.CommandException;
 //FIXME add more imports if needed
@@ -22,22 +21,21 @@ class DoSendTextCommunication extends TerminalCommand {
     addStringField("receiverId", Message.terminalKey());
     addStringField("message", Message.textMessage());
   }
-  
+
   @Override
   protected final void execute() throws CommandException {
-    //FIXME implement command
+    // FIXME implement command
     String id = stringField("receiverId");
     String message = stringField("message");
     Terminal terminal = _network.findTerminalNull(id);
     Communication communication = new TextCommunication(_receiver, terminal, message);
-    //_display.popup(communication);
-    
-    
-    if(terminal==null){
+    // _display.popup(communication);
+
+    if (terminal == null) {
       throw new UnknownTerminalKeyException(id);
     }
 
-    if(!terminal.getMode().equals("OFF")){
+    if (!terminal.getMode().equals("OFF")) {
       TariffPlan plan = _network.tariffPlan(communication, _receiver.getClient());
       plan.getCostText();
       communication.setId(_network.getCommunicationID());
@@ -47,18 +45,17 @@ class DoSendTextCommunication extends TerminalCommand {
       _receiver.getClient().addCommunicationsMade(communication);
       _receiver.getClient().updateClientLevel();
     }
-    
-    if(terminal.getMode().equals("OFF")){
+
+    if (terminal.getMode().equals("OFF")) {
       _display.popup(Message.destinationIsOff(id));
-    
-      if(_receiver.getClient().getReceiveNotifications()){
+
+      if (_receiver.getClient().getReceiveNotifications()) {
         Notification notification = _network.createNotification(communication, _receiver.getClient());
-        if(!terminal.isNotificationDuplicate(notification)){
+        if (!terminal.isNotificationDuplicate(notification)) {
           terminal.addPendingNotification(notification);
         }
       }
     }
-    
-   
+
   }
-} 
+}

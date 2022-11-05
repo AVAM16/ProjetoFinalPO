@@ -8,7 +8,7 @@ abstract public class TariffPlan {
   private Communication _communication;
 
   //
-  public TariffPlan(Communication communication, Client client){
+  public TariffPlan(Communication communication, Client client) {
     this._client = client;
     this._communication = communication;
   }
@@ -19,27 +19,27 @@ abstract public class TariffPlan {
 
   public abstract double getCostText();
 
-  public Client getClient(){
+  public Client getClient() {
     return _client;
   }
 
-  public Communication getCommunication(){
+  public Communication getCommunication() {
     return _communication;
   }
 
-  public double computeCost(){
+  public double computeCost() {
     return _cost;
   }
 
   // isto secalhar tambem devia adicionar o custo ao cliente e aos terminais
-  public void setCost(double cost){
-    _cost=cost;
+  public void setCost(double cost) {
+    _cost = cost;
   }
 
-  public boolean terminalsAreFriends(Terminal terminal, Terminal friend){
+  public boolean terminalsAreFriends(Terminal terminal, Terminal friend) {
     List<Terminal> friendslist = terminal.getFriendslist();
-    for(Terminal t : friendslist){
-      if(friend.getID().equals(t.getID())){
+    for (Terminal t : friendslist) {
+      if (friend.getID().equals(t.getID())) {
         return true;
       }
     }

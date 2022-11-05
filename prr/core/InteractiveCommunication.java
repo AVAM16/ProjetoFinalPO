@@ -1,18 +1,18 @@
 package prr.core;
 
-abstract public class InteractiveCommunication extends Communication{
-  
+abstract public class InteractiveCommunication extends Communication {
+
   private int _duration;
 
-  public InteractiveCommunication(Terminal terminalOrigin,Terminal terminalDestination){
+  public InteractiveCommunication(Terminal terminalOrigin, Terminal terminalDestination) {
     super(terminalOrigin, terminalDestination);
   }
 
-  protected int getSize(){
+  protected int getSize() {
     return _duration;
   }
 
-  public int getDuration(){
+  public int getDuration() {
     return _duration;
   }
 

@@ -20,10 +20,10 @@ class DoStartInteractiveCommunication extends TerminalCommand {
     addStringField("key", Message.terminalKey());
     addOptionField("type", Message.commType(), "VIDEO", "VOICE");
   }
-  
+
   @Override
   protected final void execute() throws CommandException {
-    //FIXME implement command
+    // FIXME implement command
     String id = stringField("key");
     String type = optionField("type");
     Terminal terminalDestiny = _network.findTerminal(id);
@@ -52,7 +52,7 @@ class DoStartInteractiveCommunication extends TerminalCommand {
     } else if (_receiver.getType().equals("BASIC") && type.equals("VIDEO")) {
       _display.popup(Message.unsupportedAtOrigin(idOrigin, type));
       return;
-    } else if (terminalDestiny.getType().equals("BASIC") && type.equals("VIDEO")){
+    } else if (terminalDestiny.getType().equals("BASIC") && type.equals("VIDEO")) {
       _display.popup(Message.unsupportedAtDestination(id, type));
       return;
     } else {
@@ -71,7 +71,7 @@ class DoStartInteractiveCommunication extends TerminalCommand {
       TerminalMode terminalModeDestiny = terminalDestiny.getModeNoString();
       _receiver.setPreviousMode(terminalmode);
       terminalDestiny.setPreviousMode(terminalModeDestiny);
-      _receiver.turnBusy(); //_receiver.isBusy(); acho que este isBusy e um erro
+      _receiver.turnBusy(); // _receiver.isBusy(); acho que este isBusy e um erro
       terminalDestiny.turnBusy();
     }
   }

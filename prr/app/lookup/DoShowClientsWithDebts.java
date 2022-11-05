@@ -19,15 +19,15 @@ class DoShowClientsWithDebts extends Command<Network> {
 
   @Override
   protected final void execute() throws CommandException {
-    //FIXME implement command
+    // FIXME implement command
     List<Client> clients = _receiver.getClients();
-    for(Client c: clients){
-      if(c.isDebtor()){
-        _display.addLine(c.showClient()); 
+    for (Client c : clients) {
+      if (c.isDebtor()) {
+        _display.addLine(c.showClient());
 
       }
     }
     _display.display();
   }
-  
+
 }

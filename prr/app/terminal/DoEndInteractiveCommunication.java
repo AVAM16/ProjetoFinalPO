@@ -17,10 +17,10 @@ class DoEndInteractiveCommunication extends TerminalCommand {
     super(Label.END_INTERACTIVE_COMMUNICATION, context, terminal, receiver -> receiver.canEndCurrentCommunication());
     addIntegerField("duration", Message.duration());
   }
-  
+
   @Override
   protected final void execute() throws CommandException {
-    //FIXME implement command
+    // FIXME implement command
     int duration = integerField("duration");
     InteractiveCommunication ongoingComm = _receiver.getOngoingCommunication();
     if (ongoingComm != null) {
@@ -35,7 +35,7 @@ class DoEndInteractiveCommunication extends TerminalCommand {
       terminalDestiny.setMode(terminalmodeDestiny);
       TariffPlan plan = _network.tariffPlan(ongoingComm, _receiver.getClient());
       int cost;
-      if (ongoingComm.getType().equals("VOICE")){
+      if (ongoingComm.getType().equals("VOICE")) {
         cost = (int) Math.round(plan.getCostCall());
       } else {
         cost = (int) Math.round(plan.getCostVideo());

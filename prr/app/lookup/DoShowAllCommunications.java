@@ -19,12 +19,12 @@ class DoShowAllCommunications extends Command<Network> {
 
   @Override
   protected final void execute() throws CommandException {
-    //FIXME implement command
+    // FIXME implement command
     List<Communication> comms = _receiver.getComms();
-    for(Communication c: comms){
-      _display.addLine(c.showCommunication()); 
+    for (Communication c : comms) {
+      _display.addLine(c.showCommunication());
     }
     _display.display();
   }
-  
+
 }

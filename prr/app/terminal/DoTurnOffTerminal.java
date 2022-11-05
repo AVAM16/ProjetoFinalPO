@@ -14,18 +14,17 @@ class DoTurnOffTerminal extends TerminalCommand {
   DoTurnOffTerminal(Network context, Terminal terminal) {
     super(Label.POWER_OFF, context, terminal);
   }
-  
+
   @Override
   protected final void execute() throws CommandException {
-    //FIXME implement command
+    // FIXME implement command
     Terminal terminal = _receiver;
-    if(terminal.getMode().equals("OFF")){
+    if (terminal.getMode().equals("OFF")) {
       _display.popup(Message.alreadyOff());
-    }
-    else{
+    } else {
       terminal.turnOff();
     }
 
   }
-  
+
 }

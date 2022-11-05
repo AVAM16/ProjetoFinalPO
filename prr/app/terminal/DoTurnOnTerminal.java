@@ -14,16 +14,15 @@ class DoTurnOnTerminal extends TerminalCommand {
   DoTurnOnTerminal(Network context, Terminal terminal) {
     super(Label.POWER_ON, context, terminal);
   }
-  
+
   @Override
   protected final void execute() throws CommandException {
-    //FIXME implement command
+    // FIXME implement command
     Terminal terminal = _receiver;
-    if(terminal.getMode().equals("ON")){
+    if (terminal.getMode().equals("ON")) {
       _display.popup(Message.alreadyOn());
 
-    }
-    else{
+    } else {
       terminal.turnOn();
     }
 
